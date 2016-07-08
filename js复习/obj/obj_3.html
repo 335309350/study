@@ -1,0 +1,126 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title>js对象遍历，内存分布和封装</title>
+</head>
+<body>
+	<script type="text/javascript">
+     //对象的封装
+     /*
+     var tv={};
+     tv.color='blue';
+     tv.size='21.5';
+     tv.brand='长虹';
+     tv.look=function(){
+        alert('可以看电视');
+     };
+     tv.games=function(){
+        alert('可以万游戏');
+     }
+     tv.dvd=function(){
+        alert('可以看DVD');
+     }
+    */ //定义的对象，没有封装起来，如果有多个对象，需要太多的代码，暴露在外部不安全。
+     //封装的方式
+     //1 工厂模式
+     /*
+     function showTv(name,color,size,brand){
+         var tv={};//创建对象
+         tv.name=name;
+         tv.color=color;
+         tv.size=size;
+         tv.brand=brand;
+         tv.look=function(){
+            alert('可以看电视');
+         };
+         tv.games=function(){
+            alert('可以玩游戏');
+         }
+         tv.dvd=function(){
+            alert('可以看DVD');
+         }
+         return tv;//返回该对象
+     }
+     var t=showTv('电视机','blue',21.5,'长虹');
+     alert(t.name);//电视机
+     alert(t.brand);//长虹
+     t.look();//调用方法
+     */
+     //2 构造方法的形式创建对象
+     /*
+     function Tv(name,color,size,brand){
+         this.name=name;//this指向操作的对象
+         this.color=color;
+         this.size=size;
+         this.brand=brand;
+         this.look=function(){
+            alert('可以看电视');
+         };
+         this.games=function(){
+            alert('可以玩游戏');
+         }
+         this.dvd=function(){
+            alert('可以看DVD');
+         }
+     }
+     */
+     //实例化类创建对象
+     //var atv=new Tv('彩电','蓝色','21.5','tcl');
+     //alert(atv.name);
+     /*
+     寄生模式
+     */
+     /*
+     function Tv(name,color,size,brand){
+         //在构造方法中只是声明属性的值
+         this.name=name;//this指向操作的对象
+         this.color=color;
+         this.size=size;
+         this.brand=brand;
+     }
+     //在原型上定义方法
+     Tv.prototype.look=function(){
+            alert('可以看电视');
+         };
+      Tv.prototype.games=function(){
+        alert('可以玩游戏');
+     }
+      Tv.prototype.dvd=function(){
+        alert('可以看DVD');
+     }
+     Tv.prototype.show={user:'李四'};
+     var atv=new Tv('彩电','蓝色','21.5','tcl');
+     //atv.look();
+     atv.show.user='xiaohei';
+     alert(atv.show.user);//xiaohei
+     var atv_1=new Tv('彩电','蓝色','21.5','tcl');
+     //atv_1.look();
+     alert(atv.show.user);//xiaohei
+     */
+     //组合模式（混合模式）
+     function Tv(name,color,size,brand,user){
+         //在构造方法中只是声明属性的值
+         this.name=name;//this指向操作的对象
+         this.color=color;
+         this.size=size;
+         this.brand=brand;
+         this.show=user;
+     }
+     //在原型上定义方法
+     Tv.prototype.look=function(){
+            alert('可以看电视');
+         };
+      Tv.prototype.games=function(){
+        alert('可以玩游戏');
+     }
+      Tv.prototype.dvd=function(){
+        alert('可以看DVD');
+     }
+     
+     
+     
+     
+    </script>
+</body>
+</html>

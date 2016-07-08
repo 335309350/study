@@ -1,0 +1,18 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title>函数的应用</title>
+</head>
+<body>
+	<script type="text/javascript">
+        
+        alert((function abc(n1,n2,fun){
+            return fun(n1,n2);//调用了匿名函数
+        })(2,5,function(n1,n2){
+           return n1*n2;//第三个函数作为函数abc的参数
+        }));
+        
+    </script>
+</body>
+</html>

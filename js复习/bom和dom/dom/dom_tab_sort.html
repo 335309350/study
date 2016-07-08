@@ -1,0 +1,149 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title>dom基础--表格应用--表格排序</title>
+	<style type="text/css">
+		#info{
+			margin:0 auto;
+			margin-top:24px;
+			width:300px;
+		}
+		#add_info_box{
+			margin:0 auto;
+			width:300px;
+		}
+		#info,#info td{
+			border-collapse:collapse;
+			border:1px solid #aaa;
+		}
+	</style>
+	<script type="text/javascript">
+		window.onload=function(){
+			var oTab=document.getElementById("info");
+			var oBtn_add=document.getElementById("search_info");
+			var oName=document.getElementById("name");
+			var oAge=document.getElementById("age");
+			
+			//js提供了表格的便捷操作
+			//tbody:tBodies
+			var oTbody=oTab.tBodies;
+			//alert(oTbody.length);//1
+			
+			//tbody所有的行tr:rows,tr:rows[i]第i行
+			var oTbodyTr=oTbody[0].rows;
+			//alert(oTbodyTr.length);//6
+			
+			//单元格td：cells[i],下标从0开始
+			//var oTbodyTr_td_2=oTbodyTr[0].cells[1];//朱伟
+			//alert(oTbodyTr_td_2.innerHTML);
+			//隔行变色
+			//如果没有tBodies就把表头算进去
+			var oldColor="";
+			for(var i=0;i<oTbodyTr.length;i++){
+				//tbody--tr的变色
+				if(i%2!=0){
+					oTbodyTr[i].style.background="#B6CFCA";
+				}
+				
+				//鼠标移入和移除变色
+				oTbodyTr[i].onmouseover=function(){
+					//先获取原来的颜色
+					oldColor=this.style.background;
+					this.style.background="green";
+				}
+				oTbodyTr[i].onmouseout=function(){
+					//当移出保留原来的color
+					this.style.background=oldColor;
+				}
+				
+			}
+			//鼠标点击排序
+			var a_tr=[];
+			oBtn_add.onclick=function(){
+				
+				for(var i=0;i<oTab.tBodies[0].rows.length;i++){
+					//比较的是两个行
+					a_tr[i]=oTab.tBodies[0].rows[i];
+					//保存了tbody中的第i行，也就是tr元素
+					//[object HTMLTableRowElement]
+				}
+				//对单元格的ID排序
+				a_tr.sort(function(tr_1,tr_2){
+					//获取单元格的内容cells[i]
+					var v1=parseInt(tr_1.cells[0].innerHTML);
+					var v2=parseInt(tr_2.cells[0].innerHTML);
+					return v1-v2;
+				});
+				//最后进行一个appendChild();
+				//将a_tr中的i中添加到oTab.tBodies[0]中
+				for(var i=0;i<a_tr.length;i++){
+					oTab.tBodies[0].appendChild(a_tr[i]);
+				}
+			}
+		}
+		
+	</script>
+</head>
+<body>
+	<div id="add_info_box">
+	<input type="button" value="排序" id="search_info" />
+	</div>
+	<table id="info">
+		<thead>
+			<tr>
+				<td>ID</td>
+				<td>姓名</td>
+				<td>年龄</td>
+				<td>操作</td>
+			</tr>
+		</thead>
+				<tbody>
+					
+					<tr>
+						<td>2</td>
+						<td>小黑</td>
+						<td>25</td>
+						<td>删除</td>
+					</tr>
+					<tr>
+						<td>1</td>
+						<td>朱伟</td>
+						<td>24</td>
+						<td>删除</td>
+					</tr>
+					<tr>
+						<td>3</td>
+						<td>李四</td>
+						<td>32</td>
+						<td>删除</td>
+					</tr>
+					
+					<tr>
+						<td>5</td>
+						<td>张飞</td>
+						<td>36</td>
+						<td>删除</td>
+					</tr>
+					<tr>
+						<td>4</td>
+						<td>刘三</td>
+						<td>21</td>
+						<td>删除</td>
+					</tr>
+					<tr>
+						<td>6</td>
+						<td>李诗</td>
+						<td>62</td>
+						<td>删除</td>
+					</tr>
+					<tr>
+						<td>7</td>
+						<td>zhuwei</td>
+						<td>62</td>
+						<td>删除</td>
+					</tr>
+				</tbody>
+	</table>
+</body>
+</html>

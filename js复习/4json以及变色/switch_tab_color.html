@@ -1,0 +1,97 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title>表格隔行变色</title>
+	<script type="text/javascript">
+	window.onload=function(){
+		var otab=document.getElementById("my_tab");
+		var aTr=otab.getElementsByTagName("tr");
+		//隔行变色
+		//alert(aTr.length);
+		var aTr_len=aTr.length;
+		for(var i=0;i<aTr_len;i++){
+			aTr[i].index=i;
+			//1 隔行变色
+			if(i%2==0){
+				aTr[i].style.background="#aaa";
+			}else{
+				aTr[i].style.background="";
+			}
+			//2 鼠标划过
+			aTr[i].onmouseover=function(){
+				//var a=this.index;
+				//alert(a);
+				for(var i=0;i<aTr_len;i++){
+					if(i%2==0){
+						aTr[i].style.background="#aaa";
+					}else
+					{
+						aTr[i].style.background="";
+					}
+				}
+				aTr[this.index].style.background="#0163c9";
+			}
+			
+		}
+		
+		
+	}
+	
+	
+	</script>
+	<style type="text/css">
+		*{
+			padding:0;
+			margin:0;
+		}
+		#my_tab{
+			margin:0 auto;
+			width:300px;
+		}
+		table,td{
+			border-collapse:collapse;
+			border:1px solid #000;
+		}
+	</style>
+</head>
+<body>
+	<table id="my_tab">
+		<tr>
+			<td>fefe</td>
+			<td>ss</td>
+			<td>sss</td>
+		</tr>
+		<tr>
+			<td>fefe</td>
+			<td>ss</td>
+			<td>sss</td>
+		</tr>
+		<tr>
+			<td>fefe</td>
+			<td>ss</td>
+			<td>sss</td>
+		</tr>
+		<tr>
+			<td>fefe</td>
+			<td>ss</td>
+			<td>sss</td>
+		</tr>
+		<tr>
+			<td>fefe</td>
+			<td>ss</td>
+			<td>sss</td>
+		</tr>
+		<tr>
+			<td>fefe</td>
+			<td>ss</td>
+			<td>sss</td>
+		</tr>
+		<tr>
+			<td>fefe</td>
+			<td>ss</td>
+			<td>sss</td>
+		</tr>
+	</table>
+</body>
+</html>

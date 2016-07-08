@@ -1,0 +1,30 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title>只能输入中文</title>
+    <script type="text/javascript">
+        window.onload=function(){
+            var _banNum=document.getElementById('banInputNum');
+            var clearChinese=function(tThis){
+                var _v=tThis.value;
+                //将非中文替换为空格
+                //中文是从\u4e00-\u9fa5
+                tThis.value=_v.replace(/[^\u4e00-\u9fa5]/g,'');
+            }
+            
+            _banNum.onfocus=_banNum.onblur=_banNum.onkeyup=function(){
+                clearChinese(this);
+            }
+            
+        }
+    </script>
+</head>
+<body>
+    <form action="">
+        <input type="text" name="number" value="js控制只能输入中文" id="banInputNum" />
+        <input type="submit" value="提交" />
+    </form>
+    
+</body>
+</html>

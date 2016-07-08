@@ -1,0 +1,64 @@
+﻿<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title>jquery mobile应用</title>
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+	<link rel="stylesheet" href="./css/jquery.mobile-1.2.1.min.css" type="text/css"/>
+	<script src="./js/jquery-1.8.3.min.js" type="text/javascript"></script>
+	<script type="text/javascript" src="./js/jquery.mobile-1.2.1.min.js">		
+	</script>
+</head>
+<body>
+	<div data-role="page" data-fullscreen="true">
+		<div data-role="header" data-position="inline" data-backbtn="false" data-theme="c">
+		<h1>右边的按钮</h1>
+		<a href="index.html" data-icon="gear" class="ui-btn-right">保存</a>
+		</div>
+		<div data-role="content" data-theme="b">
+		<p align="center">hello world</p>
+		<div>这是一个div盒子</div>
+			<div data-role="fieldcontain">    <label for="name">Text Input:</label>    <input type="text" name="name" id="name" value=""  /></div>	
+			<br/>
+			搜索框
+			<div data-role="fieldcontain">    <label for="search">Search Input:</label>    <input type="search" name="password" id="search" value="" /></div>
+			滚动条：<br/>
+			<div data-role="fieldcontain">	<label for="slider">Input slider:</label> 	<input type="range" name="slider" id="slider" value="0" min="0" max="100"  /></div>
+			复选框：<br/>
+			<div data-role="fieldcontain">
+			<fieldset data-role="controlgroup">
+			<legend>Agree to the terms:</legend>
+			<input type="checkbox" name="checkbox-1" id="checkbox-1" class="custom" />
+			<label for="checkbox-1">I agree</label>
+			</fieldset>
+			</div>
+			<div data-role="fieldcontain">
+　 			<label for="select-choice-1" class="select">Choose shipping method:</label>
+　 			<select name="select-choice-1" id="select-choice-1">
+		　　 <option value="standard">Standard: 7 day</option>
+		　　 <option value="rush">Rush: 3 days</option>
+		　　 <option value="express">Express: next day</option>
+		　　 <option value="overnight">Overnight</option>
+		　 </select>
+			</div>
+			列表：<br/>
+			<ul data-role="listview">
+　　			<li><a href="index.html">Acura</a></li>
+　　			<li><a href="index.html">Audi</a></li>
+			</ul> 
+
+
+
+			
+			
+		
+		
+		</div>
+		<div data-role="footer" data-position="fixed">
+　 			<h1>页脚固定定位</h1>
+		</div>
+
+
+	</div>
+</body>
+</html>

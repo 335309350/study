@@ -1,0 +1,25 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title>去掉左右两边的空格</title>
+</head>
+<body>
+	<script type="text/javascript">
+        //空白字符，或者空格u00A0
+        function trim(str){
+            return str.replace(/^(\s|\u00A0)+|(\s|\u00A0)+$/g,'');
+        }
+        window.onload=function(){
+            var _rstrsbtn=document.getElementById('rstrsbtn');
+            var _strs=document.getElementById('strs');
+            _rstrsbtn.onclick=function(){
+                //alert(_strs.value);
+                _strs.value=trim(_strs.value);
+            }
+        }
+    </script>
+    <input type="text" name="strs" id="strs" /><br/>
+    <input type="button" id="rstrsbtn" value="过滤空格" />
+</body>
+</html>

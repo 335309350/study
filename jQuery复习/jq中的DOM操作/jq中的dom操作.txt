@@ -1,0 +1,20 @@
+dom操作分为3个，dom core(核心)，html-dom,css-dom
+
+1 dom core不属于js，并非只能处理网页，还可以处理xml
+
+js中使用dom core来获取表单对象的方法
+document.getElementById(id)
+document.getELementByTagName("form");
+获取表单对象为form的元素
+
+2 html-dom
+在使用JS和DOM为html文件编写脚本时候，有很多专属于HTML-DOM的属性，提供了一些简明的记号来描述各种HTML元素的属性
+document.form
+使用html-dom来获取某元素的src属性的方法
+element.src;
+
+3 css-dom
+针对css的操作，在js中，css-dom技术的主要作用是获取和设置style对象的各种属性。通过改变style对象的各种属性，可以使得网页中显示不同的效果。例如
+element.style.color="red";
+
+jq作为JS库，继承和发扬了JS对dom对象的操作的特性，使得开发更快速。

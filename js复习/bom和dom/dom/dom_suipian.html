@@ -1,0 +1,46 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title>dom基础--文档碎片</title>
+	<style type="text/css">
+		ul,li{
+			list-style:none;
+		}
+	</style>
+	<script type="text/javascript">
+		window.onload=function(){
+			var oUl=document.getElementById("myul");
+			var obtn=document.getElementById("btn1");
+			//向UL中插入一万个li
+			/*
+			obtn.onclick=function(){
+				for(var i=0;i<10000;i++){
+					var oli=document.createElement("li");
+					oli.innerHTML="ssss";
+					oUl.appendChild(oli);
+				}
+			}
+			*/
+			//创建一个文档碎片createDocumentFragment
+			var oFrag=document.createDocumentFragment();
+			obtn.onclick=function(){
+				for(var i=0;i<10000;i++){
+					var oli=document.createElement("li");
+					oli.innerHTML="ssss";
+					//文档碎片中插入
+					oFrag.appendChild(oli);
+				}
+				//一次性将oFrag插入到ul中
+				oUl.appendChild(oFrag);
+				
+			}
+		}
+	</script>
+</head>
+<body>
+	<input type="button" id="btn1" value="插入一万个li"/>
+	<ul id="myul">	
+	</ul>
+</body>
+</html>

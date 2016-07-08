@@ -1,0 +1,52 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title>dom--li排序</title>
+	<style type="text/css">
+		#ul_1{
+			background:green;
+		}
+	</style>
+	<script type="text/javascript">
+		window.onload=function(){
+			var oBtn=document.getElementById("btn");
+			var oUl_1=document.getElementById("ul_1");
+			var oUl_2=document.getElementById("ul_2");
+			oBtn.onclick=function(){
+				//oli表示元素集合
+				//获取所有的li
+				var aLi=oUl_1.getElementsByTagName("li");
+				var ali_arr=[];
+				for(var i=0;i<aLi.length;i++){
+					//将li压入数组中
+					ali_arr[i]=aLi[i];
+				}
+				//alert(ali_arr);
+				ali_arr.sort(function(li_v1,li_v2){
+					var v1=parseInt(li_v1.innerHTML);
+					var v2=parseInt(li_v2.innerHTML);
+					return v1-v2;
+				});//对数组进行排序
+				//alert(ali_arr[0].innerHTML);//第一个值是最小的那个
+				//按照数组的顺序重新appendChild
+				for(var i=0;i<ali_arr.length;i++){
+					//alert(ali_arr[i].innerHTML);
+					oUl_1.appendChild(ali_arr[i]);
+				}
+			}
+
+		}
+	</script>
+</head>
+<body>
+	<input type="button" value="排序" id="btn" />
+	<ul id="ul_1">
+		<li>121</li>
+		<li>23</li>
+		<li>3</li>
+		<li>32</li>
+		<li>12</li>
+	</ul>
+</body>
+</html>

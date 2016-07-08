@@ -1,0 +1,60 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title>10--全选，不选，反选功能</title>
+	<script type="text/javascript">
+		window.onload=function(){
+			//获取复选框
+			//var ach=document.getElementsByTagName("input");
+			var omy=document.getElementById("my_sel");
+			//然后从div中选择input
+			var ach=omy.getElementsByTagName("input");
+			var all_sel=document.getElementById("all_select");
+			var fan_sel=document.getElementById("fan_select");
+			var no_sel=document.getElementById("no_all_select");
+			//alert(ach.length);//7
+			//这样会把所有的input选中，解决方法是在指定的input外面加上一个盒子div就可以解决了。
+			var ach_len=ach.length;
+			//全选
+			all_sel.onclick=function(){
+				for(var i=0;i<ach_len;i++){
+					//alert(ach[i].value);
+					ach[i].checked=true;
+				}
+			}
+			//2 不选
+			no_sel.onclick=function(){
+				//不选
+				for(var i=0;i<ach_len;i++){
+					//alert(ach[i].value);
+					ach[i].checked=false;
+				}
+			}
+			//3 反选,当前选中的去选中，没有选择中的全选择
+			fan_sel.onclick=function(){
+				//不选
+				for(var i=0;i<ach_len;i++){
+					//alert(ach[i].value);
+					//如果选中，就不选，如果没有选，就选中
+					ach[i].checked=!ach[i].checked;
+				}
+			}
+			
+		}
+	</script>
+</head>
+<body>
+	全选，不选，反选功能<br/>
+	<label><input type="button" value="全选" id="all_select" /></label><label><input type="button" value="全不选" id="no_all_select" /></label><label><input type="button" value="反选" id="fan_select" /></label><br/>
+	<div id="my_sel">
+		<input type="checkbox" value="1" name="my[]" />1<br/>
+		<input type="checkbox" value="2" name="my[]" />2<br/>
+		<input type="checkbox" value="3" name="my[]" />3<br/>
+		<input type="checkbox" value="4" name="my[]" />4<br/>
+		<input type="checkbox" value="5" name="my[]" />5<br/>
+		<input type="checkbox" value="6" name="my[]" />6<br/>
+		<input type="checkbox" value="7" name="my[]" />7<br/>
+	</div>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title>子窗口选择名字</title>
+    <script type="text/javascript">
+        window.onload=function(){
+            var oli=document.getElementsByTagName('li');
+            for(var i=0;i<oli.length;i++){
+                //DOM level 0 onclick写法
+                oli[i].onclick=function(){
+                    opener.document.getElementById('username').value=this.innerHTML;
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+	<ul>
+        <li>xiaoheige</li>
+        <li>毛哥</li>
+        <li>朱伟</li>
+        <li>大黑哥</li>
+    </ul>
+</body>
+</html>

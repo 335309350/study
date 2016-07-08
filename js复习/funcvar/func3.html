@@ -1,0 +1,36 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title>函数示例</title>
+</head>
+<body>
+	<script type="text/javascript">
+        //2函数表达式
+        var oper=function (){
+            //转化为浮点型parseFloat
+            var num1=parseFloat(prompt("请输入一个数字："));
+            var num2=parseFloat(prompt("请输入另一个数字："));
+            var oper=prompt("请输入运算符");
+            var result;
+            switch(oper){
+                case "+":
+                    result=num1+num2;
+                    break;
+                case "-":
+                    result=num1-num2;
+                    break;
+                case "*":
+                    result=num1*num2;
+                    break;
+                case "/":
+                    result=num1/num2;
+                    break;
+            }
+            return result;
+        }
+       alert(oper());
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,18 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title>函数示例</title>
+</head>
+<body>
+	<script type="text/javascript">
+        //3 new关键字，对象的方式来声明函数
+       var oper=new Function(alert("后盾"));
+       oper();
+       (function(){
+            alert("我是函数体，被调用了");
+       })();
+        
+    </script>
+</body>
+</html>

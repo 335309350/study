@@ -1,0 +1,62 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title>03网页焕肤功能</title>
+	<link rel="stylesheet" href="blue.css" />
+	<script type="text/javascript">
+		function set_cookie(name,val,days){
+			var odate=new Date();//当前时间
+			//setDate()设置一个月的某一天,返回毫秒
+			odate.setDate(odate.getDate()+days);//当前天数+12
+			document.cookie=name+'='+val+';expires='+odate;
+		}
+		function get_cookie(name){
+			//分割字符串
+			var arr=document.cookie.split("; ");
+			//变成了数组user=xxx,b=sss
+			var len=arr.length;
+			for(var i=0;i<len;i++){
+				var arr2=arr[i].split("=");
+				//再一次分割用"="
+				//arr2[0]//表示键
+				//arr2[1];//表示值
+				//判断name是否等于arr2[0];
+				if(name==arr2[0]){
+					return arr2[1];
+				}
+			}
+			//如果用户第一次访问就没有cookie
+			//return '';
+			return false;
+		}
+		
+		function toblue(){
+			var link=document.getElementsByTagName("link");
+			var css_skin=set_cookie("css_skin","blue",3);
+			link[0].href=get_cookie("css_skin")+".css";
+			
+		}
+		function togreen(){
+			var link=document.getElementsByTagName("link");
+			var css_skin=set_cookie("css_skin","green",3);
+			link[0].href=get_cookie("css_skin")+".css";
+		}
+		window.onload=function(){
+			//网页换肤，当刷新页面的时候，从cookie获取值
+			//如果有值，就使用cookie中的值，否则是默认的肤色
+			var link=document.getElementsByTagName("link");
+			var css_skin=get_cookie("css_skin");
+			if(css_skin){
+				link[0].href=css_skin+".css";
+			}
+		}
+	</script>
+</head>
+<body>
+	<input type="button" value="blue" onclick="toblue()" />
+	<input type="button" value="green" onclick="togreen()" /><br/>
+	<span id="one">三三四四</span>
+	<span id="two">wo在这里</span>
+</body>
+</html>

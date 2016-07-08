@@ -1,0 +1,66 @@
+jQuery Mobile 是一个用来构建跨平台移动web应用程序的新UI框架，具有使用简单的特点。在短短几分钟内，你可以创建出能够在当今可用的近乎所有手机、平板电脑、台式机和电子阅读器设备上运行的优化移动应用程序。
+ 
+ 
+jQuery Mobile具备的一些重要特性：
+ 
+ 
+  1.  通用访问；
+ 
+  2.  跨所有移动平台的统一UI
+ 
+  3. 简化的标记驱动的开发
+ 
+  4.  渐进式增强
+ 
+  5. 响应式设计
+ 
+  6. 可主体化的设计
+ 
+  7. 可访问性
+ 
+ 
+基本的模版页面：
+ 
+ 
+<!DOCTYPE html> 
+<html> 
+    <head> 
+    <meta charset="utf-8">
+    <title>Page Template</title> 
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.0/jquery.mobile-1.0.min.css" />
+    <script src="http://code.jquery.com/jquery-1.6.4.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.0/jquery.mobile-1.0.min.js"></script>    
+</head> 
+<body> 
+ 
+<div data-role="page">
+    <div data-role="header">
+        <h1>Page Header</h1>
+    </div>
+ 
+    <div data-role="content">    
+        <p>Hello jQuery Mobile!</p>
+    </div>
+ 
+    <div data-role="footer" data-position="fixed">
+        <h4>Page Footer</h4>
+    </div>
+</div>
+ 
+</body>
+</html>
+   device-width值表示，让内容扩展到屏幕的整个宽度；initial-scale设置了用来查看Web页面的初始缩放百分比或者缩放因数。
+ 
+   jQuery Mobile 的css会为所有的A级和B级浏览器应用风格的优化，可以根据需要自定义或添加自己的CSS
+ 
+  jQuery 库是jQuery Mobile 的一个核心依赖，如果app需要更多的动态行为，则需要在移动页面中使用jQuery的核心API;www.2cto.com
+ 
+ jQuery Mobile Javascript库必须在jQuery和任何可能存在的自定义脚本之后声明。
+ 
+ 
+data-role="header"是页眉或者标题栏，该属性是可选的；
+ 
+data-role="content"是内容主体的包装容器，该属性是可选的。
+ 
+data-role="footer"包含页脚栏，该属性是可选的。

@@ -1,0 +1,24 @@
+get([index])
+概述
+取得其中一个匹配的元素。 num表示取得第几个匹配的元素。
+
+这能够让你选择一个实际的DOM 元素并且对他直接操作，而不是通过 jQuery 函数。$(this).get(0)与$(this)[0]等价。
+
+参数
+[index]Number取得第 index 个位置上的元素
+
+get()取得所有匹配的 DOM 元素集合。
+
+示例
+描述:
+
+HTML 代码:
+<img src="test1.jpg"/> <img src="test2.jpg"/>jQuery 代码:
+$("img").get(0);结果:
+[ <img src="test1.jpg"/> ]描述:
+选择文档中所有图像作为元素数组，并用数组内建的 reverse 方法将数组反向。
+
+HTML 代码:
+<img src="test1.jpg"/> <img src="test2.jpg"/>jQuery 代码:
+$("img").get().reverse();结果:
+[ <img src="test2.jpg"/> <img src="test1.jpg"/> ]

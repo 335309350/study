@@ -1,0 +1,51 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title>事件基础--键盘事件--移动元素</title>
+	<style type="text/css">
+		#osbox_box{
+			width:200px;
+			height:200px;
+			background:red;
+			position:absolute;
+		}
+	</style>
+	<script type="text/javascript">
+		window.onload=function (){
+			//键盘按下
+			document.onkeydown=function(ev){
+				var oEvent=ev || window.event;
+				//alert(oEvent.keyCode);
+				//判断用户按下的键的keyCode
+				var k_code=oEvent.keyCode;
+				var osbox=document.getElementById("osbox_box");
+				if(k_code==37){
+					osbox.style.left=osbox.offsetLeft-12+"px";
+				}else if(k_code==38){
+					osbox.style.top=osbox.offsetTop-12+"px";
+				}
+				else if(k_code==39){
+					osbox.style.left=osbox.offsetLeft+12+"px";
+				}else if(k_code==40){
+					osbox.style.top=osbox.offsetTop+12+"px";
+				}
+			}
+		};
+		
+		//封装一个得到鼠标的位置getPos(),返回json格式
+		//传递的是var ev=ev || event;
+		function getPos(ev){
+			//var ev=ev || event;
+			var scrollTop=document.documentElement.scrollTop || document.body.scrollTop;
+			var scrollLeft=document.documentElement.scrollLeft || document.body.scrollLeft;
+			//返回(x,y)的json格式
+			//滚动的scrollLeft加上可视区的clientX=x
+			return {x:ev.clientX+scrollLeft,y:ev.clientY+scrollTop};
+		}
+	</script>
+</head>
+<body>
+<div id="osbox_box"></div>
+</body>
+</html>

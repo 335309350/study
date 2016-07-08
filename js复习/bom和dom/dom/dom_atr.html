@@ -1,0 +1,27 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title>dom基础--元素的属性操作</title>
+	<script type="text/javascript">
+		window.onload=function(){
+			var ot1=document.getElementById("t1");
+			var obtn=document.getElementById("btn1");
+			obtn.onclick=function(){
+				//第一种操作:对象.value
+				//ot1.value="fefe";
+				//第二种用DOM操作属性
+				ot1.setAttribute("value","xxx");//也可以用[]
+				//alert(ot1.getAttribute("value"));//获取值
+				
+			}
+			
+		}
+	</script>
+</head>
+<body>
+	<input type="text" id="t1" />
+	<input type="button" value="按钮" id="btn1" />
+	
+</body>
+</html>

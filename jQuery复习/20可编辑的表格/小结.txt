@@ -1,0 +1,24 @@
+$("tbody tr")可以返回tbody中的所有tr节点
+:even索引是偶数的节点元素
+:odd索引是奇数的节点元素
+
+$("tbody td").css("color","#eee");可以设定一个css样式，如果要设定多个css属性就是用css({"color":"red","backgound":"blue"});
+
+get()方法获取到某个dom节点
+this表示当前的对象
+
+children返回子节点
+tdObj.children("input")
+
+html()方法可以设置获取html的内容
+val()方法可以获取或者设置节点的value值
+
+$()方法的参数如果是一段正确的HTML文本，则可以创建一个dom节点，并包装成JQ对象
+
+采用链式可以简化代码
+appendTo()拿到子节点添加到父节点中去。
+
+trigger方法可以触发某个JQ事件
+
+13表示回车键，27表示ESC
+

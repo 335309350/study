@@ -1,0 +1,78 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title>12--tab选项卡</title>
+	<style type="text/css">
+		.active{
+			background:green;
+			border:none;
+		}
+		#my_box input{
+			border:none;
+		}
+		#my_box div{
+			display:none;
+		}
+		.my_box_active{
+			width:200px;
+			border:1px solid red;
+			height:200px;
+			display:none;
+		}
+		
+	</style>
+	<script type="text/javascript">
+		window.onload=function(){
+			//选项卡
+			var omy_box=document.getElementById("my_box");
+			var oinput=omy_box.getElementsByTagName("input");
+			//获取所有的div
+			var odiv=omy_box.getElementsByTagName("div");
+			//给所有的oinput添加事件
+			//alert(odiv.length);
+			var oinput_len=oinput.length;
+			for(var i=0;i<oinput_len;i++){
+				//为按钮自定义添加index属性
+				oinput[i].index=i;//当前按钮的索引index
+				oinput[i].onclick=function(){
+					//先去掉所有点击按钮的className
+					for(var j=0;j<oinput_len;j++){
+						oinput[j].className="";
+						odiv[j].style.display="none";
+					}
+					//点击的时候添加className
+					this.className="active";
+					odiv[this.index].style.display="block";
+					odiv[this.index].className="my_box_active";
+					
+				}
+			}
+		}
+	</script>
+</head>
+<body>
+<div id="my_box">
+	<input type="button" value="教育" class="active" />
+	<input type="button" value="培训" />
+	<input type="button" value="儿童" />
+	<input type="button" value="招生" />
+	<input type="button" value="出国" />
+	<div style="display:block;" class="my_box_active">
+		fefefe1
+	</div>
+	<div>
+		fefefe2
+	</div>
+	<div>
+		fefefe3
+	</div>
+	<div>
+		fefefe4
+	</div>
+	<div>
+		fefefe5
+	</div>
+</div>
+</body>
+</html>

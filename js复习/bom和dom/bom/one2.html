@@ -1,0 +1,26 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title>BOM基础--打开运行案例</title>
+	<script type="text/javascript">
+		window.onload=function(){
+			var yx=document.getElementById("yunxing");
+			var oTxt=document.getElementById("code_box");
+			yx.onclick=function(){
+				//获取文本框的内容
+				//alert(oTxt.innerHTML);
+				//弹出空白页
+				var newWin=window.open("about:blank","_blank");//blank在新的窗口中打开,self在当前的框架打开，返回一个新的窗口
+				//往新的窗口中写入内容
+				newWin.document.write(oTxt.value);
+				return false;
+			}
+		}
+	</script>
+</head>
+<body>
+	<textarea id="code_box" id="" cols="30" rows="10">fefe</textarea>
+	<input type="button" value="运行" onclick="" id="yunxing"/>
+</body>
+</html>

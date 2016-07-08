@@ -1,0 +1,54 @@
+body{padding:none;margin:0;font-size:16px;}
+ul,li{list-style:none;}/*清楚ul,ol上默认的圆点*/
+/*清除子菜单的缩进值*/
+ul{padding:0;margin:0;}
+/*主菜单的背景*/
+.li-main{background:url(../images/li-main.gif) repeat-x;width:130px;}
+/*子菜单的背景*/
+.ul-main .li-main li{background:#eee;}
+a{text-decoration:none;}
+/*取消所有的下划线*/
+/*设置主菜单li中的a的颜色*/
+.li-main a{
+padding-top:3px;padding-bottom:3px;padding-right:0;
+color:#fff;padding-left:20px;background:4px center url(../images/collapse.gif) no-repeat;
+/*a前方的背景x,y轴的位置*/
+/*a变成块元素充满整个li*/
+display:block;
+display:inline-block;/*解决IE不充满的问题*/
+/*让宽度为100%充满*/
+width:100%;
+}
+/*设置子菜单li中的a的颜色*/
+.li-main li a{color:#000; background:none;margin-bottom:2px;}
+/*设置子菜单li的高度和行高*/
+.li-main li{height:35px;line-height:35px;}
+/*让子菜单都隐藏*/
+.li-main ul{display:none;}
+
+/*横向菜单，向左浮动*/
+.lih-main{float:left;margin:0 1px;}
+/*主菜单的背景*/
+.lih-main{background:url(../images/li-main.gif) repeat-x;width:130px;}
+/*子菜单的背景*/
+.ulh-main .lih-main li{background:#eee;}
+a{text-decoration:none;}
+/*取消所有的下划线*/
+/*设置主菜单li中的a的颜色*/
+.lih-main a{
+padding-top:3px;padding-bottom:3px;padding-right:0;
+color:#fff;padding-left:20px;background-position:4px center;background-image:url(../images/collapse.gif);background-repeat:no-repeat;
+/*a前方的背景x,y轴的位置*/
+/*a变成块元素充满整个li*/
+display:block;
+display:inline-block;/*解决IE不充满的问题*/
+/*让宽度为100%充满*/
+width:100%;
+}
+/*设置子菜单li中的a的颜色*/
+.lih-main li a{color:#000; background:none;margin-bottom:2px;}
+/*设置子菜单li的高度和行高*/
+.lih-main li{height:35px;line-height:35px;}
+/*让子菜单都隐藏*/
+.lih-main ul{display:none;}
+

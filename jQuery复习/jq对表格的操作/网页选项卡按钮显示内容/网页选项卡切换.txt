@@ -1,0 +1,98 @@
+利用ul的li点击来切换不同的选项，点击的li显示对于的盒子，其他没有点击的隐藏
+在显示相应的盒子div用子选择器来操作用>方式选择，不能用空格，否则会处乱。同辈选择用siblings()方法来实现
+
+核心代码:
+<script type="text/javascript">
+$(function(){
+		//alert("ok");
+		var $ul_li=$("#content_tab_menu li");
+		$ul_li.click(function(){
+			$(this).addClass("li_selected").siblings().removeClass("li_selected");
+			//点击切换li的样式
+			//显示相应的内容
+			var li_index=$ul_li.index(this);
+			//当前点击的li在li集合中的索引
+			//alert(li_index);
+			//$(".content_tab_box>div")
+			//这里是获取当前选项卡下的子节点div
+			//这里不能用空格否则会混乱
+			$(".content_tab_box>div").eq(li_index).show().siblings().hide();
+			//显示当前索引的div盒子，其他的同辈div盒子隐藏
+		}).hover(function(){
+			//鼠标滑上去效果
+			$(this).addClass("li_hover");
+		
+		},function(){
+			$(this).removeClass("li_hover");
+		});
+		
+	});
+</script>
+
+
+
+完整代码：
+
+
+<!doctype html>
+<html>
+<head>
+<title>表格的选项卡菜单应用</title>
+<meta charset="utf-8"/>
+<style type="text/css">
+	*{padding:0;margin:0;font-size:16px;}
+	ul,ol{list-style:none;}
+	#content{margin:0 auto;width:990px;}
+	#content_tab_menu{height:25px;margin-top:3px;color:#A0A0A0}
+	#content_tab_menu li{float:left;width:90px;display:block;text-align:center;line-height:25px;margin-right:1px;border:1px #BCDABC solid;border-bottom:none;cursor:pointer;}
+	.tab_box_hide{display:none;}
+	.li_selected{background:#eee;color:#BC7BBD}
+	.content_tab_box{background:#eee;width:600px;height:200px;clear:both;}
+	.li_hover{background:#D46CCB;color:#fff;}
+</style>
+<script type="text/javascript" src="./js/jquery-1.8.3.min.js">
+</script>
+<script type="text/javascript">
+$(function(){
+		//alert("ok");
+		var $ul_li=$("#content_tab_menu li");
+		$ul_li.click(function(){
+			$(this).addClass("li_selected").siblings().removeClass("li_selected");
+			//点击切换li的样式
+			//显示相应的内容
+			var li_index=$ul_li.index(this);
+			//当前点击的li在li集合中的索引
+			//alert(li_index);
+			//$(".content_tab_box>div")
+			//这里是获取当前选项卡下的子节点div
+			//这里不能用空格否则会混乱
+			$(".content_tab_box>div").eq(li_index).show().siblings().hide();
+			//显示当前索引的div盒子，其他的同辈div盒子隐藏
+		}).hover(function(){
+			//鼠标滑上去效果
+			$(this).addClass("li_hover");
+		
+		},function(){
+			$(this).removeClass("li_hover");
+		});
+		
+	});
+</script>
+</head>
+<body>
+	<div id="content">
+		<ul id="content_tab_menu">
+			<li class="li_selected">军事</li>
+			<li>体育</li>
+			<li>新闻</li>
+		</ul>
+		<div class="content_tab_box">
+			<div>军事</div>
+			<div class="tab_box_hide">体育
+				<div>zhuwei</div>
+			</div>
+			<div class="tab_box_hide">新闻</div>
+		</div>
+	</div>
+</body>
+</html>

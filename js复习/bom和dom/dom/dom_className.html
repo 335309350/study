@@ -1,0 +1,52 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title>dom基础--子节点</title>
+	<script type="text/javascript">
+		window.onload=function(){
+			var oUl=document.getElementById("myul");
+			var aLi=oUl.getElementsByTagName("li");
+			//取出class="m_box"的li
+			/*
+			for(var i=0;i<aLi.length;i++){
+				//判断className是否等于m_box
+				if(aLi[i].className=="m_box"){
+					aLi[i].style.background="red";
+				}
+			}
+			*/
+			//利用封装的函数来实现改变样式
+			var obox=getByClass(oUl,"m_box");
+			for(var i=0;i<obox.length;i++){
+				obox[i].style.background="red";
+			}
+			
+			
+		}
+		//封装一个函数通过className获取元素
+		//从一个父级的obj,从中选择出class的元素
+		function getByClass(oParent,sclass){
+			var aRes=[];//返回的数组
+			var oEle=oParent.getElementsByTagName("*");//所有的通配符
+			for(var i=0;i<oEle.length;i++){
+				if(oEle[i].className==sclass){
+					aRes.push(oEle[i]);
+				}
+			}
+			//返回匹配的元素
+			return aRes;
+		}
+	</script>
+</head>
+<body>
+	<ul id="myul">
+		<li class="m_box">fefe<a href="javascript:;">隐藏</a></li>
+		<li>fefe<a href="javascript:;">隐藏</a></li>
+		<li class="m_box">fefe<a href="javascript:;">隐藏</a></li>
+		<li>fefe<a href="javascript:;">隐藏</a></li>
+		<li class="m_box">fefe<a href="javascript:;">隐藏</a></li>
+		<li>fefe<a href="javascript:;">隐藏</a></li>
+	</ul>
+</body>
+</html>

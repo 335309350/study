@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+	#box{display: none;
+			border:1px solid red;
+			padding:2px;
+			height:auto;
+			width:245px;
+			overflow:hidden;
+		}
+	</style>
+</head>
+<body>
+
+请输入邮箱<input type="text" id="txt">
+	<div id="box"></div>
+	<script type="text/javascript">
+	window.onload = function(){
+		var oT = document.getElementById('txt');
+		var oB = document.getElementById('box');
+		var domainEmail=['@qq.com','@163.com','@139.com']
+		oT.onkeyup = function(){
+			oB.style.display='block';
+			var v = oT.value;
+			var tmp='';
+			if(v.indexOf('@')>0){
+				tmp=v.slice(0,v.indexOf('@'))
+			}
+			else{
+				tmp = v
+			}
+			var str='';
+			for (var i = 0; i < domainEmail.length; i++) {
+				str+='<span>'+tmp+domainEmail[i]+'</span><br/>'
+			}
+			oB.innerHTML=str;
+			var aSpan = document.getElementsByTagName('span');
+			if(oT.value=="" || !/\S+/.test(oT.value)){
+					//如果文本框的内容为空就不显示my_t
+					oB.style.display="none";
+				}else{
+					oB.style.display="block";
+					// oB.className="my_t";
+				}
+
+
+
+			for (var i = 0; i < aSpan.length; i++) {
+				aSpan[i].index =i
+				aSpan[i].onclick=function(){
+					oT.value =aSpan[this.index].innerHTML;
+					oB.style.display='none'
+				}
+				aSpan[i].onmouseover = function(){
+
+
+					for (var i = 0; i < aSpan.length; i++) {
+						aSpan[i].style.background ='none'
+					}
+					this.style.background ='red'
+				}
+			}
+
+			oB.onmouseleave = function(){
+				oB.style.display='none';
+			}
+
+
+		}
+	}
+	</script>
+</body>
+</html>

@@ -1,0 +1,82 @@
+通过指定容器page的id，然后使用<a href="#foo">点击回到foo页面中去</a>这样的方式跳转
+
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title>跳转到指定的容器中去</title>
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+	<link rel="stylesheet" href="./css/jquery.mobile-1.2.1.min.css" type="text/css"/>
+	<script src="./js/jquery-1.8.3.min.js" type="text/javascript"></script>
+	<script type="text/javascript" src="./js/jquery.mobile-1.2.1.min.js">		
+	</script>
+</head>
+<body>
+	<body> 
+	<body> 
+
+ 
+
+　<!-- Start of first page -->
+　<div data-role="page" id="foo">
+
+　<div data-role="header">
+　　<h1>Foo</h1>
+　</div><!-- /header -->
+
+　　<div data-role="content"> 
+　　　<p>这是一个测试页面</p> 
+　　　<p>点击回到bar容器中<a href="#bar">bar</a></p> 
+　</div><!-- /content -->
+
+　<div data-role="footer">
+　　<h4>页脚</h4>
+　</div><!-- /header -->
+　</div><!-- /page -->
+
+
+
+
+　　<!-- Start of second page -->
+　<div data-role="page" id="bar">
+
+　<div data-role="header">
+　　h1>Bar</h1>
+　</div><!-- /header -->
+
+　<div data-role="content"> 
+　<p>这是第二页</p> 
+　<p><a href="#foo">点击回到foo页面中去</a></p> 
+　　</div><!-- /content -->
+
+　<div data-role="footer">
+　　<h4>Page Footer2</h4>
+　</div><!-- /header -->
+　</div><!-- /page -->
+
+
+</body>
+
+
+
+	</body>
+
+	
+</body>
+</html>
+
+后退链接
+后退：
+
+后退链接　Back linking
+
+如果你添加了data-rel="back"属性给某个链接，那对于该链接的任何点击行为，都是后退的行为，会无视链接的herf，后退到浏览器历史的上一个地址。当想链接到一个命名好的页面，或者要关闭对话框时特别有用。使用这一特性时要注意：务必请使用一个有意义的herf值实际地指向要引用的地址（因为这样也会让GRADE-C的浏览器也支持这个按钮）。而且如果你只是要看到一个翻转的页面转场而不是真正的回到上一个历史记录的地址，你就要使用data-direction="reverse"属性，而不是后退按钮。
+
+后退链接　Back linking
+
+如果你添加了data-rel="back"属性给某个链接，那对于该链接的任何点击行为，都是后退的行为，会无视链接的herf，后退到浏览器历史的上一个地址。当想链接到一个命名好的页面，或者要关闭对话框时特别有用。使用这一特性时要注意：务必请使用一个有意义的herf值实际地指向要引用的地址（因为这样也会让GRADE-C的浏览器也支持这个按钮）。而且如果你只是要看到一个翻转的页面转场而不是真正的回到上一个历史记录的地址，你就要使用data-direction="reverse"属性，而不是后退链接。
+重定向以及链接到目录　Redirects and linking to directories
+当连接到的是一个目录地址（比如href="typesofcats/"而不是href="typesofcats/index.html"），你必须在地址后面加一个斜杠("/")。因为Jquery Mobile假定最后一个斜杠后的部分为文件名，当接下来引用到的页面生成基地址的会的时候会删除它。
+
+但是，你可以通过已经指定好的data-url地址来返回到上一个page容器，就可以绕过这一个问题。Jquery Mobile 会使用那个data-url值来更新url，来替代过去请求的那个页面 。这样你也允许你通过返回url的更改来作为重定向的结果。例如：你想通过post方式提交表单到 /login.html"，但是提交成功以后返回一个url为 "/account 。这个工具就可以让你在这种情况下控制历史记录堆栈。以下是一个实例：
+有一个链接是指向  "docs-links-urltest/index.html" ，该链接是指向目录的索引页，返回的页面会使用 "docs/pages/docs-links-urltest/" 更新哈希值，这是通过代码里的 data-url 值完成的。请注意data-url值会替换整个哈希值，由你来把他替换成当刷新或者下层链接时URL发出的请求能解析正确的页面.

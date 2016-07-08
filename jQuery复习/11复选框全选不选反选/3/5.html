@@ -1,0 +1,76 @@
+﻿<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<title>全选不选反选应用</title>
+	<script type="text/javascript" src="jquery-1.8.3.min.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			//全选/不选
+			$("#checkAllatr").click(function(){
+				$("#concheck>input").attr("checked",this.checked);
+			
+			});
+			//全选
+			$("#checkAll").click(function(){
+				$("#concheck>input").attr("checked",true);
+			
+			});
+			//不选
+			$("#checkNo").click(function(){
+				$("#concheck>input").attr("checked",false);
+				//attr获取元素的属性值
+			});
+			//反选
+			$("#checkRev").click(function(){
+				$("#concheck>input").each(function(){
+					//循环遍历每一个复选框取反
+					//JQ反选写法
+					//$(this).attr("checked",!$(this).attr("checked"));//如果选中就取消，如果取消就选中
+					//原生态的JS写法，不需要转换对象，速度更快
+					this.checked=!this.checked;
+				
+				});
+			
+			});
+			//点击提交时候输出选择的值
+			$("#send").click(function(){
+				var str='你选择的是：\r\n';
+				$("#concheck>input").each(function(){
+					//原生态的JS写法
+					if(this.checked==true)
+					str+=this.value+"\r\n";
+					//JQ的写法
+					/*
+					if($(this).attr("checked")){
+						str+=$(this).val()+"\r\n";
+					}
+					*/
+				});
+				return confirm(str);
+				//如果用户点击不确定就不做操作，如果选择确定就跳转
+			});
+		
+		});
+	</script>
+</head>
+<body>
+	<form method="post" action="http://localhost/myhtml5/test.php">
+		你喜欢的运动是？<br/>
+		<div id="concheck">
+		<input type="checkbox" name="items[]" value="足球"/>足球
+		<input type="checkbox" name="items[]" value="蓝球" />蓝球
+		<input type="checkbox" name="items[]" value="羽毛球" />羽毛球
+		<input type="checkbox" name="items[]" value="兵乓球" />兵乓球
+		<input type="checkbox" name="items[]" value="网球" />网球
+		</div>
+		<br/>
+		<span>
+		<input type="button" id="checkAll" value="全选"/>
+		<input type="button" id="checkNo" value="不选"/>
+		<input type="button" id="checkRev" value="反选"/>
+		<input type="submit" id="send" value="提交" />
+		</span>
+	</form>
+</body>
+</html>

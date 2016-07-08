@@ -1,0 +1,51 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		
+		function bianma(){
+			var query=encodeURIComponent('朱伟');//对于参数进行编码
+			var url="one.php?url="+query;
+			//location=url;
+			alert(url);//one.php?url=%E6%9C%B1%E4%BC%9F
+			//js解码
+			var url_de=decodeURIComponent(url);
+			alert(url_de);
+			location=url;
+		}
+		//验证手机号
+		function yz_phone(){
+			var phone=document.getElementById("phone");
+			var mess=document.getElementById("mess");
+			if(/^1[3458]{1}\d{9}$/.test(phone.value.trim())){
+				mess.innerHTML="手机合法";
+			}else{
+				mess.innerHTML="手机格式错误";
+			}
+		}
+		//删除元素节点
+		function delElem(elem){
+			//删除元素节点
+			var parent_node=elem.parentNode;//
+			if(parent_node){
+				parent_node.removeChild(elem);
+			}
+		}
+		function del_me(){
+			//删除元素
+			var me=document.getElementById("me");
+			delElem(me);
+			alert("ok");
+		}
+	</script>
+	<a href="javascript:void(0)" onclick="bianma()">编码</a><br/>
+	请输入手机号：<input type="text" name="phone" id="phone" />
+	<input type="button" value="验证手机号" id="yz_phone" onclick="yz_phone()" /><span id="mess"></span>
+	<span id="me">我是me</span>
+	<span id="del_me" onclick="del_me()">删除me</span>
+</body>
+</html>

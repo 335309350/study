@@ -1,0 +1,30 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title>命名空间</title>
+	<script type="text/javascript">
+		//命名空间,主要避免多个函数重名
+		//定义一个空的对象（字面量）
+		var zns={};
+		zns.fx={};//每一个都是json
+		zns.common={};
+		zns.site={};
+		zns.fx.getUser=function(){
+			alert("fx");
+		}
+		zns.common.getUser=function(){
+			alert("commonname");
+		}
+		zns.site.getUser=function(){
+			alert(111);
+		}
+		zns.fx.getUser();
+		zns.common.getUser();
+		zns.site.getUser();
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

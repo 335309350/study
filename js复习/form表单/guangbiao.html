@@ -1,0 +1,28 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title>光标停留在文字最后面</title>
+    <script type="text/javascript">
+        window.onload=function(){
+            var enterSub=document.getElementById('enterSub');
+            enterSub.onclick=enterSub.onkeyup=function(){
+                var _vLen=this.value.length;
+                if(this.setSelectionRange){
+                    this.setSelectionRange(_vLen,_vLen);
+                }else{
+                    //IE下
+                    var a=this.createTextRange();
+                    a.moveStart('character',_vLen);
+                    a.collapse(true);
+                    a.select();//选中
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+    <h2>光标永远在文字后面</h2>
+	<input type="text" id="enterSub" value="光标在文字后面" />
+</body>
+</html>

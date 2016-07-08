@@ -1,0 +1,110 @@
+﻿<!doctype html>
+<html>
+<head>
+<title>表格的应用</title>
+<meta charset="utf-8"/>
+<style type="text/css">
+	*{padding:0;margin:0;font-size:16px;}
+	#mytable{border:1px solid #000;border-collapse:collapse;margin:12px auto;width:500px;padding:2px;}
+	#mytable thead th{border-bottom:1px solid #000;padding:2px;text-align:center}
+	#mytable td{text-align:center;padding:2px;height:25px;line-height:25px;}
+	th{text-align:left;padding:2px;height:25px;line-height:25px;}
+	.odd{background:#E0E0E0;}
+	.even{background:#B484B4}
+	.selected{background:#5085C2;}
+	.highed{background:#eee;}
+</style>
+<script type="text/javascript" src="./js/jquery-1.8.3.min.js">
+</script>
+<script type="text/javascript">
+$(function(){
+		//alert("ok");
+		$("#mytable tbody>tr:odd").addClass("odd");//给奇数行添加css(索引从0开始)
+		$("#mytable tbody>tr:even").addClass("even");
+		//找到#mytable tbody下面的tr的偶数行（0开始）
+		//tr中包含zhuwei的高亮
+		$("tr:contains('zhuwei')").addClass("selected");
+		$("tr.parent").click(function(){
+			$(this).toggleClass("highed").siblings(".child_"+this.id).toggle();
+			//当前对象点击切换高亮样式，添加和删除
+			//它同级别的子类显示和隐藏
+		}).click();
+		//加载的时候默认为隐藏
+		
+	});
+
+</script>
+</head>
+<body>
+	<table align="center" id="mytable">
+		<thead>
+			<tr>
+				<th>姓名</th>
+				<th>性别</th>
+				<th>暂住地</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr class="parent" id="row_1">
+				<th colspan="3">前台设计组</th>
+			</tr>
+			<tr class="child_row_1">
+				<td>张三</td>
+				<td>男</td>
+				<td>浙江宁波</td>
+			</tr>
+			<tr class="child_row_1">
+				<td>李四</td>
+				<td>女</td>
+				<td>上海</td>
+			</tr>
+			<tr class="child_row_1">
+				<td>王武</td>
+				<td>男</td>
+				<td>湖北武汉</td>
+			</tr>
+			<tr class="parent" id="row_2">
+				<th colspan="3">产品设计组</th>
+			</tr>
+			<tr class="child_row_2">
+				<td>赵柳</td>
+				<td>女</td>
+				<td>江苏南京</td>
+			</tr>
+			<tr class="child_row_2">
+				<td>rain</td>
+				<td>女</td>
+				<td>陕西宝鸡</td>
+			</tr>
+			<tr class="child_row_2">
+				<td>zhuwei</td>
+				<td>男</td>
+				<td>湖北咸宁</td>
+			</tr>
+			<tr class="parent" id="row_3">
+				<th colspan="3">人事部</th>
+			</tr>
+			<tr class="child_row_3">
+				<td>王根</td>
+				<td>男</td>
+				<td>湖北荆州</td>
+			</tr>
+			<tr class="child_row_3" >
+				<td>王婷</td>
+				<td>女</td>
+				<td>湖北襄樊</td>
+			</tr>
+			<tr class="child_row_3">
+				<td>赵攀</td>
+				<td>男</td>
+				<td>湖北荆州</td>
+			</tr>
+			<tr class="child_row_3">
+				<td>zhusan</td>
+				<td>女</td>
+				<td>湖南长沙</td>
+			</tr>
+		</tbody>
+	</table>
+</body>
+</html>

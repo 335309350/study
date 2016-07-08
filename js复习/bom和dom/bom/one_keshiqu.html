@@ -1,0 +1,24 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title>BOM基础--关闭窗口</title>
+	<script type="text/javascript">
+		window.onload=function(){
+			var yx=document.getElementById("yunxing");
+			var oTxt=document.getElementById("code_box");
+			yx.onclick=function(ev){
+				var ev=ev || window.event;
+				//alert("宽度"+document.documentElement.clientWidth);//1366
+				//可视区的大小可以改变
+				alert("高度"+document.documentElement.innerHeight);
+				//高度，宽度跟窗口的大小有关
+				
+			}
+		}
+	</script>
+</head>
+<body>
+	<input type="button" value="可视区大小" id="yunxing"/>
+</body>
+</html>

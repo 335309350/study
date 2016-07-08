@@ -1,0 +1,12 @@
+//复制节点
+		//clone()克隆
+		//1 复制当前节点并添加到文档中
+		$("ul li").click(function(){
+			//$(this).clone().appendTo("ul");
+			//复制当前节点并添加到文档中，不具有事件
+			//如果克隆后也想有同样的事件clone(true)
+			$(this).clone(true).appendTo("ul");
+			//2 复制当前节点并添加到文档中，具有事件
+			
+		
+		})

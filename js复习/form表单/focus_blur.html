@@ -1,0 +1,53 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title>自动选中文本</title>
+    <style type="text/css">
+        .f_border{
+            border:1px solid #abcdef;
+        }
+        .b_border{
+            border:1px solid #eee903;
+        }
+    </style>
+    <script type="text/javascript">
+        var strtoJson=function(str){
+            //将字符串转化为JSON对象
+            return typeof JSON == 'object' ? JSON.parse(str) : (new Function("return"+str));
+        }
+        //设置css属性
+        var setCss=function(_this,cssOption){
+            //节点类型
+            if(!_this || _this.nodeType === 3 || _this.nodeType === 8 || !_this.style){
+                return;
+            }
+            for(var _cs in cssOption){
+                _this.style[_cs]=cssOption[_cs];
+            }
+            return _this;
+            
+        }
+        window.onload=function(){
+            var _myinfo=document.getElementById('myInfo');
+            var fcss=_myinfo.getAttribute("data-fCss");
+            var bcss=_myinfo.getAttribute("data-bCss");
+            var fclass=_myinfo.getAttribute("data-fClass");
+            var bclass=_myinfo.getAttribute("data-bClass");
+            //得到焦点
+            _myinfo.onfocus=function(){
+                fcss && setCss(this,strtoJson(fcss));
+                fclass && (this.className = fclass);
+            }
+            //失去焦点
+            _myinfo.onblur=function(){
+                bcss && setCss(this,strtoJson(bcss));
+                bclass && (this.className = bclass);
+            }
+        }
+    </script>
+</head>
+<body>
+      <input type="text" id="myInfo" data-fCss='{"color":"green","background":"#aaa"}' data-fClass='f_border' data-bClass='b_border' data-bCss='{"color":"#fff","background":"red"}'/>
+</body>
+</html>

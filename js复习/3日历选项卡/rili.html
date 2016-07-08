@@ -1,0 +1,139 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title>日历的使用</title>
+	<script type="text/javascript">
+		window.onload=function(){
+			//获取操作的元素
+			var r_box=document.getElementById("rl_box");
+			var oli=r_box.getElementsByTagName("li");
+			var oTxt=r_box.getElementsByTagName("div")[0];
+			var rarr=["1月份小伙伴出去玩","2月份出去走走","3月份出来","4月份出去溜达","5月份出去哈哈","6月份出去要西","7月份旅游","8月份故宫","9月份长城","10月份颐和园","11月份出去","12月过年"];
+			//遍历给每一个li添加鼠标划过事件
+			for(var i=0;i<oli.length;i++){
+				//获取oli的编号
+				oli[i].index=i;
+				oli[i].onmouseout=function(){
+					//清空所有的className
+					for(var i=0;i<oli.length;i++){
+						oli[i].className="";
+					}
+					//当前的li的clasName;
+					this.className="r_active";
+					//改变下面的活动内容，获取数组rarr[i]的内容
+					//这里的arr[this.index]表示的就是arr[i]
+					oTxt.innerHTML="<h2>"+(this.index+1)+"月活动</h2><p>"+rarr[this.index]+"</p>";
+				}
+				
+			}
+			
+		}
+	</script>
+	<style type="text/css">
+		*{
+			margin:0;
+			padding:0;
+		}
+		ul,li{
+			list-style:none;
+		}
+		.rili_box{
+			width:345px;
+			height:auto;
+			margin:0 auto;
+			border:1px solid green;
+			margin-top:25px;
+		}
+		.rili_box ul{
+			margin:0 auto;
+		}
+		.rili_box ul li{
+			width:80px;
+			height:80px;
+			float:left;
+			display:block;
+			text-align:center;
+			background:#000;
+			color:#fff;
+			padding:2px;
+			margin:1px;
+		}
+		.rili_box ul li h2{
+			margin-top:24px;
+		}
+		.rili_box ul li p{
+			display:none;
+		}
+		.rili_box ul li.r_active{
+			background:#fff;
+			color:red;
+			padding:1px;
+			margin:1px;
+			border:1px solid #000;
+			cursor:pointer;
+		}
+		.rl_txt{
+			clear:both;
+		}
+	</style>
+</head>
+<body>
+	<div class="rili_box" id="rl_box">
+		<ul>
+			<li class="r_active">
+				<h2>1</h2>
+				<p>1月份</p>
+			</li>
+			<li>
+				<h2>2</h2>
+				<p>2月份</p>
+			</li>
+			<li>
+				<h2>3</h2>
+				<p>3月份</p>
+			</li>
+			<li>
+				<h2>4</h2>
+				<p>4月份</p>
+			</li>
+			<li>
+				<h2>5</h2>
+				<p>5月份</p>
+			</li>
+			<li>
+				<h2>6</h2>
+				<p>6月份</p>
+			</li>
+			<li>
+				<h2>7</h2>
+				<p>7月份</p>
+			</li>
+			<li>
+				<h2>8</h2>
+				<p>8月份</p>
+			</li>
+			<li>
+				<h2>9</h2>
+				<p>9月份</p>
+			</li>
+			<li>
+				<h2>10</h2>
+				<p>10月份</p>
+			</li>
+			<li>
+				<h2>11</h2>
+				<p>11月份</p>
+			</li>
+			<li>
+				<h2>12</h2>
+				<p>12月份</p>
+			</li>
+		</ul>
+		<div class="rl_txt" id="rl_txt">
+			<h2>1月活动</h2>
+			<p>小伙伴一起出去玩</p>
+		</div>
+	</div>
+</body>
+</html>

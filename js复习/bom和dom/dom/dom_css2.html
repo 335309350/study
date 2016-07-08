@@ -1,0 +1,84 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title>文档对象的样式操作</title>
+    <style type="text/css">
+        #first{
+            width:200px;
+            height:200px;
+            border:1px solid green;
+            color:#aaa;
+            background-color:red;
+            float:right;
+        }
+    </style>
+    <script type="text/javascript">
+        function cssrule (a,b){
+            var a=a || 0;
+            var b=b || 0;
+            if(document.all){//IE
+                return document.styleSheets[a].rules[b].style;
+            }else{
+                return document.styleSheets[a].cssRules[b].style;//FF
+            }
+        }
+        
+        //得到或设置CSS属性值
+        function get_set_Css(obj,attrName,val){
+            //判断是否是-的CSS属性
+            if(attrName.indexOf("-") != -1){
+                var attr=attrName.split("-");//分割为2半
+                //margin-top变成marginTop
+                attrName=attr[0]+attr[1].substr(0,1).toUpperCase()+attr[1].substring(1);
+            }
+            
+            //存在val就是设置CSS属性
+            if(val){
+                if(val == "float"){   
+                     if(document.all){
+                        obj.style.styleFloat=val;//IE的浮动属性
+                        return;
+                     }
+                     obj.style.cssFloat=val;//FF
+                     return;
+                }
+                obj.style[attrName]=val;
+                return;
+            }
+            
+            //返回获取的CSS属性
+            if(document.all){//IE
+                return obj.currentStyle[attrName];
+            }else{//FF
+                return getComputedStyle(obj,null)[attrName];
+            }
+        }
+        
+        window.onload=function(){
+            var first=document.getElementById('first');
+            var myone=document.getElementById('myone');
+            var btn=document.getElementById('btn');
+            btn.onclick=function(){
+                //alert(cssrule().width);//第一个style中规则width
+                //cssrule().width="400px";//改变高度
+                
+                //获取样式
+                //alert(first.currentStyle.width);//IE
+                //FF 
+                //alert(getComputedStyle(first,null).width);//200px
+                alert(get_set_Css(first,"width"));
+                alert(get_set_Css(first,"float"));
+                get_set_Css(first,'background-color','green');
+                get_set_Css(first,'float','left');
+            }
+
+        }
+    </script>
+</head>
+<body>
+    <div id="first"><h3>我是大黑哥</h3></div>
+    <input type="button" value="移动" id='btn' />
+	<div id="myone"></div>
+</body>
+</html>

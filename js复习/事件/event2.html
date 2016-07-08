@@ -1,0 +1,47 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title>事件基础</title>
+	<script type="text/javascript">
+		window.onload=function (){
+			//给body添加事件
+			/*
+			document.body.onclick=function(){
+				alert(111);
+			}
+			*/
+			//alert(document.childNodes[0].tagName);//
+			//alert(document.childNodes[1].tagName);//HTML
+			//给document添加事件
+			/*
+			document.onclick=function(){
+				alert(111);
+			}
+			*/
+			//获取鼠标的位置
+			//IE下用event：(event.clientX,event.clientY)
+			/*
+			document.onclick=function(){
+				alert("x:"+event.clientX+"Y:"+event.clientY);
+			}
+			*/
+			
+			//FF下有个事件参数event
+			//document.onclick=function(event){
+			//	alert("x:"+event.clientX+"Y:"+event.clientY);
+			//}
+			
+			//解决兼容性问题
+			document.onclick=function(ev){
+				var oEvent=ev || window.event;
+				alert(oEvent.clientY);
+			}
+			
+		}
+	</script>
+</head>
+<body>
+	<input type="button" name="name" value="按钮"/>
+</body>
+</html>

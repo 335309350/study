@@ -1,0 +1,59 @@
+jq选择器继承了css的风格，利用jq选择器，可以非常便捷和快速的找到特定的DOM元素，然后添加相应的行为，而不要担心浏览器的兼容性，jq的行为规则必须在获取到元素后才能生效。
+实例：
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+	<title>jq选择器</title>
+<script type="text/javascript">
+function demo(){
+	alert("你点击了我哦！");
+
+
+}
+
+</script>
+</head>
+<body>
+	<p onclick="demo()">点击我</p>
+</body>
+</html>
+
+但是这种混合js和html的格式同样不妥，没有将网页和行为分离。
+改进的方案：
+使用jq选择器来实现分离
+给p一个类选择器，然后通过$(".demo")获取jq对象
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+	<title>jq选择器</title>
+<script type="text/javascript" src="./js/jquery.js"></script>
+<script type="text/javascript">
+$(function(){
+	$(".demo").click(function(){
+		alert("利用jq来获取对象，你点击了我");
+	
+	});
+
+});
+</script>
+</head>
+<body>
+	<p class="demo">点击我</p>
+</body>
+</html>
+
+
+小结：
+jq选择器的写法和css的选择器的写法相似，css是找到元素后添加样式，而jq是找到元素后添加相应的行为。
+css中要考虑浏览器的兼容性，而jq中不要考虑。
+完善的处理机制，使用jq代替了传统的getElementById()和getElementsByTagName()，还能避免错误的出现。
+
+
+
+选择器是行为与文档内容之间连接的纽带，选择器的最终目的就是能够轻松的找到文档中的元素。

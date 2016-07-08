@@ -1,0 +1,35 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title>继承实现拖拽</title>
+	<script type="text/javascript" src="mydrag.js"></script>
+	<script type="text/javascript" src="mydrag_limit.js"></script>
+	<style type="text/css">
+		#drag_box{
+			width:200px;
+			height:200px;
+			position:absolute;
+			background:red;
+		}
+		#drag_box2{
+			width:200px;
+			height:200px;
+			position:absolute;
+			background:green;
+		}
+	</style>
+	<script type="text/javascript">
+		window.onload=function(){
+			new fnDrag("drag_box");
+			new fnDrag_Limit("drag_box2");
+		}
+		
+	</script>
+</head>
+<body>
+	<div id="drag_box">普通拖拽</div>
+	<div id="drag_box2">子类拖拽</div>
+	
+</body>
+</html>

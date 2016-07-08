@@ -1,0 +1,21 @@
+组按钮 Grouped buttons
+有时候，你想把一组按钮放进一个单独的容器内，使他们看起来想一个独立的导航部件。你可以把一组按钮包裹在一个容器内，然后给该容器添加data-role="controlgroup"属性，Jquery Mobile会创建一个垂直的按钮组，删除掉按钮间的margin和阴影，然后只在第一个按钮和最后一个按钮产生圆角，使他们看起来是一组按钮
+
+--------------------------------------------------------------------------------
+<div data-role="controlgroup">
+　<a href="index.html" data-role="button">Yes</a>
+　<a href="index.html" data-role="button">No</a>
+　<a href="index.html" data-role="button">Maybe</a>
+</div>
+
+按钮组：
+
+ 
+默认情况下，组按钮表现为垂直列表，如果给容器添加data-type="horizontal"的属性，则可以转换为水平按钮的列表，按钮会横向一个挨着一个地排列，容器会自动撑大到适应内容（所以要注意横排情况下按钮不要太多，按钮的字也不要太多）
+水平的组按钮 Horizontal grouped buttons:
+
+
+
+
+
+本手册由darklord整理编辑

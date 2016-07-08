@@ -1,0 +1,122 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title>dom拓展</title>
+	<style type="text/css">
+		.two{
+			color:red;
+		}
+	</style>
+	<script type="text/javascript">
+		//遍历元素
+		//对于元素间的空格，会当作空白文件节点
+		//dom拓展添加5个属性
+		//childElementCount子元素的个数
+		//firstElementChild指向第一个子元素
+		//lastElementChild最后一个子元素
+		//previousElementChild前一个元素
+		//nextElementChild下一个元素
+		
+		//跨浏览器的遍历元素的子元素
+		function getElemChild(elem){
+			var i,len,elem_child = elem.childNodes;
+			//得到参数元素的所有子元素
+			len=elem_child.length;//子元素的个数
+			
+			//alert(elem_child.length);
+			//如果是空白文本节点就删除
+			/*for(i=0;i<len;i++){
+				if(elem_child[i].nodeName=="#text" && !/\S/.test(elem_child[i].nodeValue)){
+					elem.removeChild(elem_child[i]);
+				}
+			}*/
+			//return elem;
+			
+			i=0;
+			while(i<len){
+				//Ie不支持nodeName
+				if(elem_child[i].nodeType!=1 && !/\S/.test(elem_child[i].nodeValue)){
+					elem.removeChild(elem_child[i]);
+				}
+				i++;
+			}
+			return elem;
+			
+		}
+		function my(){
+			var my=document.getElementById("my");
+			var mynode=getElemChild(my);//返回新的元素节点
+			//alert(mynode.childNodes.length);
+			var p_type=mynode.firstChild.nodeType;//元素节点1
+			//alert(mynode.firstChild.innerHTML);
+			var p_node=mynode.firstChild;
+			p_node.className="two";
+			
+		}
+		/*
+		//相关属性和方法
+		属性：
+
+		nextSibling 返回当前节点的下一个兄弟节点(只读)
+		previousSibling 返回此节点的前一个兄弟节点(只读)
+		parentNode 返回父节点(只读)
+		childNodes 存储节点的子节点列表(只读)
+		nodeValue 返回节点的文本(可读写)
+		Text 返回此节点及其后代的文本内容(可读写)
+		nodeName 返回节点的名字(只读)
+
+		Attributes 存储节点的属性列表(只读)
+		dataType 返回此节点的数据类型
+		Definition 以DTD或XML模式给出的节点的定义(只读)
+		Doctype 指定文档类型节点(只读)
+		documentElement 返回文档的根元素(可读写)
+		firstChild 返回当前节点的第一个子节点(只读)
+		Implementation 返回XMLDOMImplementation对象
+		lastChild 返回当前节点最后一个子节点(只读)
+		nodeType 返回节点的类型(只读)
+		nodeTypedValue 存储节点值(可读写)
+		ownerDocument 返回包含此节点的根文档(只读)
+		Parsed 返回此节点及其子节点是否已经被解析(只读)
+		Prefix 返回名称空间前缀(只读)
+		preserveWhiteSpace 指定是否保留空白(可读写)
+		url 返回最近载入的XML文档的URL(只读)
+		Xml 返回节点及其后代的XML表示(只读)
+
+		方法：
+
+		getElementsByTagName 返回指定名字的元素集合
+		appendChild 为当前节点添加一个新的子节点,放在最后的子节点后
+		createElement 创建一个元素节点
+		createTextNode 创建包括给定数据的文本节点
+		removeChild 从子结点列表中删除指定的子节点
+		hasChildNodes 返回当前节点是否有子节点
+
+		cloneNode 返回当前节点的拷贝
+		createAttribute 创建新的属性
+		createCDATASection 创建包括给定数据的CDATA段
+		createComment 创建一个注释节点
+		createDocumentFragment 创建DocumentFragment对象
+		createEntityReference 创建EntityReference对象
+		createNode 创建给定类型,名字和命名空间的节点
+		createPorcessingInstruction 创建操作指令节点
+		insertBefore 在指定节点前插入子节点
+		Load 导入指定位置的XML文档
+		loadXML 导入指定字符串的XML文档
+		replaceChild 从子节点列表中替换指定的子节点
+		Save 把XML文件存到指定节点
+		selectNodes 对节点进行指定的匹配,并返回匹配节点列表
+		selectSingleNode 对节点进行指定的匹配,并返回第一个匹配节点
+		transformNode 使用指定的样式表对节点及其后代进行转换
+		transformNodeToObject 使用指定的样式表将节点及其后代转换为对象
+		*/
+	</script>
+</head>
+<body>
+	<div id="my">
+		<p class="one">ssfe</p>
+		<span>ss</span>
+	</div>
+	<div onclick="my()">click</div>
+</body>
+</html>

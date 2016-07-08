@@ -1,0 +1,46 @@
+Jquery Mobile 提供了一个基本的导航栏组件，每一行可以最多放5个按钮，通常在顶部或者底部
+导航栏的代码为一个ul列表，被一个容器包裹，这个容器需要有data-role="navbar"属性。要设定某一个链接为活动（selected）状态，给链接增加class="ui-btn-active" 即可。我们给尾部栏设置了一个导航栏，把one项设置为活动状态
+<div data-role="footer">
+　 <div data-role="navbar">
+　　 <ul>
+　　　 <li><a href="a.html" class="ui-btn-active">One</a></li>
+　　　 <li><a href="b.html">Two</a></li>
+　　 </ul>
+　 </div><!-- /navbar -->
+</div><!-- /footer -->
+
+尾部工具栏默认下应用的主题样式为"a"(黑色)，但是你可以很轻松的设置主题样式
+导航栏内每项的宽度都被设定为相同的，所以按钮的宽度为浏览器宽度 1/2.新增加一项的话，每项的宽度自动匹配为1/3,以此类推。如果导航栏多于5项，导航栏自动表现为多行
+两个按钮的导航栏
+
+ 
+三个按钮的导航栏
+
+ 
+五个按钮的导航栏
+
+ 
+多余5项的导航
+
+ 
+头部的导航栏 Navbars in headers
+如果要给页面头部增加一个导航栏，你也可以保留头部栏的页面标题和按钮。只需要把导航栏容器放进头部栏容器内
+头部的导航栏
+
+ 
+导航栏的图标 Icons in navbars
+给导航栏的列表项链接增加data-icon属性，可以给链接设置一个标准的移动网站的图标。给列表项链接增加data-iconpos="top"属性，可以给链接的图标设置位置为在文字上方
+导航栏的图标
+
+ 
+使用第三方的图标?Using 3rd party icon sets
+你可以可以把任何你喜欢的第三方的icon组库加入到自己的项目中。只需要在css中自定义icon的地址和位置就可以了。下面一个实例为使用了Glyphish icon组的导航栏
+导航栏的图标
+
+ 
+Icons by Joseph Wain / glyphish.com. Licensed under the Creative Commons Attribution 3.0 United States License.
+给导航栏主题样式 Theming navbars
+给导航栏设置data-theme属性，，可以给导航栏设置主题样式
+
+导航栏的主题
+

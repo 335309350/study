@@ -1,0 +1,52 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8"/>
+<style>
+	*{padding:0;margin:0;}
+	body{paddding:0;margin:0}
+	ul{
+		list-style:none;
+	}
+	.picCon{position:relative;}
+	.piclist{width:205px;height:205px;border:1px solid red;padding:1px;}
+	.piclist img{width:200px;height:200px;border:none;padding:1px;}
+	#imgId{position:absolute;bottom:3px;left:5px;background:#fffccc;}
+	#imgId li{float:left;margin:3px;border-raduis:3px;border:3px slolid #abc;width:12px;background:#eee;color:red;text-align:center;}
+	#imgId li.active{background:#abcdef;color:#eee;cursor:pointer;}
+</style>
+<script src="./js/jquery-1.8.3.min.js"></script>
+<script>
+	$(function(){
+		$(".piclist li:gt(0)").hide();
+		$("#imgId li").mouseover(function(){
+			$("#"+this.id).addClass("active").siblings().removeClass("active");//当鼠标移入时候添加css
+			//相应显示图片
+			$(".piclist li img").fadeIn(4000).attr("src","images/"+(this.id)+".png");
+			
+		}).mouseout(function(){
+			$("#"+this.id).removeClass("active");
+		});
+		
+		
+		
+	});
+</script>
+</head>
+<body>
+<div class="picCon">
+	<ul class="piclist">
+		<li><a href="#"><img src="./images/img_01.png"/></a></li>
+		<li><a href="#"><img src="./images/img_02.png"/></a></li>
+		<li><a href="#"><img src="./images/img_03.png"/></a></li>
+		<li><a href="#"><img src="./images/img_04.png"/></a></li>
+	</ul>
+	<ul id="imgId">
+		<li id="img_01" class="active">1</li>
+		<li id="img_02">2</li>
+		<li id="img_03">3</li>
+		<li id="img_04">4</li>
+	</ul>
+</div>
+</body>
+</html>

@@ -1,0 +1,9 @@
+替换节点有replaceWith()和replaceAll()
+用某某替换元素
+$("p").replaceWith("<strong>请选择你喜欢的水果</strong>");
+
+//替换节点
+		//用某某替换元素
+	//$("p").replaceWith("<strong>请选择你喜欢的水果</strong>");
+		//replaceAll()和replace顺序颠倒
+			$("<h1>请选择你喜欢的水果</h1>").replaceAll("p");

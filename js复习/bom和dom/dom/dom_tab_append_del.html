@@ -1,0 +1,159 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title>dom基础--表格应用--添加和删除</title>
+	<style type="text/css">
+		#info{
+			margin:0 auto;
+			margin-top:24px;
+			width:300px;
+		}
+		#add_info_box{
+			margin:0 auto;
+			width:300px;
+		}
+		#info,#info td{
+			border-collapse:collapse;
+			border:1px solid #aaa;
+		}
+	</style>
+	<script type="text/javascript">
+		window.onload=function(){
+			var oTab=document.getElementById("info");
+			var oBtn_add=document.getElementById("add_info");
+			var oName=document.getElementById("name");
+			var oAge=document.getElementById("age");
+			
+			//js提供了表格的便捷操作
+			//tbody:tBodies
+			var oTbody=oTab.tBodies;
+			//alert(oTbody.length);//1
+			
+			//tbody所有的行tr:rows,tr:rows[i]第i行
+			var oTbodyTr=oTbody[0].rows;
+			//alert(oTbodyTr.length);//6
+			
+			//单元格td：cells[i],下标从0开始
+			//var oTbodyTr_td_2=oTbodyTr[0].cells[1];//朱伟
+			//alert(oTbodyTr_td_2.innerHTML);
+			//隔行变色
+			//如果没有tBodies就把表头算进去
+			var oldColor="";
+			for(var i=0;i<oTbodyTr.length;i++){
+				//tbody--tr的变色
+				if(i%2!=0){
+					oTbodyTr[i].style.background="#B6CFCA";
+				}
+				
+				//鼠标移入和移除变色
+				oTbodyTr[i].onmouseover=function(){
+					//先获取原来的颜色
+					oldColor=this.style.background;
+					this.style.background="green";
+				}
+				oTbodyTr[i].onmouseout=function(){
+					//当移出保留原来的color
+					this.style.background=oldColor;
+				}
+				
+			}
+			//鼠标点击添加
+			oBtn_add.onclick=function(){
+				//创建一行
+				var oTr=document.createElement("tr");
+				//创建三个单元格
+				var oTd=document.createElement("td");
+				//设置td中的内容
+				oTd.innerHTML=oTbodyTr.length+1;
+				//添加到tr中
+				oTr.appendChild(oTd);
+				
+				var oTd=document.createElement("td");
+				//设置td中的内容
+				oTd.innerHTML=oName.value;
+				//添加到tr中
+				oTr.appendChild(oTd);
+				
+				var oTd=document.createElement("td");
+				//设置td中的内容
+				oTd.innerHTML=oAge.value;
+				//添加到tr中
+				oTr.appendChild(oTd);
+				
+				var oTd=document.createElement("td");
+				//设置td中的内容
+				oTd.innerHTML="<a href='javascript:;'>删除</a>";
+				//添加到tr中
+				oTr.appendChild(oTd);
+				//给a添加删除事件
+				oTr.getElementsByTagName("a")[0].onclick=function(){
+					//从tbody中删除一行
+					oTbody[0].removeChild(this.parentNode.parentNode);
+				}
+				
+				//将这个tr添加到tbody中去
+				oTbody[0].appendChild(oTr);
+				
+				
+			}
+		}
+		
+	</script>
+</head>
+<body>
+	<div id="add_info_box">
+	姓名：<input type="text" name="name" id="name"/><br/>
+	年龄：<input type="text" name="age" id="age"/><br/>
+	<input type="button" value="添加" id="add_info" />
+	</div>
+	<table id="info">
+		<thead>
+			<tr>
+				<td>ID</td>
+				<td>姓名</td>
+				<td>年龄</td>
+				<td>操作</td>
+			</tr>
+		</thead>
+				<tbody>
+					<tr>
+						<td>1</td>
+						<td>朱伟</td>
+						<td>24</td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>2</td>
+						<td>小黑</td>
+						<td>25</td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>3</td>
+						<td>李四</td>
+						<td>32</td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>4</td>
+						<td>刘三</td>
+						<td>21</td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>5</td>
+						<td>张飞</td>
+						<td>36</td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>6</td>
+						<td>李四</td>
+						<td>62</td>
+						<td></td>
+					</tr>
+				</tbody>
+	</table>
+</body>
+</html>

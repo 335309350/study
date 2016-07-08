@@ -1,0 +1,47 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title>面向对象的编程</title>
+</head>
+<body>
+	<script type="text/javascript">
+        var obj={
+            //属性和值
+            'name':'电视机',
+            'color':'蓝色',
+            'size':'21.5英寸',
+            'brand':'品牌',
+            //行为（方法）
+            'look':function(){
+                alert('看电视');
+            },
+            'games':function(){
+                alert('玩游戏');
+            },
+            'view':function(){
+                alert('可以看DVD');
+            }
+        }
+        /*
+        alert(obj.name);
+        obj.look();
+        obj.games();
+        */
+        //封装为一个类
+        function Screen(name,color,size,brand){
+            this.name=name;
+            this.color=color;
+            this.size=size;
+            this.brand=brand;
+            this.look=function(){
+                alert('看电视');
+            }
+        }
+        var s=new Screen('电视机','蓝色','21','长虹');
+        alert(s.name);//电视机
+        s.look();
+        
+    </script>
+</body>
+</html>

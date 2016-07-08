@@ -1,0 +1,70 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title>面向对象的编程</title>
+</head>
+<body>
+	<script type="text/javascript">
+        //1 构造方法创建一个类后实例化创建对象
+        function Screen(name,color,size,brand){
+            this.name=name;
+            this.color=color;
+            this.size=size;
+            this.brand=brand;
+            //实例化的时候就指定方法
+            this.look=function(){
+                alert('看电视');
+            }
+        }
+        //实例化类为对象
+        var s=new Screen('电视机','蓝色','21','长虹');
+        /*
+        alert(s.name);//电视机
+        s.look();
+        */
+        //2 new Object();创建一个对象
+        var obj=new Object();
+        obj.name='zhuwei';
+        //alert(obj.name);
+        //3 json方法创一个对象({key:val,...}
+        var a_obj={
+            'name':'fefe',
+            'age':23
+        };
+        /*
+        alert(typeof a_obj);//object
+        alert(a_obj.name+a_obj.age);
+        */
+        //json格式添加属性和方法
+        //属性值在全局环境中只有一个
+        //key/val方式来添加
+        var user_obj={
+            'email':'222@qq.com',
+            'sex':'男',
+            'job':'php',
+            getInfo:function(){
+                alert('hello');
+            }
+        }
+        alert(user_obj.email);
+        //user_obj.getInfo();
+        
+        //删除一个对象
+        /*user_obj=null;
+        alert(user_obj.email);
+        */
+        //删除对象的属性delete 
+        delete user_obj.email;
+        alert(user_obj.email);//undefined
+        //删除方法
+        delete user_obj.getInfo;
+        alert(user_obj.getInfo());//访问不到方法
+        
+        
+        
+        
+        
+    </script>
+</body>
+</html>

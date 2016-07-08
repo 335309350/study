@@ -1,0 +1,74 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title>面向对象的选项卡</title>
+	<style type="text/css">
+		.my input{
+			background:#fff;
+			border:none;
+		}
+		.my input.active{
+			background:green;
+		}
+		.my div{
+			width:200px;
+			height:200px;
+			background:#ccc;
+			display:none;
+		}
+	</style>
+	<script type="text/javascript">
+		//将	window.onload作为构造函数初始化
+		window.onload=function(){
+			new TabSwitch("my");
+			new TabSwitch("my_box");
+		}
+	function TabSwitch(obj_id){
+			var _this=this;
+			var oMy=document.getElementById(obj_id);
+			this.oBtn=oMy.getElementsByTagName("input");//全局变量
+			this.oDiv=oMy.getElementsByTagName("div");
+			for(var i=0;i<this.oBtn.length;i++){
+				//为按钮添加点击事件
+				this.oBtn[i].index=i;
+				//this.oBtn[i].onclick=this.fnclick;
+				//这里将this.fnclick赋值给this.oBtn[i]
+				//这个时候this->input
+				this.oBtn[i].onclick=function(){
+					//如何避免呢？将对象的this保存到_this
+					_this.fnclick(this);//传递this.oBtn[i]
+				}
+			}
+	}
+	//给对象添加方法fnclick
+	TabSwitch.prototype.fnclick=function(oBtn){
+		//alert(this);//[object HTMLInputElement]
+					for(var k=0;k<this.oBtn.length;k++){
+						this.oBtn[k].className="";
+						this.oDiv[k].style.display="none";
+					}
+					oBtn.className="active";//应该把this.oBtn[i]作为参数传递给fnclick
+					this.oDiv[oBtn.index].style.display="block";
+				}
+	</script>
+</head>
+<body>
+<div id="my" class="my">
+	<input type="button" value="aaa" class="active" />
+	<input type="button" value="bbb" />
+	<input type="button" value="ccc" />
+	<div style="display:block;">aaa</div>
+	<div>bbb</div>
+	<div>ccc</div>
+</div>
+<div id="my_box" class="my">
+	<input type="button" value="aaa" class="active" />
+	<input type="button" value="bbb" />
+	<input type="button" value="ccc" />
+	<div style="display:block;">aaa</div>
+	<div>bbb</div>
+	<div>ccc</div>
+</div>
+</body>
+</html>

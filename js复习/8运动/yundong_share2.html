@@ -1,0 +1,59 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title>运动基础---分享到案例</title>
+	<style type="text/css">
+		#share{
+			width:150px;
+			height:200px;
+			position:absolute;
+			background:#aaa;
+			left:-150px;
+		}
+		#share span{
+			position:absolute;
+			width:20px;
+			height:75px;
+			line-height:20px;
+			background:green;
+			right:-20px;
+			top:60px;
+			
+		}
+	</style>
+	<script type="text/javascript">
+		window.onload=function(){
+			var oshare=document.getElementById("share");
+			var ospan=oshare.getElementsByTagName('span')[0];
+			//鼠标移入到share上
+			oshare.onmouseover=function(){
+				startMove(0,15,30);
+			};
+			oshare.onmouseout=function(){
+				startMove(-150,-15,30);
+			}
+			
+		}
+		var timer=null;
+		function startMove(iTarget,smovepx,s_time){
+			//接收两个参数一个是物体的目标iTarget,一个是移动的像素，一个是移动的时间快慢ms
+			var oshare=document.getElementById("share");
+			clearInterval(timer);
+			//设置定时器
+			timer=setInterval(function(){
+				if(oshare.offsetLeft==iTarget){
+					clearInterval(timer);
+				}else{
+					oshare.style.left=oshare.offsetLeft+smovepx+"px";
+				}
+			},s_time);
+		}
+		
+		
+	</script>
+</head>
+<body>
+	<div id="share"><span>分享到</span></div>
+</body>
+</html>

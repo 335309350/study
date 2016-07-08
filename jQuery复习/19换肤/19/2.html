@@ -1,0 +1,81 @@
+﻿<!doctype html>
+<html>
+<head>
+<title>表格的选项卡菜单应用</title>
+<meta charset="utf-8"/>
+<link rel="stylesheet" href="css/skin_01.css" id="cssfile"/>
+<script type="text/javascript" src="./js/jquery-1.8.3.min.js">
+</script>
+<script type="text/javascript">
+$(function(){
+		//alert("ok");
+		var $skin_li=$("#con_skin li");//获取点击的li换肤按钮
+		$skin_li.click(function(){
+			//调用函数传递一个this.id
+			//switchSkin(this.id);
+			$("#"+this.id).addClass("li_selected").siblings().removeClass("li_selected");
+			//设置皮肤
+			$("#cssfile").attr("href","css/"+this.id+".css");
+			//设置cookie
+			$.cookie("myskin",this.id,{path:"/",expires:10});
+			
+		});
+		//判断是否设置过cookie
+		var cookie_skin=$.cookie("myskin");
+		if(cookie_skin){
+			//如果设置过就传递skin的id
+			//switchSkin(cookie_skin);
+			$("#"+this.id).addClass("li_selected").siblings().removeClass("li_selected");
+			//设置皮肤
+			$("#cssfile").attr("href","css/"+cookie_skin+".css");
+			//设置cookie
+			$.cookie("myskin",cookie_skin,{path:"/",expires:10});
+		}
+		/*
+		//写一个改变皮肤保存的cookie函数
+		function switchSkin(skinName){
+			$("#"+skinName).addClass("li_selected").siblings().removeClass("li_selected");
+			//设置皮肤
+			$("#cssfile").attr("href","css/"+skinName+".css");
+			//设置cookie
+			$.cookie("myskin",skinName,{path:"/",expires:1});
+		
+		}
+		*/
+		
+		
+	});
+</script>
+</head>
+<body>
+	<div id="content">
+		<ul id="con_skin">
+			<li id="skin_01">灰色</li>
+			<li id="skin_02">紫色</li>
+			<li id="skin_03">红色</li>
+			<li id="skin_04">天蓝色</li>
+			<li id="skin_05">橙色</li>
+			<li id="skin_06">淡绿色</li>	
+		</ul>
+		<div id="div_skin_01" class="div_skin">
+		时事新闻
+		</div>
+		<div id="div_skin_02" class="div_skin">
+		体育
+		</div>
+		<div id="div_skin_03" class="div_skin">
+		文化
+		</div>
+		<div id="div_skin_04" class="div_skin">
+		经济
+		</div>
+		<div id="div_skin_05" class="div_skin">
+		两性
+		</div>
+		<div id="div_skin_06" class="div_skin">
+		历史
+		</div>
+		
+	</div>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title>BOM基础--回到顶部</title>
+	<style type="text/css">
+		#my{
+			position:absolute;
+			right:0;
+			bottom:0;
+			width:200px;
+			height:100px;
+			background:red;
+			display:none;
+		}
+		body{
+			height:2000px;
+		}
+	</style>
+	<script type="text/javascript">
+	//页面滚动事件onscroll和改变窗口大小的时候div位置不变
+		window.onscroll=window.onresize=function(){
+			var my=document.getElementById("my");
+			var scrollTop=document.documentElement.scrollTop || document.body.scrollTop;
+			
+			//盒子的top=scrollTop+可视区的高度-盒子的高度offsetHeight
+			var d_top=scrollTop+document.documentElement.clientHeight-my.offsetHeight;
+			my.style.top=d_top+"px";
+			//当scrollTop>600显示div
+			if(scrollTop>=600){
+				my.style.display="block";
+				//点击回到顶部
+				my.onclick=function(){
+					document.documentElement.scrollTop=document.body.scrollTop=0;
+				}
+			}else{
+				my.style.display="none";
+			}	
+		}
+	</script>
+</head>
+<body>
+	<div id="my">sfef</div>
+</body>
+</html>

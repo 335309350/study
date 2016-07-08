@@ -1,0 +1,26 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title>函数参数函数重载</title>
+</head>
+<body>
+	<script type="text/javascript">
+       function getOne(a,b){
+            if(arguments.length==1){
+                alert("参数只有1个"+a);
+            }
+            if(arguments.length==2){
+                alert("参数只有2个,分别是"+a+","+b);
+            }
+            if(arguments.length > 2){
+                alert("参数太多了");
+            }
+       }
+       getOne(1);
+       getOne(23,25);
+       getOne(23,25,34);
+       
+    </script>
+</body>
+</html>

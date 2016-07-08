@@ -1,0 +1,62 @@
+添加header,content,footer盒子，放在一个页面容器page中
+<div data-role="page">
+
+	<div data-role="header" data-theme="b"><h1>myworld</h1></div>
+		
+<div data-role="content">
+		<p align="center">hello world</p>
+
+	<div>这是一个div盒子</div>
+		
+	<div id="con">
+
+	<input type="radio" name="sex"/>男
+			
+	<input type="radio" name="sex"/>女
+			<hr/>
+
+	圆角弹出的对话框：<a href="foo.html" data-rel="dialog" data-transition="pop">Opendialog</a>
+
+	</div>
+
+</div>
+
+<div data-role="footer" style="background:green;">
+<h3>this is a test</h3>
+</div>
+	</div>
+
+创建一个对话框：
+1 圆角弹出的强调对话框pop：<a href="foo.html" data-rel="dialog" data-transition="pop">Opendialog</a>
+
+2 向上弹出对话框slideup：<a href="foo.html" data-rel="dialog" data-transition="slideup">向上弹出一个对话框</a>
+
+关闭对话框：
+方法一：在弹出的对话框的页面foo.html中添加指向foo.html和data-rel="back"就可以：<a href="foo.html" data-rel="back">点击返回</a>
+方法二：对于js生成的链接，可以把链接的herf设为"#",添加data-rel="back"属性。也可以手动地调用对话框的close()方法关闭对话框，比如? $('.ui-dialog').dialog('close').
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+

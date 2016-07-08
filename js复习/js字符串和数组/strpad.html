@@ -1,0 +1,23 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+</head>
+<body>
+<div id="res"></div>
+	<script type="text/javascript">
+        //字符串填充
+        var str='fefe';
+        //在左边填充,不足12个字符用空格代替
+        var len=12;
+        var diff=len-str.length;//通过差值来填充字符串
+        var blank='&nbsp;';
+        for(var i=0;i< diff;i++){
+            str=blank+str;
+        }
+        document.getElementById('res').innerHTML=str;
+    </script>
+    
+</body>
+</html>

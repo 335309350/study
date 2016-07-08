@@ -1,0 +1,29 @@
+//1 警告框alert()
+		//alert(111);
+		//2 确认框prompt()返回文本框的值,如果没有输入就返回null
+		//var name=prompt("please input your name","heige");
+		//alert(name);
+		//3 document.write();//输出工具
+		document.write("iam heige!");
+
+
+
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title>输出工具</title>
+</head>
+<body>
+	<script type="text/javascript">
+		//1 警告框alert()
+		//alert(111);
+		//2 确认框prompt()返回文本框的值,如果没有输入就返回null
+		//var name=prompt("please input your name","heige");
+		//alert(name);
+		//3 document.write();//输出工具
+		document.write("iam heige!");
+	</script>
+</body>
+</html>
+

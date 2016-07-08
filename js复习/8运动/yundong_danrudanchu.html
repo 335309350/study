@@ -1,0 +1,55 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title>运动基础---淡入淡出</title>
+	<style type="text/css">
+		#dan_ru{
+			width:150px;
+			height:200px;
+			background:#aaa;
+			filter:alpha(opacity:30);opacity:0.3;
+		}
+		
+	</style>
+	<script type="text/javascript">
+		window.onload=function(){
+			var dan_ru=document.getElementById("dan_ru");
+			dan_ru.onmouseover=function(){
+				danru(50);//移入深一点
+			}
+			dan_ru.onmouseout=function(){
+				danru(30);
+			}
+			
+		}
+		var timer=null;
+		var alpha=30;//30透明度，初始化的
+		function danru(iTarget){
+			var odan=document.getElementById("dan_ru");
+			clearInterval(timer);
+			timer=setInterval(function(){
+				var speed=0;
+				if(alpha<iTarget){
+					speed=10;
+				}else{
+					speed=-10;
+				}
+				//当前的透明度和目标透明度比较
+				if(alpha==iTarget){
+					clearInterval(timer);//关闭定时器
+				}else{
+					alpha+=speed;
+					//物体的透明度变化
+					//filter:alpha(opacity:30);opacity:0.3;
+					odan.style.filter="alpha(opacity:"+alpha+")";
+					odan.style.opacity=alpha/100;//透明度是0.1-1之间	
+				}
+			},30);
+		}
+	</script>
+</head>
+<body>
+	<div id="dan_ru"></div>
+</body>
+</html>

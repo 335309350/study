@@ -1,0 +1,54 @@
+﻿<!doctype html>
+<html>
+<head>
+<title>表格的选项卡菜单应用</title>
+<meta charset="utf-8"/>
+<link rel="stylesheet" href="css/skin_01.css" id="cssfile"/>
+<script type="text/javascript" src="./js/jquery-1.8.3.min.js">
+</script>
+<script type="text/javascript">
+$(function(){
+		//alert("ok");
+		var $skin_li=$("#con_skin li");//获取点击的li换肤按钮
+		$skin_li.click(function(){
+			$("#"+this.id).addClass("li_selected").siblings().removeClass("li_selected");
+			//设置皮肤
+			$("#cssfile").attr("href","css/"+this.id+".css");
+		
+		});
+		
+	});
+</script>
+</head>
+<body>
+	<div id="content">
+		<ul id="con_skin">
+			<li id="skin_01">灰色</li>
+			<li id="skin_02">紫色</li>
+			<li id="skin_03">红色</li>
+			<li id="skin_04">天蓝色</li>
+			<li id="skin_05">橙色</li>
+			<li id="skin_06">淡绿色</li>	
+		</ul>
+		<div id="div_skin_01" class="div_skin">
+		时事新闻
+		</div>
+		<div id="div_skin_02" class="div_skin">
+		体育
+		</div>
+		<div id="div_skin_03" class="div_skin">
+		文化
+		</div>
+		<div id="div_skin_04" class="div_skin">
+		经济
+		</div>
+		<div id="div_skin_05" class="div_skin">
+		两性
+		</div>
+		<div id="div_skin_06" class="div_skin">
+		历史
+		</div>
+		
+	</div>
+</body>
+</html>

@@ -1,0 +1,61 @@
+﻿<!doctype html>
+<html>
+<head>
+<title>表格的应用</title>
+<meta charset="utf-8"/>
+<style type="text/css">
+	*{padding:0;margin:0;font-size:16px;}
+	#content_font{margin:0 auto;background:green;width:320px;height:200px;}
+	#content_font span{height:35px;line-height:35px;padding:3px 4px;background:#0163c9;color:#fff;cursor:pointer;margin:0 4px;}
+	#msg_txt{margin-top:3px;margin-left:18px;}
+	.msg_txt{overflow:hidden;}
+</style>
+<script type="text/javascript" src="./js/jquery-1.8.3.min.js">
+</script>
+<script type="text/javascript">
+$(function(){
+		//alert("ok");
+		//调大字体
+		$("#content_font span").click(function(){
+			var txt_size=$(".msg_txt").css("font-size");
+			//获取文本域中的默认字体大小和单位
+			//alert(txt_size);
+			var txt_font=parseInt(txt_size,10);
+			//alert(txt_font);
+			//得到字体的大小数字
+			//获取单位，截取后面两个字符串
+			var txt_unit=txt_size.slice(-2);
+			//alert(txt_unit);
+			//点击调大和调小获取对象的class
+			var cName=$(this).attr("class");
+			//alert(cName);
+			//根据当前对象的class执行不同的事件
+			if(cName=="bigger_font"){
+				if(txt_font<=22)
+					txt_font+=2;
+					//最大字体为22px
+			
+			}else{
+				if(txt_font>16)
+				txt_font-=2;
+				//最小字体是16px
+			}
+			//拼接设置字体
+			$(".msg_txt").css("font-size",txt_font+txt_unit);
+			//字体数字+单位
+		});
+		
+	});
+</script>
+</head>
+<body>
+	<div id="content_font">
+		<span class="bigger_font" title="放大字体">放大</span>
+		<span class="smaller_font"title="缩小字体">缩小</span>
+		<div id="msg_txt">
+		<form action="#" method="post" id="myform"></form>
+		<textarea cols="20" rows="5" form="myform" class="msg_txt"></textarea>
+		</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,120 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8"/>
+<title>表单操作</title>
+<style>
+	#msgform{border-collapse:collapse;border:1px solid #eee;}
+	.focus{border:1px solid #abcdef;background:#f9f9f9;}
+	.submit,.reset{background:#255E9C;height:30px;padding:0px 20px;line-height:1.8em;color:#fff;font-size:16px; cursor: pointer;margin:5px 8px;}
+	.big,.xt,.bigger,.smaller,.turnup,.turndown{margin:0 10px;font-weight:bolder;cursor:pointer;}
+	#msg{height:100px;font-size:14px;overflow:auto;}
+	.bigfont{font-size:20px;font-weight:bolder;}
+	.xtfont{font-style: italic;}
+</style>
+<script type="text/javascript" src="jquery-1.10.2.min.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			$(":input").focus(function(){
+				$(this).addClass("focus");//获取焦点时候添加样式
+			
+			}).blur(function(){
+				$(this).removeClass("focus");
+				//失去焦点时候去掉样式
+			
+			});
+			//粗体，斜体，调大，缩小操作
+			var $msg=$("#msg");
+			//增加50px高度
+			//无动画效果
+			/*
+			$(".bigger").click(function(){
+				if($msg.height()<300){
+					//在原有的高度上添加50px(最大300px)
+					$msg.height($msg.height()+50);
+				}
+			});
+			//减小50px
+			$(".smaller").click(function(){
+				if($msg.height()>100){
+					//在原有的高度上减小50px(最小高度是100px)
+					$msg.height($msg.height()-50);
+				}
+			});
+			*/
+			//有动画效果
+			$(".bigger").click(function(){
+				//是否处于动画状态
+				if(!$msg.is(":animated")){
+					if($msg.height()<300){
+						//在原有的高度上添加50px(最大300px)
+						$msg.animate({height:"+=50"},400);
+					}
+				}
+			});
+			//减小50px
+			$(".smaller").click(function(){
+				if(!$msg.is(":animated")){
+					if($msg.height()>100){
+						//在原有的高度上减小50px(最小高度是100px)
+						$msg.animate({height:"-=50"},400);
+					}
+				}
+			});
+			//粗体
+			$(".big").click(function(){
+				//alert("ok");
+				$msg.toggleClass("bigfont");
+			});
+			//斜体
+			$(".xt").click(function(){
+				//alert("ok");
+				$msg.toggleClass("xtfont");
+			});
+			//向下，向上滚动
+			//向上
+			$(".turnup").click(function(){
+				//alert("ok");
+				if(!$msg.is(":animated")){
+					//如果动画在活动点击会受到影响
+					$msg.animate({scrollTop:"-=50"},400);
+				
+				
+				}
+			
+			});
+			//向下
+			$(".turndown").click(function(){
+				//alert("ok");
+				if(!$msg.is(":animated")){
+					//如果动画在活动点击会受到影响
+					$msg.animate({scrollTop:"+=50"},400);
+				
+				
+				}
+			
+			});
+			
+		});
+	</script>
+</head>
+<body>
+	<table width="500" align="center" id="msgform">
+		<tr>
+			<td colspan="2">留言内容：</td>
+		</tr>
+		<tr>
+			<td width="380" height="35">
+				<span class="big" title="粗体">B</span><span class="xt" title="斜体"><em>I</em></span><span class="turnup" title="向上滚动"><b>↑</b></span><span class="turndown" title="向下滚动"><b>↓</b></span>
+			</td>
+			<td><span class="smaller" title="缩小">-</span><span class="bigger" title="调大">+</span></td>
+		</tr>
+		<tr>
+			<td colspan="2"><textarea cols="55" rows="4" name="msg" id="msg"></textarea></td>
+		</tr>
+		<tr>
+			<td colspan="2" align="center"><input type="submit" value="提交" class="submit"/>&nbsp;&nbsp;<input type="reset" value="取消" class="reset"/></td>
+		</tr>
+	</table>
+</body>
+</html>

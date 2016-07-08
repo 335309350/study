@@ -1,0 +1,49 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title>对象的继承</title>
+</head>
+<body>
+	<script type="text/javascript">
+        var obj=new Object();//系统自带的构造函数
+        //alert(Object);
+        /*
+        function Object() {
+            [native code]
+            }
+        */
+        //alert(obj.constructor);//对象的构造函数
+        /*
+        function Object() {
+            [native code]
+        }       */
+        //alert(obj.prototype);//函数对象的原型 undefined
+        /*
+        function fun(){
+            this.name='zhuwei';
+        }
+        var obj_fun=new fun();
+        alert(obj_fun.prototype);//函数对象的原型 undefined
+        alert(obj_fun.hasOwnProperty('name'));//true
+        */
+        //检测对象的属性是否局部定义的
+        //检查对象是否有局部定义的(非继承的)、具有特定名字的属性
+        
+        //用来检测对象的类型，isPrototypeOf
+        //检查对象是否是指定对象的原型
+        var arr=new Array();
+        alert(Array.prototype.isPrototypeOf(arr));//true,说明Array是arr对象的原型
+        
+        //instanceof 指出对象是否是特定类的一个实例
+        //判断对象是否是指定类的一个实例
+        alert(arr instanceof Array);
+        
+        
+        
+        
+        
+        
+        </script>
+</body>
+</html>

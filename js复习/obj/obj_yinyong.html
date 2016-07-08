@@ -1,0 +1,30 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title>类型引用</title>
+	<script type="text/javascript">
+		var arr1=[1,2,3];
+		/*
+		var arr2=arr1;
+		arr2.push(4);
+		alert(arr1);//1,2,3,4
+		alert(arr2);//1,2,3,4
+		*/
+		//原因：在js中有一种引用的东西，并没有将数组arr1复制一份，实际上让arr2也指向了arr1的地址（引用的是同一个地方）
+		var arr2=[];
+		//将数组arr1的值压入添加到arr2中
+		for(var i=0;i<arr1.length;i++){
+			arr2.push(arr1[i]);
+		}
+		arr2.push(4);
+		alert(arr2);//1,2,3,4
+		alert(arr1);
+		
+		
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

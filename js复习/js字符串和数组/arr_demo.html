@@ -1,0 +1,47 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title>数组的矩阵翻转</title>
+</head>
+<body>
+    <script type="text/javascript">
+       /*
+       11111
+       22222
+       33333
+       44444
+       翻转为
+       1234
+       1234
+       1234
+       1234
+       1234
+       */
+       var arr=[[1,1,1,1,1],[2,2,2,2,2],[3,3,3,3,3],[4,4,4,4,4]];
+       for(var i=0;i<arr.length;i++){
+            //对arr[i]循环处理
+            for(var j=0;j<arr[i].length;j++){
+                document.write(arr[i][j]);
+            }
+            document.write("<br/>");
+       }
+       //arr[0][0] arr[1][0] arr[2][0]
+       for(var i=0;i<arr[0].length;i++){
+            for(var j=0;j<arr.length;j++){
+                document.write(arr[j][i]);//j在变化，i不变化
+            }
+            document.write("<br/>");
+       }
+       
+       
+       
+       
+       
+       
+       
+       
+       
+    </script>
+</body>
+</html>

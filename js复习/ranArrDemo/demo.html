@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div id="box">
+		<img src="image/1.jpg" width="150" height="200">
+		<img src="image/2.jpg" width="150" height="200">
+		<img src="image/3.jpg" width="150" height="200">
+		<img src="image/4.jpg" width="150" height="200">
+		<img src="image/5.jpg" width="150" height="200">
+	</div>
+<button id="begin">开始</button>
+<button id="stop">结束</button>
+	<script type="text/javascript">
+		//得到随机数组
+		function randArr(a,b){
+			return Math.random()>0.5?-1:1
+		}
+		window.onload = function(){
+			// 先找到所有元素,box img begin stop
+			var flag =0;//中奖号码
+			var timer=null;
+			var oBox = document.getElementById('box');
+			var oBegin = document.getElementById('begin');
+			var oStop = document.getElementById('stop');
+			var aImg = oBox.getElementsByTagName('img');
+
+			oBegin.onclick = function(){
+				begin();
+			}
+			oStop.onclick=function(){
+				stop();
+				aImg[flag-1].style.border = '1px solid red';
+				alert('中奖号码为'+flag);
+			}
+			function begin(){
+				clearInterval(timer);
+				timer=setInterval(function(){
+					var arr = []
+					for (var i = 0; i < aImg.length; i++) {
+						arr[i]=i;
+						aImg[i].style.border='none';
+					}
+					var arrNew =arr.sort(randArr);
+					console.log(arrNew);
+					var arr1=[];
+					for (var i = 0; i <aImg.length ; i++) {
+							arr1[i] =aImg[arrNew[i]];	
+					}
+					for (var i = 0; i < arr1.length; i++) {
+						oBox.appendChild(arr1[i])
+					}
+					flag =arrNew[0]+1
+					
+				},300)
+			}
+			function stop(){
+				clearInterval(timer);
+
+			}
+		}
+	</script>
+</body>
+</html>

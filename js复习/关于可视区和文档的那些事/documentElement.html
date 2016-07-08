@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+<script>
+    //窗口相对于屏幕左边和上边的距离
+    var leftPos =(typeof window.screenLeft == 'number') ? window.screenLeft : window.screenX;
+    var topPos =(typeof window.screenTop == 'number') ? window.screenTop : window.screenY;
+    // alert(''+leftPos+topPos);
+   // 窗口大小（页面大小）
+   var pageWidth = window.innerWidth,pageHeight = window.innerHeight;//移动设备上的可见视口
+   if(typeof pageWidth != 'number'){
+        if(document.compatMode == 'CSS1Compat'){
+            pageWidth = document.documentElement.clientWidth;//对于移动的IE不支持可以采用这个属性
+            pageHeight = document.documentElement.clientHeight;
+            // 其他的浏览器中，这个属性是布局视口，渲染页面的实际大小。跟可视口不同，可见视口只是整个页面中的一小部分。其他的移动浏览器把布局视口的信息保存在document.body.clientWidth中，不会随着页面的变化而变化。
+
+        }else{//兼容IE6
+            pageWidth = document.body.clientWidth;
+            pageHeight = document.body.clientHeight;
+        }
+   }
+   alert(''+pageWidth+';'+pageHeight);
+   window.resizeBy(100,350);
+</script>
+</head>
+<body>
+<a href="javascript:;" title="" onclick="alert(1);window.moveBy(200,100)">移动100，100</a>
+</body>
+</html>

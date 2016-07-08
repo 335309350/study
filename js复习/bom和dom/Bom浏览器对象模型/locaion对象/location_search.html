@@ -1,0 +1,35 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title>location</title>
+</head>
+<body>
+	<script type="text/javascript">
+		function getQueryStrArgs(){//解析查询的字符串
+			var qs = location.search.length > 0 ? location.search.substring(1) : '';//得到去掉？后的查询字符串
+			var args = {};//保存查询的参数
+			//得到每个参数
+			var items = qs.length ? qs.split('&') : [];//参数&分割  name = xxx形式
+			var item = null,name = null;//item 表示索引,name表示key,value表示要查询的字符串对应的值
+			var value = null;
+			var i =0,len = items.length;//查询的key=val的长度
+			for(i=0;i<len;i++){
+				item = items[i].split("=");//按照=分割得到数组 0=>name,1=>val
+				name = decodeURIComponent(item[0]);//对参数进行编码
+				value = decodeURIComponent(item[1]);//编码
+				//压入args中
+				if(name.length){//参数名字存在
+					args[name]=value;
+				
+				}
+			}
+			return args;
+		}
+		alert(getQueryStrArgs()['name']);
+		alert(getQueryStrArgs()['age']);
+		alert(getQueryStrArgs()['sex']);
+	</script>
+	
+</body>
+</html>

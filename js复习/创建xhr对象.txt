@@ -1,0 +1,75 @@
+//1 创建xhr对象
+		function createXHR(){
+			//ie,非IE判断
+			var xhr=null;
+			if(window.ActiveXObject){
+				xhr=new ActiveXObject("Microsoft.XMLHTTP");
+			}else if(window.XMLHttpRequest){
+				xhr=new XMLHttpRequest();
+			}
+			return xhr;
+		}
+
+实例：
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title>XHR对象</title>
+	<script type="text/javascript">
+		//创建对象，发送请求，服务器处理，输出结果到页面
+		//1 创建xhr对象
+		function createXHR(){
+			//ie,非IE判断
+			var xhr=null;
+			if(window.ActiveXObject){
+				xhr=new ActiveXObject("Microsoft.XMLHTTP");
+			}else if(window.XMLHttpRequest){
+				xhr=new XMLHttpRequest();
+			}
+			return xhr;
+		}
+		//var xhr=createXHR();
+		//console.log(xhr);
+		//alert(xhr);
+		//2 发送请求
+		function vote(){
+			//1 先创建对象
+			var xhr=createXHR();
+			var vote_pic=document.getElementById("vote_pic");
+			//var data="username="+$("username").value;
+			//2 打开连接
+			var url="vote.php";
+			xhr.open("GET",url,true);//参数true表示异步执行
+			
+			//如果是POST方式，在打开连接，还要设置请求头信息
+			//xhr.open("POST",url,true);
+			//xhr.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+			
+			//状态改变时
+			xhr.onreadystatechange=function(){
+				//服务器准备状态和服务状态码分别是4，200
+				if(xhr.readyState==4 && xhr.status==200){
+					//4 回调函数处理服务器返回的信息xhr.responseText对于html,json格式都可以，对于XML就是responseXML
+					vote_pic.innerHTML=xhr.responseText;
+				}
+			}
+			//3 发送请求
+			xhr.send(null);	
+			//如果是post方式
+			//xhr.send(data);
+		}
+		
+	</script>
+	
+</head>
+<body>
+	<img src="2.jpg" alt="" />
+	<!--
+	<a href="vote.php"id="vote">投票</a>
+	-->
+	<a href="#" onclick="return vote()">投票</a>
+	<div id="vote_pic"></div>
+</body>
+</html>
+

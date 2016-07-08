@@ -1,0 +1,78 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title>字符串操作</title>
+	<script type="text/javascript">
+	var str="abacef";
+	//search()查找字符串的位置
+	//alert(str.search("b"));//找到就返回字符所在位置，否则就是-1
+	//substring(m,n)从m位置开始截取到n-1位置，不包含n
+	//alert(str.substring(2,4));//ac
+	//charAt获取某个位置的字符
+	//alert(str.charAt(2));//a
+	//split切割字符串为数组
+	//var str_p="123@fefefe@fefefe";
+	//alert(str_p.split("@"));//123,fefefe,fefefe
+	//var st_n="12 3,4sfe 5,6sss67609,9832,sssfe84353";
+	/*
+	var arr=[];
+	for(var i=0;i<st_n.length;i++){
+		if(st_n.charAt(i)>0 && st_n.charAt(i)<9){
+			arr.push(st_n.charAt(i));
+		}
+	}
+	*/
+	//alert(arr);//1,2,3,4,5,6,6,7,6,8,3,2,8,4,3,5,3
+	//利用正则匹配
+	//var arr2=st_n.match(/\d+/ig);//12,3,4,5,6,67609,9832,84353
+	//alert(arr2);
+	
+	//1 正则表达式写法
+	/*
+	var re=new RegExp("a");
+	//代表a本身
+	var sa="abcedf";
+	var b=sa.search(re);
+	//alert(b);//返回匹配位置
+	//另一种写法perl写法
+	var re_s=/a/;
+	alert(sa.search(re_s));
+	//正则区分大小写
+	var r=new RegExp("a","i");//ignore不区分大小写
+	var str2="Abcd";
+	alert(str2.search(r));
+	*/
+	
+	//正则表达式的转义\n表示换行,\d表示数字
+	var str="fefe,3,43,2,1";
+	var r=/\d+/ig;
+	//alert(str.search(r));//返回字符的位置5
+	
+	//match用法,配合g表示全部global找到全部
+	//alert(str.match(/\d+/ig));//匹配所有的数字3，4，2，1
+	//如果我们要两位组合
+	//alert(str.match(/\d\d/ig));//43
+	
+	//量词+一次或多次，若干。
+	//alert(str.match(/\d+/ig));//3,43,2,1
+	
+	//fefe,3,43,2,1替换字符串
+	//replace()只有配合正则才能发挥优势
+	alert(str.replace(/f/ig,"**"));//将f全部替换为**
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

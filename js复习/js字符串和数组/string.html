@@ -1,0 +1,98 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title>String对象</title>
+</head>
+<body>
+	<script type="text/javascript">
+        var str='后端开发';
+        //alert(str.length);//4 length不分中英文
+        //var s='abcdefghijkl';
+        //alert(s.charAt(3));//d
+        //alert(s.charAt(-2));//参数n不在0和string.length-1之间，该方法将返回一个空字符串(有兼容性）
+        //alert(s[0]);
+        //2 charCodeAt();
+       // alert(s.charCodeAt(3));//100
+        //string中的第n个字符的Unicode编码。这个返回值是0～65535之间的16位整数
+        
+        //3 String.fromCharCode(c1, c2, ...)
+        //这个静态方法提供了一种创建字符串的方式，即字符串中的每个字符都由单独的数字 Unicode编码指定
+        //alert(String.fromCharCode(104, 101, 108, 108, 111));//hello
+        
+        //查找的方法
+        //4 indexOf() 返回指定的字符在字符串中首次出现的位置，没有找到就是-1
+        /*
+        var str_1='feabcefess';
+        alert(str_1.indexOf('b'));//3
+        alert(str_1.indexOf('t'));//-1
+        */
+        //5 lastIndexOf() 从右边往左边，从后往前首次出现的位置
+        //alert(str_1.lastIndexOf('s'));//9
+        
+        // 6 match()检索指定的值，返回存放匹配结果的数组
+        var s='1234#23#21#sfefe34@';
+        //查找所有的数字
+        //alert(s.match(/\d+/g));//1234,23,21,34 
+        //g表示全局检索，返回数组结果集
+        
+        //7 s.search()通过正则检索
+        //search()并不执行全局匹配，它将忽略标志g。它也忽略regexp的lastIndex属性，并且总是从字符串的开始进行检索，这意味着它总是返回string的第一个匹配的位置
+        //alert(s.search(/\d+/));//0
+        
+        //8 replace() 替换，也可以支持正则
+        //s=s.replace(/#/g,'@');//全部替换#为@
+        //alert(s);
+        
+        
+        //三 截取类型的方法
+        //1 s.slice(start,end) 从start位置开始到end位置截取字符串，不包含结束位置
+        //如果没有end就从开始的位置到结尾
+        var str='fefeabcedf';
+        var sl=str.slice(1,3);
+        //alert(sl);//1,2 ef
+        
+        //2 substring(start,end)
+        //alert(str.substring(0,4));//fefe //0,1,2,3从0开始取到4索引，不包含4位置上的字符
+        
+        //3 substr(start,length) 从指定的位置截取指定长度的字符串
+        //alert(str.substr(0,3));//efe
+        
+        //区分slice() substring()
+        //slice()参数可以是负数，负数从后面-1开始（字符串的结尾） 而 substring() 对-1直接转化为0
+        
+        var a='daheige';
+        //alert(a.slice(-3,-1));//如果是负数从后往前 -3,-2,-1
+        //取出ig,不包含e
+        //如果用substring()
+        //alert(a.substring(-1));
+        //-1 转化为0 从0开始截取到结尾daheige
+        
+        //四 转化类型的方法
+        //string.split(delimiter, limit) limit表示指定的个数
+        var s='fefe@FFF@sss@ddd';
+        //alert(s.split('@'));//fefe,fefefe,sss,ddd
+        
+        //2 转化为小写 string.toLowerCase( )
+        alert(s.toLowerCase());
+        
+        // 3 转化为大写 s.toUpperCase()
+        alert(s.toUpperCase());//FEFE@FFF@SSS@DDD
+        
+        // 字符串连接
+        //string.concat(value, ...) 
+        var st='ss';
+        alert(st.concat(1,'fefessss','45'));//ss1fefessss45
+        
+        //五 样式类型的方法
+        // 1 fontcolor()指定颜色
+        var fe='sssfefe';
+        //document.write(fe.fontcolor('red'));
+        // 2 指定大小fontsize() 1-7
+        document.write(fe.fontsize(1));
+        document.write(fe.fontsize(2));
+        document.write(fe.fontsize(3));
+    </script>
+    <div id='fe'>sss</div>
+</body>
+</html>

@@ -1,0 +1,19 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+        //检测一个存在的，非空字符串
+        //undefined空值，字符串类型是string,长度不为0
+        var s='fefe';
+        if(typeof s != 'undefined' && typeof s.valueOf() == 'string' && s.length >0 ){
+            //s.valueOf()对于所有的js对象可用，不管对象是什么，都返回基本的值：number,string,boolean,function
+            alert(1);//1
+        }else
+            alert(0);
+    </script>
+</body>
+</html>

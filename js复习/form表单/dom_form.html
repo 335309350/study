@@ -1,0 +1,27 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title>表单基础</title>
+	<script type="text/javascript">
+		window.onload=function(){
+			var oForm=document.getElementById("my_frm");
+			oForm.onsubmit=function(){
+				alert(111);
+			}
+			//重置
+			oForm.onreset=function(){
+				return confirm("确定要重置吗？");
+			}
+		}
+	</script>
+</head>
+<body>
+	<form action="http://www.baidu.com" id="my_frm">
+		用户名：<input type="text" name="name" />
+		密码：<input type="password" name="pass" />
+		<input type="submit" value="提交" />
+		<input type="reset" value="重置" />
+	</form>
+</body>
+</html>

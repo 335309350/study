@@ -1,0 +1,106 @@
+1 toggle()切换状态
+比如用在鼠标连续点击
+$("#panel h3.head").toggle(function(){
+				//显示内容
+				$(this).next().show();//当前元素后的一个元素
+			},function(){
+				$(this).next().hide();//当前元素后的一个元素隐藏
+			});
+
+2 slideToggle()通过高度来给内容添加可见性状态
+相当于toggle()和slideUp()向上隐藏和slideDown()三者的组合
+$(function(){
+			//slideToggle()通过高度来匹配显示和隐藏元素相当于toggle和slideDown(),slideUp()组合
+			//3 slideDown()向下显示，slideUp()向上隐藏
+			$("#panel h3.head").click(function(){
+				
+				$(this).next().slideToggle(2000);
+				//在显示和隐藏之间切换
+			
+			});
+		});
+实例：slideToggle()通过高度来显示和隐藏
+
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title>jq动画训练</title>
+	<script type="text/javascript" src="jquery-1.8.3.min.js"></script>
+	<script type="text/javascript">
+		//jq动画训练
+		$(function(){
+			//slideToggle()通过高度来匹配显示和隐藏元素相当于toggle和slideDown(),slideUp()组合
+			//3 slideDown()向下显示，slideUp()向上隐藏
+			$("#panel h3.head").click(function(){
+				
+				$(this).next().slideToggle(2000);
+				$(this).next().addClass("high");
+				//在显示和隐藏之间切换
+			
+			});
+		});
+	
+	</script>
+	<style type="text/css">
+	*{padding:0;margin:0;}
+	#panel{width:300px;border:1px solid #0163e9;margin:0 auto;}
+	#panel h3{background:#eee;}
+	.con{display:none;padding-bottom:6px;}
+	.high{background:#abcdef;text-indent:2em;padding-left:3px;line-height:32px;}
+	</style>
+</head>
+<body>
+	<div id="panel">
+		<h3 class="head">什么是JQ</h3>
+		<div class="con">JQ是继pro之后的又一个Js库，它是一个由john创建于2006年1月的开源项目。JQ凭借简洁的语法和跨平台的兼容性，极大简化了JS开发人员遍历HTML文档、DOM操作、处理事件、执行动画和AJAX。它独特而又优雅的代码风格改变了JS程序员的设计思路和编写程序的方式。
+		</div>
+	</div>
+</body>
+</html>
+
+3 fadeToggle()对元素进行这个方法相当于fadeOut()和fadeIn()组合
+<script type="text/javascript">
+		//jq动画训练
+		$(function(){
+			//fadeTo()相当于给元素fadeOut(),fadeIn()方法
+			//淡出，淡入（显示，消失）
+			$("#panel h3.head").click(function(){
+				$(this).next().fadeToggle(1000);
+				$(this).next().addClass("high");
+				//在显示和隐藏之间切换
+			
+			});
+			
+		});
+	
+	</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

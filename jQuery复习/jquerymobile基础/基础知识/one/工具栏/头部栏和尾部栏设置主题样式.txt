@@ -1,0 +1,10 @@
+头部栏和尾部栏都默认都设”a"主题样式（黑色），因为这两个工具栏在视觉上为页面最首要的
+给头部栏和尾部栏设置主题样式　Theming headers and footers
+给头部栏和尾部栏设置data-theme属性，并指定不同的字母（a, b, c等）。下面一个例子是把头部栏的主题样式设?b"(蓝色)
+<div data-role="header" data-theme="b"> 
+　 <h1>Page Title</h1> 
+</div> 
+
+给导航栏的按钮设置主题样式　Theming buttons in toolbars
+头部栏里的任何加入的任何链接会自动设为与此工具栏相同的主题样式。给链接增加 data-theme属性并设置，可以让按钮的主题样式与工具栏的不相一致。例如：如果我们给头部栏设定的主题样式为"c"(浅灰)，里面的两个按钮的主题样式默认也会为"c",如果我们想让按钮有所区别，可以给按钮设置 data-theme?b"(蓝色)
+<a href="add-user.php" data-theme="b">Save</a>

@@ -1,0 +1,34 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title>字符串操作--过滤html标签</title>
+	<script type="text/javascript">
+	window.onload=function (){
+		var otxt1=document.getElementById("txt1");
+		var otxt2=document.getElementById("txt2");
+		var obtn=document.getElementById("obtn");
+		obtn.onclick=function(){
+			//匹配html标签
+			/*
+						<.+>
+			匹配html
+			会匹配长的字符串，正则比较贪婪，把整个<p>fefe<p>fefe</p></p>都过滤掉
+			<除了<>任意字符>
+			/<[^<>]+>/ig;匹配html所有的标签
+			*/
+			
+			var re=/<[^<>]+>/ig;
+			var t2=otxt1.value.replace(re,"");
+			otxt2.value=t2;
+		}
+		
+	}
+	</script>
+</head>
+<body>
+	<textarea name="" id="txt1" cols="30" rows="10"></textarea>
+	<input type="button" id="obtn" value="转换" />
+	<textarea name="" id="txt2" cols="30" rows="10"></textarea>
+</body>
+</html>

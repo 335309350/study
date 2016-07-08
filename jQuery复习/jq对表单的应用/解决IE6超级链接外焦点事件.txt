@@ -1,0 +1,16 @@
+<!--对于ie6不支持除超级链接外的:hover伪类选择符，可以用JQ来实现-->
+	<script type="text/javascript" src="jquery-1.10.2.min.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			$(":input").focus(function(){
+				$(this).addClass("focus");//获取焦点时候添加样式
+			
+			}).blur(function(){
+				$(this).removeClass("focus");
+				//失去焦点时候去掉样式
+			
+			});
+		});
+	
+	</script>
+

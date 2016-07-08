@@ -1,0 +1,142 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>jq图片左右移动动画</title>
+	<style type="text/css">
+		*{padding:0;margin:0;}
+		ul,ol{list-style:none;}
+		a{text-decoration:none;}
+		.v_show{
+			width:745px;height:235px;background:#01639e;margin:0 auto;text-align:center;
+		}
+		.v_caption{background:#eee;height:35px;padding-top:5px;margin:0 auto;}
+		.v_caption h2,.change_btn,.high_tip{float:left;}
+		.high_tip{margin-left:25px;margin-top:4px;}
+		.high_tip span{margin-left:10px;cursor:pointer;}
+		.change_btn{margin-left:45px;margin-top:4px;}
+		.change_btn span{margin-right:12px;cursor:pointer;}
+		.v_caption em{float:left;margin-left:330px;margin-top:6px;}
+		.v_content{height:196px;margin:0 auto;position:relative;overflow:hidden;}
+		.v_content_list{position:absolute;}
+		.v_content ul li{float:left;width:176px;text-align:center;margin:3px;}
+		.v_content ul li img{border:none;width:160px;height:150px;}
+		.high_span{border-radius:2px;padding:3px 4px;height:25px;color:#fff;background:#0163c9;}
+	</style>
+	<script type="text/javascript" src="./js/jquery-1.8.3.min.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			//alert("ok");
+			var page=1;
+			var i=4;
+			//初始化第一页，每一页显示4个
+			$("span.next").click(function(){
+				//alert("ok");
+				//单击当前元素获得父元素
+				var $parent=$(this).parents("div.v_show");
+				//获得图片列表v_content
+				var $v_content=$parent.find("div.v_content");
+				//获得图片列表展示区域
+				var $v_show=$parent.find("div.v_content_list");
+				//获取获得图片列表v_content的宽度
+				var v_width=$v_content.width()-12;
+				//alert(v_width);
+				//获取总的图片数目
+				var len=$v_show.find("li").length;
+				//alert(len);
+				var page_count=Math.ceil(len/i);//总的页数
+				//alert(page_count);
+				if(!$v_show.is(":animated")){
+					if(page==page_count){
+						$v_show.animate({left:"0px"},"slow");
+						page=1;//如果当前页面等于总的页数就回到第一页
+						
+					
+					}else{
+						$v_show.animate({left:"-="+v_width},"slow");
+						page++;
+					
+					}
+					$parent.find("span").eq((page-1)).addClass("high_span").siblings().removeClass("high_span");
+				}
+			
+			});
+			//点击上一页
+			$("span.prev").click(function(){
+				//alert("ok");
+				//单击当前元素获得父元素
+				var $parent=$(this).parents("div.v_show");
+				//获得图片列表v_content
+				var $v_content=$parent.find("div.v_content");
+				//获得图片列表展示区域
+				var $v_show=$parent.find("div.v_content_list");
+				//获取获得图片列表v_content的宽度
+				var v_width=$v_content.width();
+				//alert(v_width);
+				//获取总的图片数目
+				var len=$v_show.find("li").length;
+				//alert(len);
+				var page_count=Math.ceil(len/i);//总的页数
+				//alert(page_count);
+				if(!$v_show.is(":animated")){
+					if(page==1){
+						$v_show.animate({left:"-="+v_width*(page_count-1)},"slow");
+						page=page_count;//如果当前页面等于总的页数就回到第一页
+					
+					}else{
+						$v_show.animate({left:"+="+v_width},"slow");
+						page--;
+					
+					}
+					$parent.find(".high_tip span").eq((page-1)).addClass("high_span").siblings().removeClass("high_span");
+				}
+			
+			});
+		});
+	
+	</script>
+</head>
+<body>
+	<div class="v_show">
+		<!--图片标题-->
+		<div class="v_caption">
+			<h2>动画滚动</h2>
+			<div class="high_tip">
+			<span class="high_span">1</span><span>2</span><span>3</span><span>4</span>
+			</div>
+			<div class="change_btn">
+				<span class="prev">上一页</span>
+				<span class="next">下一页</span>
+			</div>
+			<em><a href="#">更多</a></em>
+		</div>
+		<!--图片标题结束-->
+		<!--图片列表v_content-->
+		<div class="v_content">
+			<!--左右移动-->
+			<div class="v_content_list">
+				<ul>
+						<li><a href="#"><img src="images/meitu_00101.jpg" alt=""/></a><h4>黑哥的一天</h4><span>播放：<em>12次</em></span></li>
+						<li><a href="#"><img src="images/meitu_00102.jpg" alt=""/></a><h4>黑哥的一天</h4><span>播放：<em>12次</em></span></li>
+						<li><a href="#"><img src="images/meitu_00103.jpg" alt=""/></a><h4>黑哥的一天</h4><span>播放：<em>12次</em></span></li>
+						<li><a href="#"><img src="images/meitu_00104.jpg" alt=""/></a><h4>黑哥的一天</h4><span>播放：<em>12次</em></span></li>
+						<li><a href="#"><img src="images/meitu_00105.jpg" alt=""/></a><h4>黑哥的一天</h4><span>播放：<em>12次</em></span></li>
+						<li><a href="#"><img src="images/meitu_00106.jpg" alt=""/></a><h4>黑哥的一天</h4><span>播放：<em>12次</em></span></li>
+						<li><a href="#"><img src="images/meitu_00107.jpg" alt=""/></a><h4>黑哥的一天</h4><span>播放：<em>12次</em></span></li>
+						<li><a href="#"><img src="images/meitu_00108.jpg" alt=""/></a><h4>黑哥的一天</h4><span>播放：<em>12次</em></span></li>
+						<li><a href="#"><img src="images/meitu_00109.jpg" alt=""/></a><h4>黑哥的一天</h4><span>播放：<em>12次</em></span></li>
+						<li><a href="#"><img src="images/meitu_00110.jpg" alt=""/></a><h4>黑哥的一天</h4><span>播放：<em>12次</em></span></li>
+						<li><a href="#"><img src="images/meitu_00111.jpg" alt=""/></a><h4>黑哥的一天</h4><span>播放：<em>12次</em></span></li>
+						<li><a href="#"><img src="images/meitu_00112.jpg" alt=""/></a><h4>黑哥的一天</h4><span>播放：<em>12次</em></span></li>
+						<li><a href="#"><img src="images/meitu_00113.jpg" alt=""/></a><h4>黑哥的一天</h4><span>播放：<em>12次</em></span></li>
+						<li><a href="#"><img src="images/meitu_00114.jpg" alt=""/></a><h4>黑哥的一天</h4><span>播放：<em>12次</em></span></li>
+						<li><a href="#"><img src="images/meitu_00115.jpg" alt=""/></a><h4>黑哥的一天</h4><span>播放：<em>12次</em></span></li>
+						<li><a href="#"><img src="images/meitu_00116.jpg" alt=""/></a><h4>黑哥的一天16</h4><span>播放：<em>12次</em></span></li>
+						
+				</ul>
+			</div>
+		</div>
+		<!--列表结束-->
+	</div>
+</body>
+</html>

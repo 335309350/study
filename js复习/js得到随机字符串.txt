@@ -1,0 +1,12 @@
+(function getRandKey(){
+	var key = 'abcdef';
+	var len = key.length;
+	var newA ='';
+	for (var i = 0; i < len; i++) {
+		var ran = Math.ceil(Math.random()*len);
+		newA+=key[ran-1];
+	}
+	alert(newA)
+})()
+
+math.random()的范围是   [0,1);

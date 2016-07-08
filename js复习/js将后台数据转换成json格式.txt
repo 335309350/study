@@ -1,0 +1,4 @@
+
+
+	//将后台数据转换成json格式
+	var data = eval("("+data+")")||JSON.parse(data);

@@ -1,0 +1,24 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+    <script type="text/javascript">
+        //异步加载js文件，如果要加载js代码，可以用createTextNode('js代码');
+        function loadScriptFile(jsfile){
+            var script = document.createElement('script');
+            script.type="text/javascript";
+            script.src=jsfile;
+            var head = document.getElementsByTagName('head')[0];
+            head.appendChild(script);
+            //document.body.appendChild(script);
+        }
+        window.onload=function(){
+            loadScriptFile("my.js");
+        }
+    </script>
+</head>
+<body>
+	<a href="javascript:;" onclick="alert(get_name('fefe'))">点击异步js事件</a>
+</body>
+</html>

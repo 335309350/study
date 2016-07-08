@@ -1,0 +1,88 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title>对象的继承</title>
+</head>
+<body>
+	<script type="text/javascript">
+        /*
+        function Fun(){
+            this.name='zhuwei';
+        }
+        var obj=new Fun();
+        alert(obj.constructor);
+        /*构造函数
+        function Fun(){
+            this.name='zhuwei';
+        }*/
+        
+        //1 通过原型实现继承
+        /*
+        function Person(){
+            this.name='张三';
+            this.say=function(){
+                alert(this.name);
+            }
+        }
+        function Student(){
+            
+        }
+        Student.prototype=new Person();//继承了Person()
+        
+        var zhan=new Student();
+        zhan.say();//实现了子类继承父类
+        */
+        //2 对象冒充的方式继承
+        /*
+        function Person(){
+            this.name='张三';
+            this.say=function(){
+                alert(this.name);
+            }
+        }
+        function Student(){
+            this.name='李四';
+        }
+        var person=new Person();
+        var stu=new Student();
+        person.say.call(stu);//person对象的say冒充stu的方法
+        //stu.say();
+        //弹出undefined因为在Student中么有定义this.name
+        stu.say();//李四
+        */
+        //3 obj.call(this,参数1,参数2，...);用obj对象当作this，谁引用就是那个对象
+        /*
+        function Person(){
+            this.name='张三';
+            this.say=function(){
+                alert(this.name);
+            }
+        }
+        function Student(){
+            Person.call(this);
+            //其实就是window.Person.call(this);
+        }
+        var zhan=new Student();
+        zhan.say();//张三
+        */
+        //apply 参数是一个数组
+        function Person(name){
+            this.name=name;
+            this.say=function(){
+                alert(this.name);
+            }
+        }
+        function Student(){
+            Person.apply(this,['zhangsan']);
+            
+        }
+        var stu=new Student();
+        stu.say();
+        
+        
+        
+        
+    </script>
+</body>
+</html>

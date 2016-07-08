@@ -1,0 +1,4 @@
+attr("name","value");
+3 删除属性及其值
+removeAttr();
+$("p").removeAttr("title");

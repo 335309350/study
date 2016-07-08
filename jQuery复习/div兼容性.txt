@@ -1,0 +1,13 @@
+在头部写上声明
+<!doctype html>
+<html>
+<head>
+</head>
+<body>
+</body>
+</html>
+
+如果使用margin:0 auto;不能居中，就在外部套一个盒子设置text-align:center;
+里面的盒子就用margin:0 auto;
+
+或者对于IE5,IE6的就在body{text-align:center;}这是下策

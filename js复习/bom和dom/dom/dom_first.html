@@ -1,0 +1,54 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title>dom基础--子节点</title>
+	<script type="text/javascript">
+		window.onload=function(){
+			var oUl=document.getElementById("myul");
+			var aLi=oUl.getElementsByTagName("li");
+			
+			//获取a
+			var aA=oUl.getElementsByTagName("a");
+			//给a标签添加事件
+			for(var i=0;i<aA.length;i++){
+				aA[i].index=i;
+				//点击a隐藏当前的行
+				aA[i].onclick=function(){
+					//第一种写法
+					//aLi[this.index].style.display="none";
+					//隐藏的是a的父节点li,parentNode表示父节点
+					this.parentNode.style.display="none";
+				}
+			}
+			//firstChild,有兼容性
+			//给UL的子节点li添加背景
+			//oUl.firstChild.style.background="red";
+			//高级浏览器
+			//oUl.firstElementChild.style.background="red";
+			//兼容性判断
+			if(oUl.firstElementChild){
+				oUl.firstElementChild.style.background="red";
+				
+			}else{
+				oUl.firstChild.style.background="red";
+			}
+			
+			
+			
+			
+		}
+	</script>
+</head>
+<body>
+	<ul id="myul">
+		<li>fefe<a href="javascript:;">隐藏</a></li>
+		<li>fefe<a href="javascript:;">隐藏</a></li>
+		<li>fefe<a href="javascript:;">隐藏</a></li>
+		<li>fefe<a href="javascript:;">隐藏</a></li>
+		<li>fefe<a href="javascript:;">隐藏</a></li>
+		<li>fefe<a href="javascript:;">隐藏</a></li>
+		
+	</ul>
+</body>
+</html>

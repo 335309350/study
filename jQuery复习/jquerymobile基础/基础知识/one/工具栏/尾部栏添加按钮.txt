@@ -1,0 +1,12 @@
+添加按钮 Adding buttons
+给尾部栏添加任何有效的按钮标记的元素都都会生成按钮。为了节省空间，工具栏里的按钮都是内联按钮，所以按钮的宽度只容纳icon和里面的文字
+默认情况下，工具栏内部容纳组件与导航时是不留padding的。如果要给工具栏增加padding,请增加一个ui-bar的class.
+<div data-role="footer" class="ui-bar">
+　 <a href="index.html" data-role="button" data-icon="delete">Remove</a>
+　 <a href="index.html" data-role="button" data-icon="plus">Add</a>
+　 <a href="index.html" data-role="button" data-icon="arrow-u">Up</a>
+　 <a href="index.html" data-role="button" data-icon="arrow-d">Down</a>
+</div>
+
+要想把几个按钮打包成一个按钮组，则需要把这些按钮用一个容器包裹，并给该容器增加data-role="controlgroup"和data-type="horizontal"属性 
+<div data-role="controlgroup" data-type="horizontal">

@@ -1,0 +1,68 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title>dom基础--子节点</title>
+	<script type="text/javascript">
+		window.onload=function(){
+			var oUl=document.getElementById("myul");
+			var aLi=oUl.getElementsByTagName("li");
+			//得到子节点的个数
+			//oUl.childNodes是子节点的数组
+			//oUl.childNodes算了空的节点和元素节点
+			//alert(oUl.childNodes.length);
+			/*
+			for(var i=0;i<oUl.childNodes.length;i++){
+				//alert(oUl.childNodes[i].nodeType);
+				//文本节点类型是3，元素节点是1
+				if(oUl.childNodes[i].nodeType==1){
+					oUl.childNodes[i].style.background="green";
+				}
+			}
+			*/
+			//节点的另一个children只包含元素，不含有文本
+			/*
+			for(var i=0;i<oUl.children.length;i++){
+				//alert(oUl.childNodes[i].nodeType);
+				//文本节点类型是3，元素节点是1
+				if(oUl.children[i].nodeType==1){
+					oUl.children[i].style.background="green";
+				}
+			}
+			*/
+			//父节点parentNode
+			//alert(oUl.parentNode);//object HTMLBodyElement
+			
+			//获取a
+			var aA=oUl.getElementsByTagName("a");
+			//给a标签添加事件
+			for(var i=0;i<aA.length;i++){
+				aA[i].index=i;
+				//点击a隐藏当前的行
+				aA[i].onclick=function(){
+					//第一种写法
+					//aLi[this.index].style.display="none";
+					//隐藏的是a的父节点li,parentNode表示父节点
+					this.parentNode.style.display="none";
+				}
+			}
+			
+			//获取元素在页面中的实际位置offsetParent
+			//css根据有定位的节点元素为基础，一直往上找
+			
+			
+		}
+	</script>
+</head>
+<body>
+	<ul id="myul">
+		<li>fefe<a href="javascript:;">隐藏</a></li>
+		<li>fefe<a href="javascript:;">隐藏</a></li>
+		<li>fefe<a href="javascript:;">隐藏</a></li>
+		<li>fefe<a href="javascript:;">隐藏</a></li>
+		<li>fefe<a href="javascript:;">隐藏</a></li>
+		<li>fefe<a href="javascript:;">隐藏</a></li>
+		
+	</ul>
+</body>
+</html>

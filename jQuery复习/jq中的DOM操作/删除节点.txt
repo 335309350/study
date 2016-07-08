@@ -1,0 +1,22 @@
+删除节点有三种方法
+remove()
+detach()
+empty()
+
+remove()从DOM中删除所有匹配的元素
+$("ul li:eq(1)").remove();
+
+//1 remove()方法，删除后还可以添加回来
+var $li_1=$("ul li:eq(1)").remove();
+//$li_1.appendTo("ul");
+//删除后还可以添加回来
+
+还可以通过元素的属性值来删除
+$("ul li").remove("li[title=菠萝]");
+
+
+2 detach()从DOM中去掉所有匹配的元素，不会把匹配的元素从JQ对象中删除，可以在将来再使用这些元素，和remove()不同，所有绑定的元素的事件，附加的数据等都保留下来。
+
+3 清空节点，不是删除节点empty()
+
+

@@ -1,0 +1,51 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title>限制复选框最多选择几个</title>
+    <script type="text/javascript">
+        window.onload=function(){
+            var _mybox=document.getElementById('mybox');
+            var banNums=3;//最多3个被选中
+            //var _myinputs=_mybox.getElementsByTagName('input');
+            var _myinputs=document.getElementsByName('my[]');
+            //alert(_myinputs.length);
+            for(var i in _myinputs){
+                _myinputs[i].onclick=function(){
+                    //每个input点击触发事件
+                    var myinputs=document.getElementsByName('my[]'),selectNums=0;//初始化为0个
+                    for(var i in myinputs){
+                        if(i == 'length'){
+                            break;
+                        }
+                        if(myinputs[i].checked){
+                            //有选择的话，selectNums++
+                            selectNums++;
+                           
+                        }
+                    }
+                    //如果超过了规定的个数就返回假
+                    if(selectNums > banNums){
+                        this.checked=false;
+                        console.log(selectNums);
+                        alert("最多选择3个");
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+    <p>最多选择3个</p>
+	<div id="mybox">
+    <input type="checkbox" name="my[]"/>1
+	<input type="checkbox" name="my[]"/>2
+	<input type="checkbox" name="my[]"/>3
+	<input type="checkbox" name="my[]"/>4
+	<input type="checkbox" name="my[]"/>5
+	<input type="checkbox" name="my[]"/>6
+	<input type="checkbox" name="my[]"/>7
+	<input type="checkbox" name="my[]"/>8
+    </div>
+</body>
+</html>

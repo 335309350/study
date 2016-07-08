@@ -1,0 +1,25 @@
+hide()和show()隐藏和显示，同时改变元素的多个属性，宽度，高度，不透明度
+
+fadeIn()和fadeOut()消失和显示，只改变了元素的不透明度
+
+slideUp()和slideDown()向上隐藏，向下显示，改变了元素的高度
+
+toggle()点击切换不同状态达到显示和隐藏效果，配合show(),hide(),fadeOut(),fadeIn()使用
+
+
+slideToggle()对元素使用这个方法，相当于slideUp(),slideDown()
+
+fadeToggle()相当于fadeOut()和fadeIn()两者切换
+
+animate({a:"b",c:"d"},time,func)自定义动画
+比如：animate({left:"20px",top:"20px"},2000,function(){})
+要对这个盒子添加一个样式属性position:relative或者absolute属性才能实现“定位移动”。
+
+1 自定义动画，如果在animate()方法中设置多个属性值，就同时发生动画
+2 当以链式的方式写animate()动画会按照顺序来执行
+3 多组动画，默认下动画是同时发生，如果用了回调函数就按照回调函数顺序来。
+
+
+
+
+

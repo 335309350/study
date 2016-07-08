@@ -1,0 +1,18 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+       //提取子字符串
+       var s='this is a test.this a list:one,two,three.';
+       var start=s.indexOf(":");//第一次出现:位置
+       var end=s.indexOf(".",start+1);//从哪个位置start+1开始查找
+       //到末尾的.位置
+       var list=s.substring(start+1,end);//从:之后开始查找
+       alert(list);//one,two,three
+    </script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title>判断是否为空</title>
+</head>
+<body>
+	<script type="text/javascript">
+        //去掉空白字符，或者空格u00A0
+        function trim(str){
+            return str.replace(/^(\s|\u00A0)+|(\s|\u00A0)+$/g,'');
+        }
+        //内容是否为空
+        function isContent(_str){
+            _str=_str.replace(/^(\s|\u00A0)+|(\s|\u00A0)+$/g,'');
+            return (!_str) ? true : false;
+            //return _str.length == 0 ? true : false;
+        }
+        window.onload=function(){
+            var _rstrsbtn=document.getElementById('rstrsbtn');
+            var _strs=document.getElementById('strs');
+            _rstrsbtn.onclick=function(){
+                //alert(_strs.value);
+                _strs.value=trim(_strs.value);
+                /*
+                if( !_strs.value ){
+                    //为空
+                    alert('您输入的内容为空');
+                }else{
+                    alert(_strs.value);
+                }
+                */
+                alert(isContent(_strs.value));
+            }
+        }
+    </script>
+    <input type="text" name="strs" id="strs" /><br/>
+    <input type="button" id="rstrsbtn" value="过滤空格" />
+</body>
+</html>

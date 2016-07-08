@@ -1,0 +1,11 @@
+起导航作用的按钮应该写为链接，在表单内起提交作用的按钮,Jquery Mobile会同样的用样式来标记。
+将链接样式化为按钮 Styling links as buttons
+在page的区域内，可以通过给链接加data-role="button"的属性样式化为按钮。Jquery Mobile会给链接加一些必要的class来把他表现为按钮。
+html代码：
+
+<a href="index.html" data-role="button">Link button</a>
+
+
+表单按钮 Form buttons
+为了容易的样式化按钮，Jquery Mobile自动把type为submi,reset,button或image的按钮元素或输入元素样式化为按钮，所以没有必要增加data-role="button"的属性
+基于表单(form-based)的按钮的原始按钮(input)是隐藏的，但是依然保留其标记。 当一个按钮的点击事件触发时，也会在原始的表单按钮上触发点击事件

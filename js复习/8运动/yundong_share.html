@@ -1,0 +1,83 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title>运动基础---分享到案例</title>
+	<style type="text/css">
+		#share{
+			width:150px;
+			height:200px;
+			position:absolute;
+			background:#aaa;
+			left:-150px;
+		}
+		#share span{
+			position:absolute;
+			width:20px;
+			height:75px;
+			line-height:20px;
+			background:green;
+			right:-20px;
+			top:60px;
+			
+		}
+	</style>
+	<script type="text/javascript">
+		window.onload=function(){
+			var oshare=document.getElementById("share");
+			var ospan=oshare.getElementsByTagName('span')[0];
+			/*
+			ospan.onclick=function(){
+				//先获取到oshare的left
+				var oshare_left=oshare.style.left;
+				if(oshare_left=="0px"){
+					oshare.style.left="-150px";
+				}else{
+					oshare.style.left="0px";
+				}
+				
+			}
+			*/
+			//鼠标移入到share上
+			oshare.onmouseover=function(){
+				startMove();
+			};
+			oshare.onmouseout=function(){
+				startMove2();
+			}
+			
+		}
+		var timer=null;
+		function startMove(){
+			var oshare=document.getElementById("share");
+			clearInterval(timer);
+			//设置定时器
+			timer=setInterval(function(){
+				if(oshare.offsetLeft==0){
+					clearInterval(timer);
+				}else{
+					oshare.style.left=oshare.offsetLeft+15+"px";
+				}
+			},30);
+		}
+		function startMove2(){
+			var oshare=document.getElementById("share");
+			clearInterval(timer);
+			//设置定时器
+			timer=setInterval(function(){
+				if(oshare.offsetLeft==-150){
+					clearInterval(timer);
+				}else{
+					oshare.style.left=oshare.offsetLeft-15+"px";
+				}
+			},30);
+		}
+		
+		
+		
+	</script>
+</head>
+<body>
+	<div id="share"><span>分享到</span></div>
+</body>
+</html>

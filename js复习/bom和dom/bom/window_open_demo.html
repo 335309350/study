@@ -1,0 +1,21 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title>浏览器对象BOM</title>
+</head>
+<body>
+	<script type="text/javascript">
+       //打开一个窗口选择姓名
+       window.onload=function(){
+          var p=document.getElementById('openX');
+          p.onclick=function(){
+            //打开一个新窗口，高度450px,宽度300px，隔左边123px,隔上边45px
+            window.open("demo_user.html","demo_user","top=145px,left=223px");
+          }
+       }
+    </script>
+    <input type="text" id="username" value="" />
+    <span id='openX'>选择姓名</span>
+</body>
+</html>

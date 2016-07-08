@@ -1,0 +1,15 @@
+命令行下运行js脚本，这对于一些采集的工作来说，是非常必要的
+下面是安装的shell命令
+cd yourpath
+wget http://ftp.mozilla.org/pub/mozilla.org/js/http://ftp.mozilla.org/pub/mozilla.org/js/js-1.8.0-rc1.tar.gz
+tar zxvf js-1.8.0-rc1.tar.gz
+cd js/src
+make -f Makefile.ref
+mkdir -p /usr/include/smjs/ -v
+cp *.{h,tbl} /usr/include/smjs/ -v
+cd Linux_All_DBG.OBJ
+cp *.h /usr/include/smjs/ -v
+mkdir -p /usr/local/{bin,lib}/ -v
+cp js /usr/local/bin/ -v
+cp libjs.so /usr/local/lib/ -v
+以上安装完成后，运行/usr/local/bin/js 就应该可以启动js解释运行引擎了. 

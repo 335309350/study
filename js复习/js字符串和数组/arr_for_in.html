@@ -1,0 +1,36 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title>数组的遍历</title>
+</head>
+<body>
+    <script type="text/javascript">
+       var arr=['后端','bbs','fef',true];
+       //1 for遍历数组
+       /*
+       var len=arr.length;
+       for(var i=0;i<len;i++){
+            alert(arr[i]);
+       }
+       */
+       //2 while循环数组
+       /*
+       var len=arr.length;
+       var a=0;
+       while(a < len){
+            alert(arr[a++]);
+            //a++ 可以合并到arr[a++];
+       }
+       */
+       //3 用for...in...遍历数组，2）遍历对象的属性
+       for(var k in arr){
+            alert(arr[k]);//k是属性名相当于键名
+       }
+       
+       
+       
+       
+    </script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title>字符串操作--敏感词过滤</title>
+	<script type="text/javascript">
+	window.onload=function (){
+		var otxt1=document.getElementById("txt1");
+		var otxt2=document.getElementById("txt2");
+		var obtn=document.getElementById("obtn");
+		obtn.onclick=function(){
+			var re=/大鸡巴|色逼|射精|毛片|阳痿/ig;
+			var t2=otxt1.value.replace(re,"***");
+			otxt2.value=t2;
+		}
+		
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	</script>
+</head>
+<body>
+	<textarea name="" id="txt1" cols="30" rows="10"></textarea>
+	<input type="button" id="obtn" value="过滤" />
+	<textarea name="" id="txt2" cols="30" rows="10"></textarea>
+</body>
+</html>

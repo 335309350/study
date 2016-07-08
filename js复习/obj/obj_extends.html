@@ -1,0 +1,58 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title>继承</title>
+	<script type="text/javascript">
+		//继承：父级的方法和属性
+		//对象A
+		function A(){
+			this.a=123;
+		}
+		A.prototype.show=function(){
+			alert(this.a);
+		}
+		//B继承A
+		//show()调用函数，其实写全是show.call();
+		//call可以改变函数执行的this
+		//show.call(this,a,b)//第一个是函数this,后面的是参数a,b
+		function B(){
+			//this->new B();
+			A.call(this);//调用了A
+		}
+		//如何继承A上的方法呢？
+		//由于A上面的方法写在prototype上，所以只要将A的原型赋值给B就可以实现，B继承A的方法
+		//B.prototype=A.prototype;
+		//var b=new B();
+		//alert(b.a);//123继承了A的属性
+		//b.show();//B继承了A的方法show,123
+		//问题来了，B可能有自己的东西，比如有自己的方法。这样的方式使得A上也有方法
+		/*
+		B.prototype.fn=function(){
+			alert("ddd");
+		}*/
+		/*
+		var objB=new B();
+		objB.fn();
+		var objA=new A();
+		objA.fn();//ddd,按理来说不应该有？
+		*/
+		//如何解决呢？将A中的属性和成员赋值到B
+		for(var i in A.prototype){
+			B.prototype[i]=A.prototype[i];
+		}
+		B.prototype.fn=function(){
+			alert("ddd");
+		}
+		var objB=new B();
+		objB.fn();//ddd
+		var objA=new A();
+		objA.fn();
+		
+		
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

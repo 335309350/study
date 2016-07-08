@@ -1,0 +1,49 @@
+//在.showmore >a节点下寻找符合条件的节点
+$(this).find("span").text("显示全部商品");
+//filter()用来筛选与指定表达式匹配的元素集合
+$(".SubCategoryBox ul li").filter(":contains('佳能'),:contains('索尼'),:contains('松下')").removeClass("lighted");
+//removeClass去掉.lighted的样式
+判断元素是否显示
+$category.is(":visible")
+
+制作这样的商品列表显示的效果小结
+第一步写好相应的html+css
+第二步获取需要隐藏的商品的JQ对象
+var $category=$(".SubCategoryBox ul li:gt(7):not(:last)");
+//获取jq对象
+//选择ul中li大于7的，去掉最后一个元素（jq对象）
+$category.hide();
+第三步获取点击按钮的JQ对象
+var $togglebtn=$(".showmore > a");
+
+第四步判断元素是否显示
+$togglebtn.click(function(){
+//判断是否可见
+if($category.is(":visible")){
+	//如果元素可见
+	$category.hide();//隐藏选中的商品
+	//将按钮上的文本改为显示全部商品
+	//在.showmore >a节点下寻找符合条件的节点
+	$(this).find("span").text("显示全部商品");
+	//去掉高亮关键商品
+	//filter()用来筛选与指定表达式匹配的元素集合
+	$(".SubCategoryBox ul li").filter(":contains('佳能'),:contains('索尼'),:contains('松下')").removeClass("lighted");
+	//removeClass去掉.lighted的样式
+	}else{
+		//如果元素不可见
+		$category.show();//点击显示所有的商品
+		//将按钮上的文本改为精简显示商品
+		//在.showmore >a节点下寻找符合条件的节点
+		$(this).find("span").text("精简显示商品");
+		//高亮关键商品
+		//filter()用来筛选与指定表达式匹配的元素集合
+		$(".SubCategoryBox ul li").filter(":contains('佳能'),:contains('索尼'),:contains('松下')").addClass("lighted");
+		//添加.lighted的样式
+	}
+	return false;
+	});//点击按钮添加事件
+
+
+
+
+

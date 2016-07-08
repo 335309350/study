@@ -1,0 +1,110 @@
+这篇文章主要介绍了通过window.location.search来获取页面传来的参数，经测试是OK的
+function GetQueryString(name) { 
+var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)","i"); 
+var r = window.location.search.substr(1).match(reg); 
+if (r!=null) return (r[2]); return null; 
+} 
+ 
+var sname = GetQueryString("name"); 
+if(sname!=null) 
+{ 
+var sname_ = decodeURIComponent(sname); 
+alert(sname_); 
+}
+
+测试
+
+abcd.html?name=xyz
+
+应该弹出xyz
+
+
+
+当地址栏含有参数，我们可以再目标页面通过window.location.search来获取我们需要的参数及其值
+复制代码
+
+// 获取地址栏的参数数组
+function getUrlParams()
+{
+    var search = window.location.search ; 
+    // 写入数据字典
+    var tmparray = search.substr(1,search.length).split("&");
+    var paramsArray = new Array; 
+    if( tmparray != null)
+    {
+        for(var i = 0;i<tmparray.length;i++)
+        {
+            var reg = /[=|^==]/;    // 用=进行拆分，但不包括==
+            var set1 = tmparray[i].replace(reg,'&');
+            var tmpStr2 = set1.split('&');
+            var array = new Array ; 
+            array[tmpStr2[0]] = tmpStr2[1] ; 
+            paramsArray.push(array);
+        }
+    }
+    // 将参数数组进行返回
+    return paramsArray ;     
+}
+
+// 根据参数名称获取参数值
+function getParamValue(name)
+{
+    var paramsArray = getUrlParams();
+    if(paramsArray != null)
+    {
+        for(var i = 0 ; i < paramsArray.length ; i ++ )
+        {
+            for(var  j in paramsArray[i] )
+            {
+                if( j == name )
+                {
+                    return paramsArray[i][j] ; 
+                }
+            }
+        }
+    }
+    return null ; 
+}
+
+复制代码
+
+当前我们的页面地址是http://www.cnblogs.com/tatame/admin/EditPosts.aspx?opt=1
+
+可以看到url上含有一个参数
+
+var opt = getParamValue("opt") ; 
+alert(opt);
+
+弹出为1  了  。 
+
+http://www.cnblogs.com/tatame/archive/2012/11/27/2791170.html
+
+
+<script type="text/javascript">
+    var url = window.location;
+    function getUrlParam(url,name){
+        var pattern = new RegExp("[?&]" + name +"\=([^&]+)","g");
+        var matcher = pattern.exec(url);
+        var items = null;
+        if(matcher != null){
+            try{
+                items = decodeURIComponent(decodeURIComponent(matcher[1]));   
+            }catch(e){
+                try{
+                    items = decodeURIComponent(matcher[1]);
+                }catch(e){
+                    items = matcher[1];
+                }
+            }
+        }
+        return items;
+    }
+ 
+    alert(getUrlParam(url,'type')); // country
+    alert(getUrlParam(url,'id')); // 12
+    alert(getUrlParam(url,'page')); // 10
+ 
+  </script>
+
+
+

@@ -1,0 +1,86 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title>事件基础--键盘事件--提交留言</title>
+	<style type="text/css">
+		#send_mess{
+			margin:0 auto;
+			width:400px;
+			margin-top:24px;
+		}
+		#mess{
+			width:220px;
+			height:120px;
+			border:1px solid #ccc;
+		}
+	</style>
+	<script type="text/javascript">
+		window.onload=function (){
+			//键盘按下
+			/*
+			document.onkeydown=function(ev){
+				var oEvent=ev || window.event;
+				//alert(oEvent.keyCode);
+				//判断用户按下的键的keyCode
+				var k_code=oEvent.keyCode;
+				
+			}
+			*/
+			//点击sendBtn发布留言
+			var oSbtn=document.getElementById('sendBtn');
+			var oUser=document.getElementById("user");
+			var oTextMess=document.getElementById("mess");
+			//1 点击提交
+			
+			oSbtn.onclick=function(){
+				//alert(oUser.value);
+				oTextMess.value+=oUser.value+"\n";
+				//清空下oUser.value
+				oUser.value="";
+			}
+			
+			//2 回车提交
+			//文本框提交
+			/*
+			oUser.onkeydown=function(ev){
+				var ev=ev || window.event;
+				if(ev.keyCode==13){
+					oTextMess.value+=oUser.value+"\n";
+					//清空下oUser.value
+					oUser.value="";
+				}
+			}
+			*/
+			
+			//3 回车加上ctrl键提交
+			oUser.onkeydown=function(ev){
+				var ev=ev || window.event;
+				if(ev.keyCode==13 && ev.ctrlKey){
+					oTextMess.value+=oUser.value+"\n";
+					//清空下oUser.value
+					oUser.value="";
+				}
+			}
+			
+		};
+		//封装一个得到鼠标的位置getPos(),返回json格式
+		//传递的是var ev=ev || event;
+		function getPos(ev){
+			//var ev=ev || event;
+			var scrollTop=document.documentElement.scrollTop || document.body.scrollTop;
+			var scrollLeft=document.documentElement.scrollLeft || document.body.scrollLeft;
+			//返回(x,y)的json格式
+			//滚动的scrollLeft加上可视区的clientX=x
+			return {x:ev.clientX+scrollLeft,y:ev.clientY+scrollTop};
+		}
+	</script>
+</head>
+<body>
+<div id="send_mess">
+	信息：<input type="text" name="user" id="user"/><br/>
+	留言：<textarea id="mess"></textarea><br/>
+	<input type="button" value="提交留言" id="sendBtn" />
+</div>
+</body>
+</html>

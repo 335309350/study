@@ -1,0 +1,38 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title>用json的方式编写面向对象的程序</title>
+	<script type="text/javascript">
+	/*
+		var json={
+			a:12,
+			b:23,
+			c:"fefe",
+			d:function(){
+				alert(this.a);//this表示当前的json
+			}
+		}
+		json.d();
+		*/
+		//json格式，也就是字面量定义对象,简单
+		var json={
+			name:"blue",
+			qq:"1234567",
+			showName:function(){
+				alert(this.name);
+			},
+			showQQ:function(){
+				alert(this.qq);
+			}
+		
+		}
+		json.showName();//blue
+		//json实现的对象，不适合多个，单体模式
+		
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

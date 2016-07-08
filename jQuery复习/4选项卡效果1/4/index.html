@@ -1,0 +1,63 @@
+﻿<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title>jq选项卡的实现</title>
+	<script type="text/javascript" src="./js/jquery-1.8.3.min.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			$(".ct:gt(0)").hide();//大于0的隐藏
+			var oul=$(".menu li");
+			oul.click(function(){
+				//alert("ok");
+				$(this).addClass("li_one").siblings().removeClass();
+				//当前的添加样式，其他兄弟节点的去掉
+				var oli_index=oul.index(this);//获取当前的索引
+				$(".ct").eq(oli_index).show().siblings().hide();
+				//当前菜单的内容显示
+				
+			
+			}).mouseover(function(){
+				$(this).addClass("li_two").siblings().removeClass();
+				//当前的添加样式，其他兄弟节点的去掉
+				var oli_index=oul.index(this);//获取当前的索引
+				$(".ct").eq(oli_index).show().siblings().hide();
+			});
+			
+			
+		});
+	</script>
+	<style type="text/css">
+		*{padding:0;margin:0;}
+		body{margin:0;padding:0;}
+		.con{padding-left:12px;margin:0;}
+		.menu{list-style:none;display:block;}
+		.menu li{
+			float:left;line-height:26px;height:26px;font-size:16px;
+			border:1px solid #000;
+			margin-right:5px;
+			border-bottom:none;
+			padding:2px;
+			margin-bottom:0;
+		}
+		.content_box{clear:both;margin-top:-2px;padding-left:12px;width:300px;height:120px;background:#eee;border:1px solid #000;}
+		.li_one{background:#eee;}
+		.li_two{background:#abcdef;}
+	</style>
+</head>
+<body>
+	<h1>选项卡实现</h1>
+	<div class="con">
+			<ul class="menu">
+				<li class="li_one">菜单1</li>
+				<li>菜单2</li>
+				<li>菜单3</li>
+			</ul>
+			<div class="content_box">
+				<div class="ct">内容1 内容</div>
+				<div class="ct">内容2</div>
+				<div class="ct">内容3</div>
+			</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title>回车提交表单</title>
+    <script type="text/javascript">
+        window.onload=function(){
+            var enterSub=document.getElementById('enterSub');
+            enterSub.onkeyup=function(_e){
+                _e=_e || window.event;
+                var keycode=_e.keyCode || _e.which || _e.charCode;//FF charCode
+                if(keycode === 13){
+                    alert('提交成功');
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+	<input type="text" id="enterSub" value="回车提交" />
+</body>
+</html>

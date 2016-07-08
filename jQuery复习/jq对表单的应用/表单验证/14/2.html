@@ -1,0 +1,119 @@
+﻿<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>jq表单应用</title>
+	<script type="text/javascript" src="./js/jquery-1.8.3.min.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			//alert("ok");
+			//必填信息*
+			$("#myform :input.required").each(function(){
+				//加载后添加一个*
+				var $req=$("<strong class='highred bx'>*必填</strong>");
+				$(this).parent().append($req);
+				//找到input的父级.int以追加的方式添加到文档中
+				
+			});
+			$("#myform :input").focus(function(){
+				$(this).addClass("focus");
+			
+			}).blur(function(){
+				$(this).removeClass("focus");
+				//去掉css样式
+			});
+			//失去焦点后验证
+			$("#myform :input").blur(function(){
+				var $par=$(this).parent();
+				$par.find(".formtips").remove();
+				//去掉连续点击的元素
+				$par.find(".bx").remove();
+				//去掉*必填
+				//判断当前失去焦点是用户名还是邮箱
+				if($(this).is("#username")){
+					if(this.value=="" || this.value.length<6){
+						var errormsg="请输入至少6位的用户名";
+						$par.append("<span class='formtips onError'>"+errormsg+"</span>");
+					}else{
+						var okmsg="输入正确";
+						$par.append("<span class='formtips onSuccess'>"+okmsg+"</span>");
+					
+					}
+				
+				}
+				//判断邮箱
+				if($(this).is("#email")){
+					if(this.value=="" || (this.value!="" && !/.+@.+\.[a-zA-Z]{2,4}$/.test(this.value))){
+						//匹配电子邮件zhuwei313@live.cn
+						$par.remove("strong");
+						var errormsg="请输入正确的email";
+						$par.append("<span class='formtips onError'>"+errormsg+"</span>");
+					}else{
+						var okmsg="输入正确";
+						$par.append("<span class='formtips onSuccess'>"+okmsg+"</span>");
+					
+					}
+				
+				}
+			}).keyup(function(){
+				//给用户良好的体验
+				//不要等待字段元素失去焦点后判断
+				//按下键盘弹起
+				$(this).triggerHandler("blur");
+			
+			}).focus(function(){
+				//得到焦点
+				$(this).triggerHandler("blur");
+			
+			});
+			//进一步验证用户名和电子邮件
+			$("#send").click(function(){
+				$("#myform .required:input").trigger('blur');
+				//trigger()方法来触发失去焦点事件
+				var numError=$("#myform .onError").length;
+				//错误的个数
+				if(numError){
+					//如果错误的个数大于0
+					return false;
+				}
+				alert("恭喜你注册成功！");
+			});
+			
+		});
+	</script>
+	<style type="text/css">
+		*{padding:0;margin:0;}
+		.con{margin:12px auto;width:450px;height:auto;background:#eee;padding-left:35px;padding-top:12px;}
+		input{height:30px;font-size:16px;border:1px solid #abcdef;margin-bottom:12px;line-height:30px;}
+		.int{margin:4px auto;}
+		.sub{margin-top:12px;text-align:center;padding-top:8px;}
+		.submit,.reset{padding:3px 4px;background:#0163e9;border-radius:3px;margin:8px;cursor:pointer;}
+		/*必填，得到焦点，输入正确，输入错误的css*/
+		.highred{color:red;font-size:14px;}
+		.focus{border:1px solid #0163e9;}
+		.onSuccess{color:green;font-size:14px;}
+		.onError{color:red;font-size:14px;}
+	</style>
+</head>
+<body>
+	<div class="con">
+		<form action="http://localhost/myhtml5/test.php" method="post" id="myform">
+			<div class="int">
+				<label for="username">　用户名：</label>
+				<input type="text" class="required" id="username" name="username" />
+			</div>
+			<div class="int">
+				<label for="email">电子邮箱：</label>
+				<input type="text" class="required" id="email" name="email" />
+			</div>
+			<div class="int">
+				<label for="person">自我介绍：</label>
+				<textarea name="perdetail" id="person" cols="30" rows="5"></textarea>
+			</div>
+			<div class="sub">
+				<input type="submit" value="提交" id="send" class="submit"/>&nbsp;&nbsp;<input type="reset" value="重置" class="reset" />
+			</div>
+		</form>
+	</div>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title>文档对象的属性操作</title>
+    <style type="text/css">
+        #first{
+            width:200px;
+            height:200px;
+            border:1px solid green;
+            color:#aaa;
+        }
+    </style>
+    <script type="text/javascript">
+        
+        window.onload=function(){
+            var first=document.getElementById('first');
+            var btn=document.getElementById('btn');
+            btn.onclick=function(){
+                alert(first.title);
+                first.title='haha';//标准的属性
+                //alert(first.data-info);非标准的报错
+                var datainfo=first.getAttribute('data-info');
+                alert(datainfo);
+                //设置属性
+                first.setAttribute('data-info','sfef');
+                
+                
+            }
+        }
+    </script>
+</head>
+<body>
+    <div id="first" title='我是大黑' data-info='我是自定义的属性'><h3>我是大黑哥</h3></div>
+    <input type="button" value="操作属性" id='btn' />
+	
+</body>
+</html>

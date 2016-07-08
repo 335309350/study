@@ -1,0 +1,65 @@
+﻿<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title>网站后台左侧菜单实现</title>
+	<link rel="stylesheet" href="./css/admin2.css" />
+	<script type="text/javascript" src="./js/jquery-1.8.3.min.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			//导入js
+			//alert("ok");
+			$(".left_menu ul:gt(0)").hide();
+			//隐藏大于0的ul
+			$(".left_menu dd").click(function(){
+				//内层的li的ul
+				//第一种写法，当前对象的下一个节点ul来回切换
+				//别的ul其他的都隐藏起来
+				$(this).next("ul").slideToggle().siblings("ul").slideUp(500);
+				//$(this).next("ul").slideToggle();
+			}).hover(function(){
+				$(this).addClass("dd");
+			},function(){
+				$(this).removeClass("dd");
+			});
+		});
+	</script>
+</head>
+<body>
+	<div class="left_menu">
+			<dd href="#">菜单一</dd>
+			<ul>
+				<li>
+				<a href="#">内容1</a>
+				</li>
+				<li>
+					<a href="#">内容2</a>
+				</li>
+			</ul>
+			<dd href="#">菜单二</dd>
+			<ul>
+				<li>
+				<a href="#">内容21</a>
+				</li>
+				<li>
+					<a href="#">内容22</a>
+				</li>
+			</ul>
+			<dd href="#">菜单三</dd>
+			<ul>
+				<li>
+					<a href="#">内容31</a>
+				</li>
+				<li>
+					<a href="#">内容31</a>
+				</li>
+				<li>
+					<a href="#">内容31</a>
+				</li>
+				<li>
+					<a href="#">内容32</a>
+				</li>
+			</ul>
+	</div>
+</body>
+</html>

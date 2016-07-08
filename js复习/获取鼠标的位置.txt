@@ -1,0 +1,10 @@
+//封装一个得到鼠标的位置getPos(),返回json格式
+		//传递的是var ev=ev || event;
+		function getPos(ev){
+			//var ev=ev || event;
+			var scrollTop=document.documentElement.scrollTop || document.body.scrollTop;
+			var scrollLeft=document.documentElement.scrollLeft || document.body.scrollLeft;
+			//返回(x,y)的json格式
+			//滚动的scrollLeft加上可视区的clientX=x
+			return {x:ev.clientX+scrollLeft,y:ev.clientY+scrollTop};
+		}

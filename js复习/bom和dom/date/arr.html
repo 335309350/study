@@ -1,0 +1,79 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title>11数组的应用</title>
+	<script>
+		//数组的定义
+		//var arr=[12,23,43];//比较常用定义方法
+		//第二种方法new
+		var arr=new Array(12,23,32);
+		//alert(arr.length);//length既可以获取，又可以设置
+		//数组的添加（头部--------末尾）
+		//push()尾部添加
+		//arr.push(34);//返回数组的长度
+		//alert(arr);12,23,32,34
+		//尾部删除pop()//返回弹出的值
+		//alert(arr.pop());
+		//alert(arr);12,23,32
+		
+		//头部添加unshift(val)
+		//往头部添加一个元素		
+		//头部删除shift()
+		//arr.shift();
+		//alert(arr);//23,32,34
+		
+		//删除
+		//数组的任意位置插入，删除splice(star,len,val)
+		//如果len大于0表示删除
+		var arr2=[1,2,3,23,221];
+		//arr2.splice(2,3);//从下标2位置开始删除3个元素
+		//alert(arr2);//1,2
+		
+		//插入
+		//splice(start,0,val,val2,val3);
+		//表示从start位置开始插入
+		//arr2.splice(2,0,3,4,5);
+		//alert(arr2);//1,2,3,4,5,3,23,221
+		
+		//替换(先删除，后添加）
+		//arr2.splice(2,3,3,4,43);
+		//alert(arr2);//1,2,3,4,43
+		
+		//数组操作
+		
+		//连接concat()
+		/*
+		var a=[12,3,2];
+		var b=[2,3,4];
+		var c=a.concat(b);
+		*/
+		//alert(c);//a.b
+		
+		//拼接
+		//alert(c.join("@"));//12@3@2@2@3@4
+		
+		//排序sort(这是对字符串的排序）
+		//一般是数字排序
+		var a=[12,3,23,32,23,12,32];
+		//a.sort();
+		//alert(a);//12,12,23,23,32,43,43顺序不对
+		//可以自定义方法实现排序a.sort(funcName);
+		function sortVal(v1,v2){
+			if(v1>v2){
+				return 1;//只要是个正数就可以
+			}else if(v1<v2){
+				return -1;
+			}else{
+				return 0;
+			}
+			//可以写成return v1-v2;
+		}
+		a.sort(sortVal);
+		alert(a);
+	</script>
+</head>
+<body>
+	<div id="div1" style="">fefe</div>
+</body>
+</html>

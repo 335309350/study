@@ -1,0 +1,44 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title>14延时提示框</title>
+	<style type="text/css">
+		#div1{
+			width:50px;
+			height:120px;
+			background:green;
+			float:left;
+		}
+		#div2{
+			width:123px;
+			height:23px;
+			background:red;
+			display:none;
+		}
+	</style>
+	<script>
+		window.onload=function(){
+			var odiv1=document.getElementById("div1");
+			var odiv2=document.getElementById("div2");
+			var timer=null;
+			//当鼠标移入div2，就清除定时器
+			//当移入到div1，要清楚定时器
+			odiv1.onmouseover=odiv2.onmouseover=function(){
+				// clearTimeout(timer);
+				odiv2.style.display="block";//显示
+			}
+			//鼠标离开div1或div2时，3秒后隐藏
+			odiv1.onmouseout=odiv2.onmouseout=function(){
+				timer=setTimeout(function(){
+					odiv2.style.display="none";
+				},500);
+			}
+		}
+	</script>
+</head>
+<body>
+	<div id="div1"></div>
+	<div id="div2"></div>
+</body>
+</html>

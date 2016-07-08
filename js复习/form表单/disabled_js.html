@@ -1,0 +1,19 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title>禁止输入</title>
+</head>
+<body>
+	<script type="text/javascript">
+        window.onload=function(){
+            var _strs=document.getElementById('strs');
+            _strs.onfocus=function(){
+                this.blur();//失去焦点
+            }
+        }
+    </script>
+    <input type="text" name="strs" id="strs" value="设置disabled禁止输入" disabled />
+    
+</body>
+</html>

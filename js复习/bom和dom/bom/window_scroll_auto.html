@@ -1,0 +1,26 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title>浏览器对象BOM</title>
+    <style type="text/css">
+        body{
+            height:2000px;
+        }
+    </style>
+</head>
+<body>
+	<script type="text/javascript">
+       window.onload=function(){
+          var timer=setInterval(function(){
+            //每隔1s滚动条向下移动2px
+            scrollBy(0,2);
+          },1000);
+          //点击body停止移动滚动条
+          document.body.onclick=function(){
+            clearInterval(timer);
+          }
+       }
+    </script>
+</body>
+</html>

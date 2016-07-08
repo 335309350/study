@@ -1,0 +1,54 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title>数组的分类</title>
+</head>
+<body>
+    <script type="text/javascript">
+       //数组的分类 1）下标从0开始，数字索引
+       //2）关联数组，（对象的方式key/val)实现
+       var arr=['后端','bbs','fef',true];
+       //关联数组，非数字类型(obj方式来实现）
+       var arr_2={
+            'name':'zhuwei',
+            'sex':'男',
+            'age':23,
+       };
+       /*
+       for(var k in arr_2){
+            alert(arr_2[k]);
+       }
+       */
+       //第二种声明关联数组(对象来模拟关联数组)
+       var arr_3=new Object();
+       arr_3['name']='xiaoheige';
+       arr_3['sex']='男';
+       arr_3['job']='php';
+       //alert(arr_3['job']);
+       //多维数组(二维表）
+       var arr_o=new Array(['zhuwei','boy',23],['maoge','wan',24]);
+       /*
+       alert(arr_o[0][1]);
+       alert(arr_o[1][0]);
+       */
+       var sarr=[1,2,3];
+       alert(sarr.length);
+       sarr[3]=4;//动态的可以添加元素
+       alert(sarr.length);
+       
+       var arr_s=new Array(5);
+       arr_s[3]=3;
+       alert(arr_s);
+       
+       
+       
+       
+       
+       
+       
+       
+       
+    </script>
+</body>
+</html>

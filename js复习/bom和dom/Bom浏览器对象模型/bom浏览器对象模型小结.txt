@@ -1,0 +1,9 @@
+浏览器对象模型以window对象为依托，表示浏览器窗口以及页面可见区域。同事window还是ECMAScript中的Global对象。
+top始终指向最外围的框架，也就是真个浏览器。
+parent对象表示包含当前框架的框架，self对象指向window
+location.href改变URL的跳转
+location.search表示?在内的查询字符串。
+location.replace()替换url防止回到上一步
+navigator.userAgent用来检测用户的浏览器代理。
+screen.height,screen.width取决设备的分辨率。
+history.go(n)用来跳转

@@ -1,0 +1,31 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title>5点击显示和隐藏</title>
+	<script type="text/javascript">
+		function set_display(){
+			var omybox=document.getElementById("mybox");
+			//判断元素是否显示，如果为真，就隐藏
+			if(omybox.style.display=="block"){
+				omybox.style.display="none";
+			}else{
+				omybox.style.display="block"
+			}
+		}
+	</script>
+	<style type="text/css">
+		#mybox{
+			display:none;
+			height:100px;
+			width:200px;
+			background:red;
+		}
+	</style>
+</head>
+<body>
+	<input type="button" value="显示和隐藏" onclick="set_display()" />
+	<div id="mybox" onmouseout="set_display()">fefefe</div>
+	<a href="javascript:;">点击</a>
+</body>
+</html>

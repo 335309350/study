@@ -1,0 +1,53 @@
+1 获取样式和设置样式
+单个样式获取attr("clas")
+设置单个样式
+attr("class","classname")
+实例：
+<p class="one">样式1</p>
+//样式操作
+$(".one").mouseover(function(){
+	$(".one").text("样式2");
+	$(".one").attr("class","two");
+			
+	}).mouseout(function(){
+		$(".two").text("样式1");
+		$(".two").attr("class","one");
+				
+			
+	})
+
+2 追加样式
+//追加样式
+$(".one").addClass("san");
+如果一个元素添加多个class，相当于合并
+如果有不同的class设置同一个样式，后者覆盖前者
+
+
+3 删除样式
+removeClass("clas");
+如果要删除多个就留空就可以
+$(".one").removeClass();
+
+
+4 切换样式
+
+$("p").toggleClass("two")
+
+5 判断是否有某个样式
+
+hasClass()判断是否有某个样式
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+			

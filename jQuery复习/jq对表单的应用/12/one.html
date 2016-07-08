@@ -1,0 +1,62 @@
+﻿<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title>表单操作</title>
+	<style type="text/css">
+	*{padding:0;margin:0;}
+	#myform{width:500px;margin:0 auto;}
+	input{height:35px;line-height:35px;font-size:18px;border:1px solid #abcdef;margin:5px 0px;}
+	input:focus,textarea:focus{
+		border:1px solid #0163c9;
+	}
+	.focus{border:1px solid #0163c9;background:#f9f9f9;}
+	table td,table th{border-collapse:collapse;}
+	table th{text-align:right;}
+	.submit,.reset{background:#255E9C;height:30px;padding:0px 20px;line-height:1.8em;color:#fff;font-size:16px; cursor: pointer;margin:5px 8px;}
+	</style>
+	<!--对于ie6不支持除超级链接外的:hover伪类选择符，可以用JQ来实现-->
+	<script type="text/javascript" src="jquery-1.10.2.min.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			$(":input").focus(function(){
+				$(this).addClass("focus");//获取焦点时候添加样式
+			
+			}).blur(function(){
+				$(this).removeClass("focus");
+				//失去焦点时候去掉样式
+			
+			});
+		});
+	</script>
+</head>
+<body>
+	<header id="head">
+	<h1>表单操作</h1>
+	</header>
+	<hr/>
+	<p>单行文本框应用</p>
+	<form action="#" method="post" id="regForm">
+		<fieldset id="myform">
+			<legend><b>个人基本信息</b></legend>
+			<table width="500">
+			<tr>
+				<th><label for="username">姓名：</label></th>
+				<td><input id="username" type="text" name="username"/></td>
+			</tr>
+			<tr>
+				<th><label for="password">密码：</label></th>
+				<td><input id="password" name="pwd" type="password"/></td>
+			</tr>
+			<tr>
+				<th><label for="detail">详细信息：</label></th>
+				<td><textarea id="detail" name="detail" cols="30" rows="5"></textarea></td>
+			</tr>
+			<tr>
+				<td colspan="2" align="center"><input type="submit" value="提交" class="submit"/>&nbsp;&nbsp;<input type="reset" value="重置" class="reset"/></td>
+			</tr>
+			</table>
+		</fieldset>
+	</form>
+</body>
+</html>

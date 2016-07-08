@@ -1,0 +1,36 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title>事件基础--事件流</title>
+	<style type="text/css">
+		div#s_box{
+			width:200px;
+			height:120px;
+			background:#ccc;
+			display:none;
+		}
+	</style>
+	<script type="text/javascript">
+		window.onload=function (){
+			var oBtn=document.getElementById("btnShow");
+			var osbox=document.getElementById("s_box");
+			oBtn.onclick=function(event){
+				osbox.style.display="block";
+				//alert("按钮被点击了");
+				//取消冒泡
+				event.cancelBubble=true;//取消往上冒泡
+			}
+			document.onclick=function(){
+				osbox.style.display="none";
+				//alert("document被点击了");
+			}
+			//当我们在点击按钮的时候，document也被点击了，冒泡上去
+		}
+	</script>
+</head>
+<body>
+	<input type="button" value="显示" id="btnShow" />
+	<div id="s_box"></div>
+</body>
+</html>

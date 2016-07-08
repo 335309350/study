@@ -1,0 +1,209 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title>layer.js用法</title>
+    <!--引入jquery-1.8.3.min.js layer1.8.5需要jq1.8+-->
+    <script type="text/javascript" src="layer/jquery-1.8.3.min.js"></script>
+    <!--引入layer.js-->
+    <script type="text/javascript" src="layer/layer.min.js"></script>
+    <script type="text/javascript">
+        $(function(){
+            //layer版本号
+            //alert(layer.v);
+            $("#myclick").click(function(){
+                //layer.msg(msg,time,param,func);
+                //layer.msg('点击成功',3,-1);
+                //第三个参数是不显示图标
+                layer.msg('点击成功',3,{
+                    type : 1,//图标的索引0-16
+                    shade : true,//是否开启遮罩层
+                    rate : 'top',//动画类型，left-top，top，right-top，right-bottom，bottom，left-bottom，left(7种出现动画的位置）
+                }
+                /*
+                function(){
+                    //回调函数，关闭窗口时候触发
+                    //比如刷新当前的页面
+                    alert('点击回调函数');
+                }
+                **/
+                );
+            });
+            //弹出一个页面层
+            $("#page_pop").click(function(){
+               //层的类型0：信息框（默认），1：页面层，2：iframe层，3：加载层，4：tips层
+                $.layer(
+                  {
+                    type : 1,
+                    title : ['大黑哥在北京','background:none repeat scroll 0 0 #e6627f;color:#fff;'],//标题，false不显示
+                    shift : 'left',//层出现的位置，left-top，top，right-top，right-bottom，bottom，left-bottom，left(7种出现动画的位置）
+                    border: [2, 0.3, '#000'],
+                    //边框大小，透明度，颜色
+                    shade : [0.5,"#fff"],//开启遮罩层[透明度(0表示不开启),背景颜色#fff]
+                    area : ['500px','300px'],//页面层的大小
+                    page : {html : '<p>我是大黑，新浪微博为<a href=\'http://weibo.com/zhuwei313\' target=\'_blank\'>@大黑哥在北京</a></p>'}
+                    /**
+                    page页面层模式私有参数。 
+                    dom: 页面已存在的选择器 
+                    html: 直接传入的html字符串。 
+                    url: ajax请求地址。 
+                    ok: ajax请求完毕后执行的回调，datas是异步传递过来的值。 
+                    需要特别注意的是，dom、html、url只需设定其中一个就行，若配置html或url，你必须也配置宽高值。
+                    **/
+                    
+                }  
+               );
+            });
+            //弹出一个iframe层
+            $('#iframe_pop').on('click',function(){
+                var _iframe=$.layer({
+                    type : 2,
+                    title : 'iframe父子',
+                    shade : [0.5,'#fff'],
+                    maxmin : true,//是否输出窗口最小化/全屏/还原按钮。
+                    shadeClose : false,
+                    //用来控制点击遮罩区域是否关闭层
+                    area : ['80%','500px'],
+                    offset : ['12px',''],//控制层坐标x,y
+                    iframe : {//src,scrolling是否出现滚动条(yes,no,auto)
+                        src : 'http://www.baidu.com',
+                        scrolling: 'auto'
+                    }
+                    
+                });
+               
+            });
+            $("#my_load").on("click",function(){
+                var _load = layer.load('加载中');
+                //下面可以写ajax
+                setTimeout(function(){
+                    layer.close(_load);//手动关闭层
+                },3000);
+            });
+            $("#my_tips").on("mouseover",function(){
+                /**
+                对tips层的重新封装。
+                参数分别为：tips内容, 要吸引的dom对象, 对象
+                parme允许传这些属性{time: 自动关闭所需秒, maxWidth: 最大宽度, guide: 指引方向, style: tips样式（参加api表格一中的style属性）}
+                如：
+
+                obj.on('click', function(){
+                    layer.tips('这是小提示','#id');
+                });
+                                tips : {
+                    msg: '',
+                    follow: '#id',
+                    guide: 0,
+                    isGuide: true,
+                    more: false,
+                    style: ['', '']
+                }          
+                **/
+                layer.tips('hello',this,{
+                    time : 3,//自动消失的秒数
+                    style : ['width:120px;background:#f00;','#f00'],//tips的样式，小三角的颜色
+                    guide : 0
+                    //指引方向（0：上，1：右，2：下，3：左）。 
+                });
+                
+            });
+            $("#guanzhu").on("mouseover",function(){
+                /**
+                对tips层的重新封装。
+                参数分别为：tips内容, 要吸引的dom对象, 对象
+                parme允许传这些属性{time: 自动关闭所需秒, maxWidth: 最大宽度, guide: 指引方向, style: tips样式（参加api表格一中的style属性）}
+                如：
+
+                obj.on('click', function(){
+                    layer.tips('这是小提示','#id');
+                });
+                                tips : {
+                    msg: '',
+                    follow: '#id',
+                    guide: 0,
+                    isGuide: true,
+                    more: false,
+                    style: ['', '']
+                }          
+                **/
+                layer.tips('点击关注我',this,{
+                    time : 2,//自动消失的秒数
+                    guide : 0
+                    //指引方向（0：上，1：右，2：下，3：左）。 
+                });
+                
+            });
+            $("#my_alert").click(function(){
+                //layer.alert(msg, icon, fn)
+                layer.alert('你好layer', -1); //图标从-1-16，第三个参数是回调函数
+                
+            });
+            //确认框
+            $("#my_confirm").click(function(){
+                //layer.confirm(msg, yes_func, no_func)
+                var _confirm=layer.confirm("确定要删除吗？",function(){
+                    //监听确认的回调函数
+                    layer.msg('删除成功',3,1);
+                },'标题');
+                //layer.title("表", _confirm);//动态的改变层的标题
+            });
+            $("#my_dialog").click(function(){
+               layer_dialog(false,'手机号或者密码错误,请检查');
+            });
+            
+        });
+        //封装一个模态对话框
+        function layer_dialog(_flag,_dialog_text,_func){
+            var _title = _flag ? '成功' : '错误';
+            $.layer({
+                type : 0,//消息框
+                title : [_title,'background:none repeat scroll 0 0 #e6627f;color:#fff;'],//标题
+                closeBtn : false,//不显示右上角关闭按钮
+                zIndex : 1990,//层的zindex
+                move : false,//禁止拖拽
+                shade: [0.3, '#fff'],//透明度，背景色
+                fadeIn: 100,//动画显示
+                offset : ['200px',''],//层的x,y坐标
+                area : ['240px','150px'],//层的大小width,height
+                border: [2, 0.3, '#000'],
+                //边框的大小，透明度，背景色
+                dialog : {
+                    type : -1,//不显示图标
+                    btns : 1,//按钮个数
+                    btn : ['确定'],//按钮上的文本
+                    msg : _dialog_text
+                },
+                success : function(){
+                    //层弹出后的回调函数
+                    layer.shift('top',150);//从上面弹出，动画进入的时间150ms
+                },
+                //层被彻底关闭后执行的回调函数
+                end : _func
+            });
+        }
+    </script>
+</head>
+<body>
+    <h1>hello,world!欢迎来到<a href="http://weibo.com/zhuwei313" target="_blank" id="guanzhu">@大黑哥在北京</a>的博客！</h1>
+    <p><a href="index2.html">作品</a></p>
+    <p>layer.js用法</p>
+	<p>
+        <a href="#" id="myclick">点击我弹出消息框msg</a>
+    </p>
+    <p>弹出一个页面层</p>
+    <a href="#" id="page_pop">弹出一个页面层</a>
+    <p>弹出一个iframe层</p>
+    <a href="#" id="iframe_pop">弹出一个iframe层</a>
+    <p>弹出一个loading....</p>
+    <a href="#" id="my_load">弹出一个loading</a>
+    <p>小提示tips</p>
+    <a href="#" id="my_tips">小提示</a>
+    <a href="#" id="my_alert">alert提示</a>
+    <a href="#" id="my_confirm">confirm确认框</a>
+    <a href="#" id="my_dialog">dialog测试</a>
+    <a href="http://sentsin.com/jquery/layer/api.html#base" target="_blank">更多用法点击这里</a>
+    <a href="http://sentsin.com/layui/layer/api.html" target="_blank">移动版本用法</a><br/>
+    <a href="http://weibo.com/zhuwei313" target="_blank">关于作者</a>
+    
+</body>
+</html>

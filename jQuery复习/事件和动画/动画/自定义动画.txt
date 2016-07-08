@@ -1,0 +1,64 @@
+自定义动画使用animate()方法
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title>jq动画训练</title>
+	<script type="text/javascript" src="jquery-1.8.3.min.js"></script>
+	<script type="text/javascript">
+		//jq动画训练
+		$(function(){
+			$("#panel").click(function(){
+				//1 向右边移动后，向下移动(负数表示向左移动)
+				/*
+				$(this).animate({left:"-200px"},2000);
+				$(this).animate({top:"200px"},2000);
+				*/
+				//当前对象点击后向右移动200px
+				//后向下移动200px，用时2s
+				//2 累加动画
+				/*
+				$(this).animate({left:"+=20px"},2000);
+				$(this).animate({top:"+=20px"},2000);
+				//点击不停的向右边移动后向下移动
+				*/
+				//3 多重动画
+				//a 一次同时执行多个动画
+				/*
+				$(this).animate({top:"20px",left:"20px",width:"500px",height:"200px"},2000);
+				*/
+				//向右边移动20px后，向下移动20px，然后放大
+				//b 按照顺序执行动画
+				/*
+				$(this).animate({top:"20px"},2000);
+				//先执行向右边移动
+				$(this).animate({top:"20px",left:"20px",width:"500px",height:"200px"},2000);
+				*/
+				//后执行向下移动
+				//4 综合动画
+				/*
+				//动画向右边移动后增大高度，
+				//然后设置不透明度从50%到100%
+				$(this).animate({top:"20px",left:"20px",opacity:"1"},2000).animate({width:"500px",height:"200px"},3000);
+				//连接式写法，下向右边移动20px后向下移动20px,
+				//设置不透明度，后调整宽高
+				*/
+				//5 动画回调函数设置不同的事件
+				$(this).animate({top:"20px",left:"20px",opacity:"1"},2000).animate({width:"500px",height:"200px"},2000,function(){
+					$(this).css("background","#0163c9");//添加样式
+				});
+			
+			});
+		});
+	
+	</script>
+	<style type="text/css">
+	*{padding:0;margin:0;}
+	#panel{margin:6px auto;text-align:ceter;width:400px;text-indent:2em;background:#8884e0;color:#fff;cursor:pointer;position:relative;}
+	</style>
+</head>
+<body>
+	<div id="panel">JQ是继pro之后的又一个Js库，它是一个由john创建于2006年1月的开源项目。JQ凭借简洁的语法和跨平台的兼容性，极大简化了JS开发人员遍历HTML文档、DOM操作、处理事件、执行动画和AJAX。它独特而又优雅的代码风格改变了JS程序员的设计思路和编写程序的方式。	
+	</div>
+</body>
+</html>

@@ -1,0 +1,72 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+	<title>网站品牌实例</title>
+	<script type="text/javascript" src="./js/jquery.js"></script>
+	<link rel="stylesheet" href="./css/base.css" />
+	<script type="text/javascript">
+		$(function(){
+			//alert("ok");
+			var $category=$(".SubCategoryBox ul li:gt(7):not(:last)");
+			//获取jq对象
+			//选择ul中li大于7的，去掉最后一个元素（jq对象）
+			$category.hide();
+			var $togglebtn=$(".showmore > a");
+			//第一种写法
+			$togglebtn.click(function(){
+				//判断是否可见
+				if($category.is(":visible")){
+					//如果元素可见
+					$category.hide();//隐藏选中的商品
+					//将按钮上的文本改为显示全部商品
+					//在.showmore >a节点下寻找符合条件的节点
+					$(this).find("span").text("显示全部商品");
+					//去掉高亮关键商品
+					//filter()用来筛选与指定表达式匹配的元素集合
+					$(".SubCategoryBox ul li").filter(":contains('佳能'),:contains('索尼'),:contains('松下')").removeClass("lighted");
+					//removeClass去掉.lighted的样式
+				}else{
+					//如果元素不可见
+					$category.show();//点击显示所有的商品
+					//将按钮上的文本改为精简显示商品
+					//在.showmore >a节点下寻找符合条件的节点
+					$(this).find("span").text("精简显示商品");
+					//高亮关键商品
+					//filter()用来筛选与指定表达式匹配的元素集合
+					$(".SubCategoryBox ul li").filter(":contains('佳能'),:contains('索尼'),:contains('松下')").addClass("lighted");
+					//添加.lighted的样式
+				}
+				return false;
+			});//点击按钮添加事件
+			//第二种写法
+			//利用toggle()方法来实现交替切换
+					
+		});
+	</script>
+</head>
+<body>
+	<div class="SubCategoryBox">
+		<ul>
+			<li><a href="#">佳能</a><i>（5200）</i></li>
+			<li><a href="#">索尼</a><i>（27000）</i></li>
+			<li><a href="#">三星</a><i>（17821）</i></li>
+			<li><a href="#">尼康</a><i>（8242）</i></li>
+			<li><a href="#">松下</a><i>（5233）</i></li>
+			<li><a href="#">卡西欧</a><i>（12121）</i></li>
+			<li><a href="#">富士康</a><i>（45220）</i></li>
+			<li><a href="#">柯达</a><i></i>（52050）</li>
+			<li><a href="#">宾得</a><i>（52003）</i></li>
+			<li><a href="#">理光</a><i>（52323）</i></li>
+			<li><a href="#">奥林巴斯</a><i>（52900）</i></li>
+			<li><a href="#">明基</a><i>（52343）</i></li>
+			<li><a href="#">爱国者</a><i>（78966）</i></li>
+			<li><a href="#">联想</a><i>（78436）</i></li>
+			<li><a href="#">其他品牌相机</a><i>（52070）</i></li>
+		</ul>
+		<div class="showmore">
+			<a href="#"><span>显示全部品牌</span></a>
+		</div>
+	</div>
+</body>
+</html>

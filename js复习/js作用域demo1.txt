@@ -1,0 +1,9 @@
+  var a=34;//全局变量
+       function getOne(){
+          
+          alert(a);//undefined,先在函数内部查找变量，发现有，但是在执行alert时候，还么有定义就是undefined
+          var a=54;//局部变量
+       }
+       
+       getOne();//undefined
+       alert(a);//访问的是全局变量a=34

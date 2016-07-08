@@ -1,0 +1,90 @@
+﻿<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title>列表上下显示和隐藏</title>
+	<script type="text/javascript" src="./js/jquery-1.8.3.min.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			//alert("ok");
+			var hgv=$(".container ul li:gt(6):not(:last)");
+			hgv.hide();
+			//大于6的li隐藏，但是最后一个显示
+			//点击显示和隐藏所有的记录
+			$(".boxmore a").click(function(){
+				//第一种写法通过来回切换显示和高亮
+				hgv.toggle();
+				if($(this).find("span").text()=="显示全部信息+")
+				$(this).find("span").text("显示部分信息-");
+				else
+				$(this).find("span").text("显示全部信息+");
+				$(".container ul li").filter(":contains('三星'),:contains('奥林巴斯'),:contains('联想')").toggleClass("lighted");
+				
+				//第二种写法通过显示和隐藏来判断
+				/*
+				if(hgv.is(":visible")){
+					//如果显示就隐藏
+					hgv.hide();
+					
+					//filter筛选
+					$(".container ul li").filter(":contains('三星'),:contains('奥林巴斯'),:contains('联想')").removeClass("lighted");
+					$(this).find("span").text("显示全部信息+");
+					
+				}else{
+					//不可见就显示
+					hgv.show();
+					$(".container ul li").filter(":contains('三星'),:contains('奥林巴斯'),:contains('联想')").addClass("lighted");
+					$(this).find("span").text("显示部分信息-");
+				}
+				*/
+				return false;//不出现#
+			});
+			
+			
+		});
+	</script>
+	<style type="text/css">
+		*{margin:0;padding:0;}
+		a{text-decoration:none;}
+		ul{list-style:none;}
+		.content-list{
+				margin:0 auto;width:540px;border:1px solid #000;font-size:14px;box-shadow:1px 2px 6px 1px #abc;margin-top:25px;padding:2px;
+		}
+		.boxmore{
+			margin:0 auto;width:120px;background:#eee;border:1px solid #0163e9;text-align:center;margin-bottom:2px;clear:both;
+			}
+		.boxmore a{text-align:center;display:block;padding:3px 4px;height:32px;line-height:32px;}
+		.boxmore a:hover{background:#abcdef;color:red;text-decoration:underline;}
+		.container{margin:0 auto;}
+		.container ul li{padding-left:2px;float:left;width:160px;display:block;margin-bottom:8px;margin-top:3px;}
+		.container ul li a{color:#000;padding:2px 3px;}
+		.container ul li a:hover{text-decoration:underline;color:#e32;}
+		.lighted{color:red;}
+		
+	</style>
+</head>
+<body>
+	<div class="content-list">
+		<div class="container">
+			<ul>
+				<li><a href="#">佳能</a><span>（5200）</span></li>
+				<li><a href="#">索尼</a><span>（27000）</span></li>
+				<li><a href="#">三星</a><span>（27000）</span></li>
+				<li><a href="#">尼康</a><span>（8242）</span></li>
+				<li><a href="#">松下</a><span>（5233）</span></li>
+				<li><a href="#">卡西欧</a><span>（12121）</span></li>
+				<li><a href="#">富士康</a><span>（45220）</span></li>
+				<li><a href="#">柯达</a><span>（52050）</span></li>
+				<li><a href="#">宾得</a><span>（52003）</span></li>
+				<li><a href="#">理光</a><span>（52323）</span></li>
+				<li><a href="#">奥林巴斯</a><span>（52900）</span></li>
+				<li><a href="#">明基</a><span>（52343）</span></li>
+				<li><a href="#">爱国者</a><span>（78966）</span></li>
+				<li><a href="#">联想</a><span>（78436）</span></li>
+				<li><a href="#">其他品牌</a><span>（52070）</span></li>
+			</ul>
+		</div>
+		<div class="boxmore"><a href="#"><span>显示全部信息+</span></a></div>
+	</div>
+</body>
+</html>

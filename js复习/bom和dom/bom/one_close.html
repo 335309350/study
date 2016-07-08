@@ -1,0 +1,24 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title>BOM基础--关闭窗口</title>
+	<script type="text/javascript">
+		window.onload=function(){
+			var yx=document.getElementById("yunxing");
+			var oTxt=document.getElementById("code_box");
+			yx.onclick=function(){
+				//window.close();//关闭当前窗口
+				//当前浏览器的版本
+				//alert(window.navigator.userAgent);
+				//Mozilla/5.0 (Windows NT 6.1; WOW64; rv:32.0) Gecko/20100101 Firefox/32.0
+				//当前浏览器的地址
+				alert(window.location);
+			}
+		}
+	</script>
+</head>
+<body>
+	<input type="button" value="关闭窗口" id="yunxing"/>
+</body>
+</html>

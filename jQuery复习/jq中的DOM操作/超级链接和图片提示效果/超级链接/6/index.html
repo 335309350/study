@@ -1,0 +1,38 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+	<title>超级连接提示</title>
+	<script type="text/javascript" src="./js/jquery.js"></script>
+	<script type="text/javascript">
+	$(function(){
+		//alert("ok");
+		var x=10;
+		var y=20;
+		$(".tooltip").mouseover(function(e){
+			//alert("ok");
+			this.mytitle=this.title;//将title赋值给mytitle
+			this.title="";//清空title
+			var tooltip="<div id='tooltip'>"+this.mytitle+"</div>";
+			//创建div元素添加到body
+			$("body").append(tooltip);
+			$("#tooltip").css({"top":(e.pageY+y)+"px","left":(e.pageX+x)+"px"}).show("fast");
+			//为id为tooltip添加css
+		}).mouseout(function(){
+			//鼠标移出来将title给mytitle
+			this.title=this.mytitle;
+			//清除id为tooltip的元素div盒子
+			$("#tooltip").remove();
+		
+		}).mousemove(function(){
+			//当鼠标移动时候
+			$("#tooltip").css({"top":(e.pageY+y)+"px","left":(e.pageX+x)+"px"});
+		});
+	
+	});
+	</script>
+</head>
+<body>
+	<p><a href="#" title="我的提示1" class="tooltip">提示1</p>
+</body>
+</html>

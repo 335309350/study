@@ -1,0 +1,143 @@
+当前行选中，其他行去掉样式，属于同辈去掉
+用siblings()表示同辈
+$(function(){
+		//alert("ok");
+		$("#mytable tbody>tr:odd").addClass("odd");//给奇数行添加css(索引从0开始)
+		$("#mytable tbody>tr:even").addClass("even");
+		//找到#mytable tbody下面的tr的偶数行（0开始）
+		//tr中包含zhuwei的高亮
+		//$("tr:contains('zhuwei')").addClass("selected");
+		//默认选中的行高亮(判断是否有什么属性用has(:a)来判断)
+		$("#mytable tbody>tr:has(:checked)").addClass("selected");
+		//点击某一行高亮
+		$("#mytable tbody>tr").click(function(){
+			$(this).addClass("selected").siblings().removeClass("selected").end().find(":radio").attr("checked",true);
+			//其他行去掉高亮利用同辈方法siblings()
+			//去掉CSS样式，当前对象是$(this).siblings()
+			//所以通过end()回到当前对象
+			//通过find()找到当前对象中符合条件的所有某些子元素
+			
+		
+		});
+		
+	});
+
+</script>
+
+<!doctype html>
+<html>
+<head>
+<title>表格的应用</title>
+<meta charset="utf-8"/>
+<style type="text/css">
+	*{padding:0;margin:0;font-size:16px;}
+	#mytable{border:1px solid #000;border-collapse:collapse;margin:12px auto;width:500px;padding:2px;}
+	#mytable thead th{border-bottom:1px solid #000;padding:2px;}
+	#mytable td{text-align:center;padding:2px;height:25px;line-height:25px;}
+	.odd{background:#E0E0E0;}
+	.even{background:#B484B4}
+	.selected{background:#5085C2;}
+</style>
+<script type="text/javascript" src="./js/jquery-1.8.3.min.js">
+</script>
+<script type="text/javascript">
+$(function(){
+		//alert("ok");
+		$("#mytable tbody>tr:odd").addClass("odd");//给奇数行添加css(索引从0开始)
+		$("#mytable tbody>tr:even").addClass("even");
+		//找到#mytable tbody下面的tr的偶数行（0开始）
+		//tr中包含zhuwei的高亮
+		//$("tr:contains('zhuwei')").addClass("selected");
+		//默认选中的行高亮(判断是否有什么属性用has(:a)来判断)
+		$("#mytable tbody>tr:has(:checked)").addClass("selected");
+		//点击某一行高亮
+		$("#mytable tbody>tr").click(function(){
+			$(this).addClass("selected").siblings().removeClass("selected").end().find(":radio").attr("checked",true);
+			//其他行去掉高亮利用同辈方法siblings()
+			//去掉CSS样式，当前对象是$(this).siblings()
+			//所以通过end()回到当前对象
+			//通过find()找到当前对象中符合条件的所有某些子元素
+			
+		
+		});
+		
+	});
+
+</script>
+</head>
+<body>
+	<table align="center" id="mytable">
+		<thead>
+			<tr>
+				<th>&nbsp;</th>
+				<th>姓名</th>
+				<th>性别</th>
+				<th>暂住地</th>
+			</tr>
+		</thead>
+		<form action="#" method="post" id="myform"></form>
+		<tbody>
+			<tr>
+				<td><input type="radio" name="uid" form="myform"></td>
+				<td>张三</td>
+				<td>男</td>
+				<td>浙江宁波</td>
+			</tr>
+			<tr>
+				<td><input type="radio" name="uid" form="myform"></td>
+				<td>李四</td>
+				<td>女</td>
+				<td>上海</td>
+			</tr>
+			<tr>
+				<td><input type="radio" name="uid" form="myform"></td>
+				<td>王武</td>
+				<td>男</td>
+				<td>湖北武汉</td>
+			</tr>
+			<tr>
+				<td><input type="radio" name="uid" form="myform"></td>
+				<td>赵柳</td>
+				<td>女</td>
+				<td>江苏南京</td>
+			</tr>
+			<tr>
+				<td><input type="radio" name="uid" form="myform"></td>
+				<td>rain</td>
+				<td>女</td>
+				<td>陕西宝鸡</td>
+			</tr>
+			<tr>
+				<td><input type="radio" name="uid" form="myform" checked></td>
+				<td>zhuwei</td>
+				<td>男</td>
+				<td>湖北咸宁</td>
+			</tr>
+			<tr>
+				<td><input type="radio" name="uid" form="myform"></td>
+				<td>王根</td>
+				<td>男</td>
+				<td>湖北荆州</td>
+			</tr>
+			<tr>
+				<td><input type="radio" name="uid" form="myform"></td>
+				<td>王婷</td>
+				<td>女</td>
+				<td>湖北襄樊</td>
+			</tr>
+			<tr>
+				<td><input type="radio" name="uid" form="myform"></td>
+				<td>赵攀</td>
+				<td>男</td>
+				<td>湖北荆州</td>
+			</tr>
+			<tr>
+				<td><input type="radio" name="uid" form="myform"></td>
+				<td>zhusan</td>
+				<td>女</td>
+				<td>湖南长沙</td>
+			</tr>
+		</tbody>
+	</table>
+</body>
+</html>

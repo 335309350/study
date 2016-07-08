@@ -1,0 +1,31 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+    <script type="text/javascript">
+        window.onload=function(){
+            var one=document.getElementById("one");
+            var two=document.getElementById("two");
+            var three=document.getElementById("three");
+            //顶层窗口(top是放在window_frame中,所以顶层窗口是window.top,右边的那个是frames[2]
+           one.onclick=function(){
+                window.top.frames[2].history.forward();
+           }
+           two.onclick=function(){
+                window.top.frames[2].history.back();
+           }
+           three.onclick=function(){
+                window.top.frames[2].history.go(0);
+           }
+           
+        }
+    </script>
+</head>
+<body>
+	<p>顶部</p>
+    <input type="button" value="前进" id="one" />
+    <input type="button" value="后退" id="two"/>
+    <input type="button" value="刷新" id="three"/>
+</body>
+</html>

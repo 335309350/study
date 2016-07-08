@@ -1,0 +1,23 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title>浏览器对象BOM</title>
+</head>
+<body>
+	<script type="text/javascript">
+       //每隔5秒调用，弹出3
+       var timer=setInterval(function(){
+           alert(3);
+       },5000);
+       window.onload=function(){
+            //window.onload当所有的脚本加载完毕后，再运行js脚本
+           var clearTime=document.getElementById('clearInter');
+           clearTime.onclick=function(){
+                clearInterval(timer);//取消定时器
+           }
+       }
+    </script>
+    <a href="javascript:;" id="clearInter">取消定时器</a>
+</body>
+</html>

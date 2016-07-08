@@ -1,0 +1,50 @@
+头部栏结构 Header structure
+头部栏是处于页面顶部的工具栏，通常包含页面标题文字，文字左边和/或右边可以放置几个可选的按钮用作导航操作
+标题文字一般用h1标签，但是从h1-h6都是可以的，这样可以使结构有弹性。比如说，一个页面内包含了多个"page"标记的页面，这样可以给主"page"的标题文字用h1标签，次级"page"的标题文字用h2标签。所有的头部默认下在样式上都是相同的，保持的外观的一致性
+<div data-role="header"> 
+　 <h1>Page Title</h1> 
+</div> 
+
+--------------------------------------------------------------------------------
+
+默认的头部的特性　Default header features
+头部栏的主题样式默认情况下为"a"(黑色)，但是你可以很轻松的设置主题样式
+默认的头部栏
+
+ 
+看见back按钮了吗Jquery Mobile会自动给每个页面的头部栏生成一"back"按钮，来简化把按钮放进头部栏的过程。如果你不想?quot;back"按钮放进头部栏，你可以自己加一个需要的按钮或者给头部栏添加”data-backbtn="false"属性
+添加按钮 Adding buttons
+在标准的头部栏的设置下，标题文字两边各有一个可放置按钮的位置。每一个按钮通常都是都是a,但是任何有效的按钮标记的元素都可以。为了节省空间，工具栏里的按钮都是内联按钮，所以按钮的宽度只容纳icon和里面的文字
+创建自定义的后退按钮 Creating custom back buttons
+给a标签增加data-rel="back"的属性，任何链接都可以样式化为后退按钮，行为上为后退到上一个历史记录的页面，无视该链接的herf地址。这对于要链接回到一个命名好的页面的情况是很有用的但是注意请给链接设定一个有意义的herf地址，指向实际要连接的页面，使得C级浏览器也能够使用这个按钮而且要注意如果你只是需要一个后退的页面转场效果，而不是真正的后退到上一个历史记录的页面，应该用data-direction="reverse" 的属性，而不是用data-rel="back"属性的按钮
+按钮默认的定位 Default button positioning
+头部的按钮是头部栏容器的直接子节点，第一个链接定位于头部栏左边，第二个链接放在右边，在这个例子中，根据两个链接在源代码中的位置，取消在左边，保存在右边
+<div data-role="header" data-position="inline">
+　 <a href="index.html" data-icon="delete">Cancel</a>
+　 <h1>Edit Contact</h1>
+　 <a href="index.html" data-icon="check">Save</a>
+</div>
+
+按钮默认的定位
+
+ 
+按钮会自动应用他们的父容器的主题样式，所以应用了"a"主题样式的头部栏里的按钮也会应用"a"主题样式，我们通过给按钮增加data-theme的属性并设置，可以使按钮看起来有所区别
+<div data-role="header" data-position="inline">
+　 <a href="index.html" data-icon="delete">Cancel</a>
+　 <h1>Edit Contact</h1>
+　 <a href="index.html" data-icon="check" data-theme="b">Save</a>
+</div>
+ 
+通过class控制按钮的定位　Controlling button position with classes
+按钮的位置可以通过class设置，而不依赖他们在源代码中的顺序。如果你想把唯一一个按钮放在右边，这时就非常有用了。两个控制的类为ui-btn-right 和ui-btn-left
+在这个例子中，我们要把头部栏唯一一个按钮放于右边，首先给头部栏增加data-backbtn="false"属性来阻止头部栏自动生成后退按钮的行为，然后给自己的按钮增加ui-btn-right的class
+<div data-role="header" data-position="inline" data-backbtn="false">
+<h1>Page Title</h1>
+<a href="index.html" data-icon="gear" class="ui-btn-right">Options</a>
+</div>
+ 
+自定义头退按钮的文字　Customizing the back button text
+如果你想设置后退按钮的文字，需要给页面?page"元素增加data-back-btn-text="文字"的属性，或者通过程序来实现?$.mobile.page.prototype.options.backBtnText = "文字";
+如果你想配置后退按钮的主题样式，使用 $.mobile.page.prototype.options.backBtnTheme = "a" 如果你要用这段程序，需要在mobileinit时间的处理程序中使用
+自定义头部栏的配置　Custom header configurations
+如果你想创建一个不遵循默认配置的头部栏，在header容器里用div包裹你的自定义内容就好，Jquery Mobile不会自动生成按钮，所以你可以给你的头部栏自定义你的样式

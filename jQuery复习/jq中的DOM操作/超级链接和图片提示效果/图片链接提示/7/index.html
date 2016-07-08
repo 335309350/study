@@ -1,0 +1,53 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+	<title>超级连接提示</title>
+	<style>
+	.myul{
+	list-style:none;
+	}
+	.myul li{float:left;margin:0;margin-right:12px;}
+	.myul li img{width:100px;height:100px;}
+	</style>
+	<script type="text/javascript" src="./js/jquery.js"></script>
+	<script type="text/javascript">
+	$(function(){
+		//alert("ok");
+		var x=10;
+		var y=20;
+		$(".tooltip").mouseover(function(e){
+			//alert("ok");
+			this.mytitle=this.title;//将title赋值给mytitle
+			this.title="";//清空title
+			var imgtitle=this.mytitle? "<br/>"+this.mytitle : "";
+			//如果mytitle存在就是this.mytitle，否则就是空
+			var tooltip="<div id='tooltip'><img src='"+this.href+"' alt='"+this.alt+"'/>"+imgtitle+"</div>";
+			//创建div元素添加到body
+			$("body").append(tooltip);
+			$("#tooltip").css({"top":(e.pageY+y)+"px","left":(e.pageX+x)+"px","clear":"both","margin-left":"30px"}).show("fast");
+			//为id为tooltip添加css
+		}).mouseout(function(){
+			//鼠标移出来将title给mytitle
+			this.title=this.mytitle;
+			//清除id为tooltip的元素div盒子
+			$("#tooltip").remove();
+		
+		}).mousemove(function(){
+			//当鼠标移动时候
+			$("#tooltip").css({"top":(e.pageY+y)+"px","left":(e.pageX+x)+"px","clear":"both","margin-left":"30px"});
+		});
+	
+	});
+	</script>
+</head>
+<body>
+	<ul class="myul">
+	<li><a href="./images/app_1.jpg" title="苹果1" class="tooltip"><img src="./images/app_1.jpg" alt="苹果1" /></a></li>
+	<li><a href="./images/app_2.jpg" title="苹果2" class="tooltip"><img src="./images/app_2.jpg" alt="苹果2" /></a></li>
+	<li><a href="./images/app_3.jpg" title="苹果3" class="tooltip"><img src="./images/app_3.jpg" alt="苹果3" /></a></li>
+	<li><a href="./images/app_4.jpg" title="苹果4" class="tooltip"><img src="./images/app_4.jpg" alt="苹果4" /></a></li>
+	</ul>
+	
+</body>
+</html>

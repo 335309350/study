@@ -1,0 +1,36 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title>dom基础--删除元素节点</title>
+	<script type="text/javascript">
+		window.onload=function(){
+			var oUl=document.getElementById("myul");
+			var aA=oUl.getElementsByTagName("a");
+			//给a标签添加事件
+			for(var i=0;i<aA.length;i++){
+				//点击a删除LI，li的父节点是ul
+				aA[i].onclick=function(){
+					//this.parentNode表示a的父节点
+					//从ul中删除li,保留一个
+					if(aA.length>1){
+						oUl.removeChild(this.parentNode);
+					}
+					
+				}
+			}
+		}
+	</script>
+</head>
+<body>
+	<ul id="myul">
+		<li>f1e<a href="javascript:;">隐藏</a></li>
+		<li>f2fe<a href="javascript:;">隐藏</a></li>
+		<li>f3fe<a href="javascript:;">隐藏</a></li>
+		<li>f4fe<a href="javascript:;">隐藏</a></li>
+		<li>f5fe<a href="javascript:;">隐藏</a></li>
+		<li>f6fe<a href="javascript:;">隐藏</a></li>
+		
+	</ul>
+</body>
+</html>

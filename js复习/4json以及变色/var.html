@@ -1,0 +1,83 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title>变量的类型</title>
+	<script type="text/javascript">
+	//基本的6种变量类型：number,string,boolean,function,object,undefined
+		var a=12;
+		//alert(typeof a);//number数字
+		//a="fefefe";
+		//alert(typeof a);//string
+		//a=true;
+		//alert(typeof a);//boolean
+		a=function(){
+			alert(11);
+		}
+		//alert(typeof a);//function
+		//a=document;
+		//alert(typeof a);//object
+		//var b;//没有赋值undefined
+		//alert(typeof b);//undefined
+		//变量取决本身的类型
+		
+		//变量不会限制类型，比较混乱。
+		//同一个变量最好存一种类型
+		
+		window.onload=function(){
+			var ot1=document.getElementById("t1");
+			var ot2=document.getElementById("t2");
+			var obtn=document.getElementById("btn");
+			//alert(1);
+			obtn.onclick=function(){
+				//alert(ot1.value+ot2.value);//3,4在文本框的是字符串
+				//这里要转化为数字
+				//parseInt();从左到右转化，遇到非数字就结束
+				//NaN不是一个数字，没有转化的话就是一个NaN
+				//alert(parseInt(ot1.value)+parseInt(ot2.value));//如果输入的其中一个不是数字就是NaN
+				var t1=parseInt(ot1.value);
+				var t2=parseInt(ot2.value);
+				//alert(t2);
+				if(isNaN(t1)){
+					alert("第一个值不是一个数字");
+				}else if(isNaN(t2)){
+					alert("第二个值不是数字");
+				}else{
+					alert(t1+t2);
+				}
+				
+			}
+		}
+		//判断用户输入的是不是一个数字
+		//在JS中NaN!=NaN
+		//用isNaN(n)不是一个数字
+		//显式转化
+		//parseInt()转的是整数
+		//parseInt(numString, [radix])第二个参数是进制2，8，16，10
+		//parsetFloat()转化为小数
+		
+		//隐式转化
+		var num=12;
+		var num_a="12";
+		alert(num==num_a);//true先转换，后比较
+		//===表示全等，类型和值
+		//'12'-'3'=9(减自动转化）-表示数字相减
+		//'12'+'3'=123（+作为字符串连接，数字相加）
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	</script>
+</head>
+<body>
+	<input type="text" id="t1"/>+
+	<input type="text" id="t2"/>
+	<input type="button" id="btn" value="求和" />
+</body>
+</html>

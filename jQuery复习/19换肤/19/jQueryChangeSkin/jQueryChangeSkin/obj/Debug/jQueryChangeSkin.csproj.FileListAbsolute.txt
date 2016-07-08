@@ -1,0 +1,5 @@
+D:\自己胡乱写的Item\jQueryChangeSkin\jQueryChangeSkin\bin\jQueryChangeSkin.dll
+D:\自己胡乱写的Item\jQueryChangeSkin\jQueryChangeSkin\bin\jQueryChangeSkin.pdb
+D:\自己胡乱写的Item\jQueryChangeSkin\jQueryChangeSkin\obj\Debug\ResolveAssemblyReference.cache
+D:\自己胡乱写的Item\jQueryChangeSkin\jQueryChangeSkin\obj\Debug\jQueryChangeSkin.dll
+D:\自己胡乱写的Item\jQueryChangeSkin\jQueryChangeSkin\obj\Debug\jQueryChangeSkin.pdb

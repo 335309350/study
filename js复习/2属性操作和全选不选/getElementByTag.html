@@ -1,0 +1,52 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title>9--获取一组元素</title>
+	<style type="text/css">
+		div{
+			width:200px;
+			height:300px;
+			margin-right:3px;
+			border:1px solid green;
+			float:left;
+		}
+	</style>
+	<script type="text/javascript">
+		window.onload=function(){
+			var odiv=document.getElementsByTagName('div');
+			//odiv.style.background="red";//写法错误，每次设置样式，只能对一个元素设置
+			
+			//alert(odiv.length);//5
+			/*
+			odiv[0].style.background="red";
+			odiv[1].style.background="red";
+			odiv[2].style.background="red";
+			odiv[3].style.background="red";
+			odiv[4].style.background="red";
+			*/
+			var odiv_len=odiv.length;
+			for(var i=0;i<odiv_len;i++){
+				odiv[i].style.background="red";
+			}
+			
+		}
+		//1 while循环，只要条件成立就会执行
+		/*
+		var i=0;
+		while(i<5){
+			//alert(i);
+			console.log(i);
+			i++;
+		}
+		*/
+	</script>
+</head>
+<body>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+</body>
+</html>

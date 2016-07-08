@@ -1,0 +1,6 @@
+#FF0000 红色
+#66CCFF 蓝色
+#FFFFCC 橙色
+#99FFFF 淡绿
+#CCCCCC 灰色
+#CC66FF 紫红色

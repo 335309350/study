@@ -1,0 +1,40 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title>测试myajax</title>
+    <script type="text/javascript" src="js/Zwjs.js"></script>
+    <script type="text/javascript">
+    window.onload = function(){
+        //alert(Zwjs);
+        var mytest = document.getElementById('test');
+        mytest.onclick = function(){
+            Zwjs.myajax({
+                //'url':'my.php?rnd='+Math.random(),
+                'url':'my.php?rnd=3',
+                //'url':'js/testjson.js?rnd='+Math.random(),
+                //'url':'js/testjson.js',
+                'data': {
+                    'name':'zhuwei',
+                    'age':23
+                },
+                'type':'get',
+                'success':function(msg){
+                    //调用的ajax是json格式，因此要转化为对象的形式再操作
+                    //如果转化过程中报错，请直接用eval(msg);进行处理
+                    var msg = Zwjs.json_to_obj(msg);
+                    alert(msg.code);
+                    alert(msg.content);
+                    alert(msg.name);
+                },
+                'dataType':'json'
+            
+            });
+        }
+    }
+    </script>
+</head>
+<body>
+	<a href="javascript:;" id="test">点击测试ajax</a>
+</body>
+</html>

@@ -1,0 +1,102 @@
+﻿<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>jq表单应用</title>
+	<script type="text/javascript" src="./js/jquery-1.8.3.min.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			//alert("ok");
+			//单个添加到右边
+			$("#add_right").click(function(){
+				var $options=$("#select1 option:selected");
+				//获取#select1中选中的option选项
+				//将其添加到#select2中
+				$options.appendTo("#select2");
+			
+			});
+			//全部添加到右边
+			$("#add_all").click(function(){
+				var $options=$("#select1 option");
+				//获取#select1中option选项
+				//将其添加到#select2中
+				$options.appendTo("#select2");
+			});
+			//单个删除
+			$("#del_left").click(function(){
+				var $options=$("#select2 option:selected");
+				//获取#select1中选中的option选项
+				//将其添加到#select2中
+				$options.appendTo("#select1");
+			
+			});
+			//全部删除到左边
+			//全部添加到右边
+			$("#del_all").click(function(){
+				var $options=$("#select2 option");
+				//获取#select1中option选项
+				//将其添加到#select2中
+				$options.appendTo("#select1");
+			});
+			//双击添加右边
+			$("#select1").dblclick(function(){
+				var $options=$("option:selected",this);
+				//带参数的this表示当前选中的
+				//添加到右边
+				$options.appendTo("#select2");
+			
+			});
+			//双击删除
+			$("#select2").dblclick(function(){
+				var $options=$("option:selected",this);
+				//带参数的this表示当前选中的
+				//删除选中的
+				$options.appendTo("#select1");
+			
+			});
+		
+		
+		});
+	</script>
+	<style type="text/css">
+		*{padding:0;margin:0;}
+		.con{text-align:center;margin:12px auto;width:400px;height:200px;background:green;}
+		.centent{float:left;}
+		.cen_list{
+			margin-top:25px;text-align:center;
+		}
+		.cen_list span{background:#CEC0CA;cursor:pointer;padding:4px;margin:8px 0px;display:block;text-align:center;}
+		#select1,#select2{
+		width:100px;height:160px;margin:12px;
+		}
+	</style>
+</head>
+<body>
+	<div class="con">
+		<div class="centent">
+			<select name="selone" id="select1" multiple>
+				<option value="1">选项1</option>
+				<option value="2">选项2</option>
+				<option value="3">选项3</option>
+				<option value="4">选项4</option>
+				<option value="5">选项5</option>
+				<option value="6">选项6</option>
+				<option value="7">选项7</option>
+				<option value="8">选项8</option>
+			</select>
+		</div>
+		<div class="centent">
+			<div class="cen_list">
+				<span id="add_right">添加到右边&gt;&gt;</span>
+				<span id="add_all">全部添加到右边&gt;&gt;</span>
+				<span id="del_left">选中删除到左边&lt;&lt;</span>
+				<span id="del_all">全部删除到左边&lt;&lt;</span>
+			</div>
+		</div>
+		<div class="centent">
+			<select name="seltwo" id="select2" multiple>	
+			</select>
+		</div>
+	</div>
+</body>
+</html>

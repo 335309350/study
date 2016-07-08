@@ -1,0 +1,92 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title>dom基础--表格应用</title>
+	<style type="text/css">
+		#info{
+			margin:0 auto;
+			margin-top:24px;
+			width:300px;
+		}
+		#info,#info td{
+			border-collapse:collapse;
+			border:1px solid #aaa;
+		}
+	</style>
+	<script type="text/javascript">
+		window.onload=function(){
+			var oTab=document.getElementById("info");
+			/*
+			//获取tbody
+			var oTbody=oTab.getElementsByTagName("tbody");
+			//获取tbody中的tr
+			var oTbodytr=oTbody[0].getElementsByTagName("tr");
+			//alert(oTbodytr.length);//6
+			//获取tbody--tr中的td
+			//var oTbodytr_td=oTbodytr[0].getElementsByTagName("td");//获取第一行tr中的td
+			
+			//alert(oTbodytr[0].getElementsByTagName("td")[1].innerHTML);//朱伟
+			*/
+			//js提供了表格的便捷操作
+			//tbody:tBodies
+			var oTbody=oTab.tBodies;
+			alert(oTbody.length);//1
+			//所有的行tr:rows[i]
+			var oTbodyTr=oTbody[0].rows;
+			alert(oTbodyTr.length);//6
+			//单元格td：cells[i],下标从0开始
+			var oTbodyTr_td_2=oTbodyTr[0].cells[1];//朱伟
+			alert(oTbodyTr_td_2.innerHTML);
+			
+			
+			
+			
+		}
+		
+	</script>
+</head>
+<body>
+	<table id="info">
+		<thead>
+			<tr>
+				<td>ID</td>
+				<td>姓名</td>
+				<td>年龄</td>
+			</tr>
+		</thead>
+				<tbody>
+					<tr>
+						<td>1</td>
+						<td>朱伟</td>
+						<td>24</td>
+					</tr>
+					<tr>
+						<td>2</td>
+						<td>小黑</td>
+						<td>25</td>
+					</tr>
+					<tr>
+						<td>3</td>
+						<td>李四</td>
+						<td>32</td>
+					</tr>
+					<tr>
+						<td>4</td>
+						<td>刘三</td>
+						<td>21</td>
+					</tr>
+					<tr>
+						<td>5</td>
+						<td>张飞</td>
+						<td>36</td>
+					</tr>
+					<tr>
+						<td>6</td>
+						<td>李四</td>
+						<td>62</td>
+					</tr>
+				</tbody>
+	</table>
+</body>
+</html>

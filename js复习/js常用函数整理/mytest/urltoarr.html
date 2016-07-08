@@ -1,0 +1,32 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title>将URL对象转化为字符串</title>
+    <script type="text/javascript">
+        var obj ={
+            'url':34,
+            'name':45
+        };
+        var url = "one.php?rnd=3";
+        var tmpArr ='?&';
+        if(url.indexOf('?') !== false || url.indexOf('=') !== false){
+            tmpArr="&";
+        }
+        
+        for(var i in obj){
+            if(obj.hasOwnProperty(i)){
+                if(typeof obj[i] !== undefined){
+                
+                    tmpArr+=i+"="+obj[i]+"&";
+                }
+            }
+        }
+        //alert(tmpArr.substr(0,tmpArr.length-1));
+        alert(url+tmpArr.slice(0,-1));
+    </script>
+</head>
+<body>
+	
+</body>
+</html>

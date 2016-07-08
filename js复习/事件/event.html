@@ -1,0 +1,23 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title>事件处理</title>
+    <script type="text/javascript" src="event.js"></script>
+    <script type="text/javascript" src="mousePos.js"></script>
+    <script type="text/javascript">
+        listenEvent(window,"load",function(){
+            listenEvent(document.getElementById('one'),'click',function(){
+                alert("事件监听，我被点击了");
+            });
+            listenEvent(document.getElementById('clickone'),'click',function(){
+                alert(3);
+            });
+        });
+    </script>
+</head>
+<body>
+	<a href="javascript:;" id="one">点击</a>
+    <a href="javascript:;" id="clickone">click</a>
+</body>
+</html>

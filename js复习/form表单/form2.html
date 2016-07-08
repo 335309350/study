@@ -1,0 +1,40 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title>表单元素操作</title>
+    <script type="text/javascript">
+        window.onload=function(){
+            
+            //sex[i].checked=true;
+            /*
+            var sex=document.myform.sex;
+            for(var i=0;i<sex.length;i++){
+                if(sex[i].checked){
+                    alert(sex[i].value);
+                }
+            }
+            */
+            var like=document.myform['like[]'];
+            //alert(like.length);
+            //var 
+        }
+    </script>
+</head>
+<body>
+	<form action="" id="myform" name="myform">
+        关键字：<input type="text" name="keyword" value="你喜欢的关键字" id="username" onfocus="if(this.value == '你喜欢的关键字') this.value=''" onblur="if(this.value == '')this.value='你喜欢的关键字'" />
+        <br/>
+        性别：<input type="radio" name="sex" value="1"/>男
+        <input type="radio" name="sex" value="2"/>女
+        <input type="submit" value="搜索" id="search" />
+        <br/>
+        爱好:<input type="checkbox" name="like[]"/>学习
+        <input type="checkbox" name="like[]"/>看书
+        <input type="checkbox" name="like[]"/>打球
+        <input type="checkbox" name="like[]"/>玩游戏
+        <br/>
+        <input type="submit" value="提交" />
+    </form>
+</body>
+</html>

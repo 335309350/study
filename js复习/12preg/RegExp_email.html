@@ -1,0 +1,32 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title>字符串操作--校验邮箱</title>
+	<script type="text/javascript">
+	window.onload=function (){
+		var otxt1=document.getElementById("txt1");
+		var otxt2=document.getElementById("txt2");
+		var obtn=document.getElementById("obtn");
+		obtn.onclick=function(){
+			//校验邮箱
+			var re_mail=/^\w+@[a-z0-9]+\.[a-z]+$/i;
+			//test一部分合法，就认为整个都符合要求
+			//所以用^,$来解决
+			
+			if(re_mail.test(otxt1.value)){
+				alert("合法");
+			}else{
+				alert("不合法");
+			}
+			
+		}
+		
+	}
+	</script>
+</head>
+<body>
+	<input id="txt1" type="text"/>
+	<input type="button" id="obtn" value="校验邮箱" />
+</body>
+</html>

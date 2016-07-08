@@ -1,0 +1,99 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title>15无缝滚动</title>
+	<style type="text/css">
+	*{
+		padding:0;
+		margin:0;
+	}
+	ul,li{
+		list-style:none;
+	}
+		/**g_box放4个图片,相对定位**/
+		#g_box{
+			width:880px;
+			height:250px;
+			margin:0 auto;
+			margin-top:12px;
+			overflow:hidden;
+			position:relative;
+			background:red;
+			
+		}
+		/**给g_box的ul添加绝对定位，相对于g_box**/
+		/**每次给ul移动，超过的内容就隐藏**/
+		#g_box ul{
+			position:absolute;
+			left:0;
+			top:0;
+			overflow:hidden;
+		}
+		#g_box ul li{
+			float:left;
+			height:250px;
+			width:220px;
+			text-align:center;
+		}
+		#g_box ul li img{
+			width:200px;
+			height:200px;
+		}
+	</style>
+	<script>
+		//无缝滚动改变的是left
+		//利用定时器实现
+		//offsetLeft元素左外边框到包含元素的左内边框之间的像素距离
+		window.onload=function(){
+			var ogbox=document.getElementById("g_box");
+			//获取ul
+			var oul=ogbox.getElementsByTagName("ul")[0];
+			var oLi=oul.getElementsByTagName("li");//获取到li
+			oul.innerHTML=oul.innerHTML+oul.innerHTML;
+			//复制一个到ul的末尾，实现无缝滚动
+			oul.style.width=oLi[0].offsetWidth*oLi.length+"px";
+			//ul的长度
+			function LeftMove(){
+				//当滚动到一半的时候说明滚动完毕
+				//物体的左边的距离小于物体的宽度的一半
+				//oul.offsetLeft可能为负数
+				if(oul.offsetLeft<-oul.offsetWidth/2){
+					//拉回来重新滚动
+					oul.style.left="0px";
+				}
+				//ul每次滚动20px
+				//oul.style.left=oul.offsetLeft-20+"px";
+				//ul每次滚动的距离为oLi[0].offsetWidth物体宽度
+				oul.style.left=oul.offsetLeft-oLi[0].offsetWidth+"px";
+			}
+			//移动设置定时器
+			var gtimer=setInterval(LeftMove,1200);
+			//当鼠标移入的时候就停止滚动
+			ogbox.onmouseover=function(){
+				clearInterval(gtimer);
+			}
+			//鼠标离开后，又滚动
+			ogbox.onmouseout=function(){
+				gtimer=setInterval(LeftMove,1200);
+			}
+			
+		}
+	</script>
+</head>
+<body>
+	<div id="g_box">
+		<ul>
+			<li><img src="images/1.jpg" alt="" /></li>
+			<li><img src="images/2.jpg" alt="" /></li>
+			<li><img src="images/3.jpg" alt="" /></li>
+			<li><img src="images/4.jpg" alt="" /></li>
+			<li><img src="images/5.jpg" alt="" /></li>
+			<li><img src="images/6.jpg" alt="" /></li>
+			<li><img src="images/7.jpg" alt="" /></li>
+			<li><img src="images/8.jpg" alt="" /></li>
+			<li><img src="images/9.jpg" alt="" /></li>
+		</ul>
+	</div>
+</body>
+</html>

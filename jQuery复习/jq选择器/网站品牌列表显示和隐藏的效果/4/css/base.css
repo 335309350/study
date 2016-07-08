@@ -1,0 +1,15 @@
+﻿body{margin:0;padding:0;}
+.SubCategoryBox{
+	border:1px solid #000;height:auto;width:626px;margin:0 auto;
+	padding-top:12px;margin-top:12px;
+}
+.SubCategoryBox ul{list-style:none;margin:0 auto;}
+.SubCategoryBox ul li{
+	float:left;width:180px;margin:6px 0;
+}
+.SubCategoryBox ul li a{text-decoration:none;color:#2C262C;}
+.SubCategoryBox ul li a:hover{color:red;}
+.showmore{clear:both;text-align:center;margin:10px 0;padding-top:12px;}
+.showmore a{border:1px solid #C3A5C0;padding:5px 15px;text-decoration:none;color:#000;}
+.showmore a:hover{color:#AD53A5;background:#CCCED2}
+.lighted{color:#CE20B4;}

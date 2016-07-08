@@ -1,0 +1,82 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title>事件基础--拖拽drag</title>
+	<style type="text/css">
+		*{
+			margin:0;
+			padding:0;
+		}
+		.drag{
+			width:200px;
+			height:200px;
+			position:absolute;
+			background:red;
+		}
+	</style>
+	<script type="text/javascript">
+	//拖拽的原理：当我们按下鼠标拖拽的过程中，鼠标和元素左边及上边的距离没有发生变化，只是元素的left,top发生了改变
+		window.onload=function(){
+			var oDrag_div=document.getElementById("drag");
+			//分解步骤：鼠标按下，鼠标移动，鼠标弹起
+			var disX,disY;
+			oDrag_div.onmousedown=function(ev){
+				//alert(1);
+				var oEvent=ev || window.event;
+				var pos=getPos(oEvent);//获取鼠标的x,y
+				//取得鼠标的位置和div左上角点的位置(disX,disY)
+				//鼠标的x减去目标的offsetLeft
+				disX=pos.x-oDrag_div.offsetLeft;
+				disY=pos.y-oDrag_div.offsetTop;
+				//等到鼠标按下去触发移动
+				
+				//鼠标移动
+				document.onmousemove=function(ev){
+					//根据最新的位置计算div的坐标
+					var oEvent=ev || window.event;
+					var pos=getPos(oEvent);//获取鼠标的x,y
+					//根据最新的鼠标位置计算div的坐标
+					//反过来求元素左上角(left,top)位置
+					//就是pos.x-disX,pos.y-disY;
+					//物体的位置od_l,od_t
+					var odrag_l=pos.x-disX;
+					var odrag_t=pos.y-disY;
+					//如果物体的位置飞出了浏览器
+					if(odrag_l<0){
+						//alert(1);
+						odrag_l=0;//防止拖出到最左边
+					}else if(odrag_l>document.documentElement.clientWidth-oDrag_div.offsetWidth){
+						odrag_l=document.documentElement.clientWidth-oDrag_div.offsetWidth;//等于右边的最大值
+					}
+					if(odrag_t<0){
+						odrag_t=0;//防止拖出到最上边
+					}else if(odrag_t>document.documentElement.clientHeight-oDrag_div.offsetHeight){
+						odrag_t=document.documentElement.clientHeight-oDrag_div.offsetHeight;
+					}
+					oDrag_div.style.left=odrag_l+"px";
+					oDrag_div.style.top=odrag_t+"px";
+				}
+				//弹起
+				document.onmouseup=function(){
+					//当鼠标弹起的时候，去掉移动的事件
+					document.onmousemove=null;
+					document.onmouseup=null;
+				}
+				
+				return false;//阻止FF按下的默认事件
+			}
+					
+		}
+		//获取鼠标的左边函数
+		function getPos(ev){
+			var scrollTop=document.documentElement.scrollTop || document.body.scrollTop;
+			var scrollLeft=document.documentElement.scrollLeft || document.body.scrollLeft;
+			return {x:ev.clientX+scrollLeft,y:ev.clientY+scrollTop};
+		}
+	</script>
+</head>
+<body>
+	<div class="drag" id="drag"></div>
+</body>
+</html>

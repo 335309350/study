@@ -1,0 +1,52 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title>12定时器的使用</title>
+	<script>
+		//1间歇定时器setInterval(func,time);
+		function a(){
+			alert(1);
+		}
+		//setInterval(a,1000);//每隔1秒执行，无限执行
+		//2 超时定时器，延时定时器setTimeout();
+		//setTimeout(a,2000);//2秒后执行，执行之后就结束
+		//3 停止定时器
+		function getTime(){
+				var omytime=document.getElementById("mytime");
+				var otime=new Date();
+				var ohour=otime.getHours()<10?"0"+otime.getHours():""+otime.getHours();
+				var omin=otime.getMinutes()<10?"0"+otime.getMinutes():""+otime.getMinutes();
+				var osecond=otime.getSeconds()<10?"0"+otime.getSeconds():""+otime.getSeconds();
+				omytime.innerHTML=ohour+":"+omin+":"+osecond;
+			}
+
+		window.onload=function(){
+			var obtn1=document.getElementById("btn1");
+			var obtn2=document.getElementById("btn2");
+			var timer=null;
+			obtn1.onclick=function(){
+				timer=setInterval(a,3000);//给定时器取一个名字
+				
+			}
+			obtn2.onclick=function(){
+				clearInterval(timer);//具体关闭哪个定时器
+			}
+			setInterval(getTime,1000);
+			getTime();//防止1秒钟延时
+			
+		}
+		
+		
+		
+	</script>
+</head>
+<body>
+	<input type="button" id="btn1" value="开启" />
+	<input type="button" id="btn2" value="关闭"/>
+	<div id="mytime"></div>
+	
+	
+	
+</body>
+</html>

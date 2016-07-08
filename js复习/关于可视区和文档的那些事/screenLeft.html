@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+<script>
+    //窗口相对于屏幕左边和上边的距离
+    var leftPos =(typeof window.screenLeft == 'number') ? window.screenLeft : window.screenX;
+    var topPos =(typeof window.screenTop == 'number') ? window.screenTop : window.screenY;
+    // alert(''+leftPos+topPos);
+    // 将窗口向下移动100px
+    // window.moveTo(100,100);
+    // window.moveBy(x,y);向x,y坐标移动
+    
+</script>
+</head>
+<body>
+<a href="javascript:;" title="" onclick="alert(1);window.moveBy(200,100)">移动100，100</a>
+</body>
+</html>

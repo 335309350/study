@@ -1,0 +1,30 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title>对象的继承顺序和分类以及Math对象</title>
+</head>
+<body>
+	<script type="text/javascript">
+        Object.prototype.say=function(){
+            alert("我是顶层基类");
+        }
+        function Person(){
+            
+        }
+        /*
+        Person.prototype.say=function(){
+            alert('我是父类的say');
+        }
+        */
+        function Stu(){
+            
+        }
+        Stu.prototype=new Person();
+        var zhang=new Stu();
+        zhang.say();//我是顶层基类
+        
+        
+    </script>
+</body>
+</html>

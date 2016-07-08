@@ -1,0 +1,48 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+</head>
+<body>
+    <script type="text/javascript">
+        //创建数组
+        //1 对象的方式创建数组
+        var sarr=new Array();
+        //创建数组对象new Array(n)表示存n个值
+        sarr[0]=34;//声明后逐个赋值
+        sarr[1]=45;
+        //alert(sarr[0]);
+        
+        //2 字面量创建数组
+        var arr=[123,34,12,43];
+        //var a=[];
+        //对数组求和
+        var cnt=arr.length;
+        var s=0;
+        for(var i=0;i<cnt;i++){
+            s+=arr[i];
+        }
+        //alert(s); 
+        //2 遍历数组while
+        /*
+        var a=0;
+        while(a < arr.length){
+            alert(arr[a]);
+            a++;
+        }
+        */
+        //3 for-in 用于数组的遍历，还用于对象属性的遍历
+        for(var i in arr){
+            //i存放数组的下标
+            alert(arr[i]);//直到遍历完毕后中止
+        }
+        
+        
+        //js中可以存放任何类型数据格式
+        var ar=[123,"45","ssss"];
+        alert(ar);
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,20 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title>函数参数和return语句</title>
+</head>
+<body>
+	<script type="text/javascript">
+       function getOne(){
+            alert(arguments[0]);
+            alert(arguments[1]);
+            alert("参数的个数是："+arguments.length);
+            //对本身的引用
+            alert(arguments.callee);
+       }
+       getOne(1,2);
+       getOne(34,34,23);
+    </script>
+</body>
+</html>

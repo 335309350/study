@@ -1,0 +1,24 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title>浏览器对象BOM</title>
+    <style type="text/css">
+        body{
+            height:2000px;
+        }
+    </style>
+</head>
+<body>
+	<script type="text/javascript">
+       window.onload=function(){
+          var p=document.getElementById('openX');
+          p.onclick=function(){
+            //打开一个新窗口，高度450px,宽度300px，隔左边123px,隔上边45px
+            window.open("http://www.baidu.com","baidu","width=450px,height=300px,top=45px,left=55px");
+          }
+       }
+    </script>
+    <span id='openX'>打开窗口</span>
+</body>
+</html>

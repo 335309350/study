@@ -1,0 +1,35 @@
+﻿<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title>高亮显示内容</title>
+	<script type="text/javascript" src="./js/jquery-2.0.3.min.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			//hover()模拟鼠标移入和移出
+			$(".head").hover(function(){
+				$(this).addClass("highlight");//添加css高亮
+				$(this).next().show(1000);//移入显示
+			},function(){
+				$(this).removeClass("highlight");
+				$(this).next().hide();//移出隐藏
+			});
+		});
+	</script>
+	<style type="text/css">
+		*{padding:0;margin:0;}
+		#panel{width:400px;margin:0 auto;border:1px solid #abcdef;margin-top:12px;}
+		.head{background:#eee;padding:4px 5px;line-height:32px;height:32px;}
+		.content{display:none;margin-bottom:12px;}
+		.highlight{background:#01639e;}
+	</style>
+</head>
+<body>
+	<div id="panel">
+		<h5 class="head">什么是JQ</h5>
+		<div class="content">
+		JQ是继pro之后的又一个Js库，它是一个由john创建于2006年1月的开源项目。JQ凭借简洁的语法和跨平台的兼容性，极大简化了JS开发人员遍历HTML文档、DOM操作、处理事件、执行动画和AJAX。它独特而又优雅的代码风格改变了JS程序员的设计思路和编写程序的方式。
+		</div>
+	</div>
+</body>
+</html>

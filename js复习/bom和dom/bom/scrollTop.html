@@ -1,0 +1,22 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title>BOM基础--scrollTop</title>
+	<script type="text/javascript">
+		window.onload=function(){
+			document.onclick=function(){
+				//alert(document.documentElement.scrollTop);
+				//滚动距离
+				//为了兼容
+				var scrollTop=document.body.scrollTop || document.documentElement.scrollTop;
+				alert(scrollTop);
+				
+			}
+		}
+	</script>
+</head>
+<body style="height:2000px;">
+	
+</body>
+</html>

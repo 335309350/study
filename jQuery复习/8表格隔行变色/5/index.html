@@ -1,0 +1,91 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+	<title>表格隔行变色</title>
+	<style type="text/css">
+	body{margin:0;padding:0;}
+	#tb{
+		border-collapse:collapse;
+		border-spacing:10px;
+		width:300px;margin:0 auto;
+	}
+	#tb td{border:1px solid #000;padding:3px;}
+	</style>
+	<script type="text/javascript" src="./js/jquery.js"></script>
+	<script type="text/javascript">
+		//第一种写法用even,odd
+		/*
+		$(function(){
+			$("#tb tr:odd").css("background","#fffc09");
+		});
+	//隔行变色odd索引从1开始
+	//隔行变色even偶数索引从0开始
+	*/
+	//第二种写法利用子过滤选择器来写
+	//nth-child(2n-1)
+	//nth-child(2n)n是从1开始
+	$(function(){
+			$("#tb tr:nth-child(2n-1)").css("background","#fffc09");
+		});
+	
+	</script>
+</head>
+<body>
+	<table id="tb" cellpadding="2">
+	<caption>隔行变色</caption>
+		<tr>
+			<td>第一行</td>
+			<td>第一行</td>
+		</tr>
+		<tr>
+			<td>第2行</td>
+			<td>第2行</td>
+		</tr>
+		<tr>
+			<td>第3行</td>
+			<td>第3行</td>
+		</tr>
+		<tr>
+			<td>第4行</td>
+			<td>第4行</td>
+		</tr>
+		<tr>
+			<td>第5行</td>
+			<td>第5行</td>
+		</tr>
+		<tr>
+			<td>第6行</td>
+			<td>第6行</td>
+		</tr>
+		<tr>
+			<td>第7行</td>
+			<td>第7行</td>
+		</tr>
+		<tr>
+			<td>第8行</td>
+			<td>第8行</td>
+		</tr>
+		<tr>
+			<td>第9行</td>
+			<td>第9行</td>
+		</tr>
+		<tr>
+			<td>第10行</td>
+			<td>第10行</td>
+		</tr>
+		<tr>
+			<td>第11行</td>
+			<td>第11行</td>
+		</tr>
+		<tr>
+			<td>第12行</td>
+			<td>第12行</td>
+		</tr>
+		<tr>
+			<td>第13行</td>
+			<td>第13行</td>
+		</tr>
+	</table>
+</body>
+</html>

@@ -1,0 +1,121 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title>Array对象</title>
+</head>
+<body>
+	<script type="text/javascript">
+    /*
+        var arr=['a','b','3'];
+        alert(arr.length);//3
+        alert(arr.length=5);//5
+        alert(arr);//a,b,3,,
+    */
+    //数组对象的方法
+    //一、删除或添加的方法
+    /*
+    //1 push()向数组的末尾添加新的值，返回新数组的长度（左边 头，右边 尾部），可以一次添加多个元素
+    var arr=[];
+    arr.push('ddd','34');
+    //alert(arr);//ddd,34
+    //2 unshift() 在开头添加元素
+    arr.unshift('sfe');//返回新数组的长度
+    //alert(arr);
+    
+    //3 pop()删除数组末尾的一个元素，删除最后一个元素,返回它删除的元素的值
+    
+    var last=arr.pop();
+    //alert(last);//34
+    //alert(arr);//sfe,ddd
+    //4 删除开头的一个元素 shift()
+    //返回那个元素的值，并且将余下的所有元素前移一位，以填补数组头部的空缺
+    
+    var a=[12,34,45,56];
+    a.shift();
+    //alert(a);//34,45,56
+    
+    //5 万能的添加和删除函数 array.splice(start, deleteCount, value, ...) start从什么位置开始添加和删除（必须是数值类型，相当于数组的下标），deleteCount规定删除的数量（如果是0的话，不删除）
+    a.splice(1,1);//从1开始删除1个元素45 返回删除的元素45
+    //alert(a);//34,56
+    //a.push(54,89,98,50);
+    //从1位置添加54，89，98，50
+    a.splice(1,0,54,89,98,50);
+    //deleteCount=0 后面的参数是添加的函数 返回的值为空
+    
+    //alert(a);//34,54,89,98,50,56
+    
+    //如果有删除的元素，再添加元素就是替换
+    alert(a.splice(1,3,100));
+    //从1位置开始删除3个原始后，插入100，返回删除的元素
+    alert(a);//34,100,50,56
+    */
+    
+    //二、数组的转换和分割
+    //1 arr.join(delimiter) 
+    //将数组按照分隔符转化为字符串，默认是,
+    var arr_1=[12,34,45,32,121];
+    //alert(arr_1.join('@'));
+    //12@34@45@32@121
+    
+    //将数组转化为字符串array.toString( )
+    alert(arr_1.toString());//12,34,45,32,121
+    
+    //2 数组的分割 array.slice(start, end) 
+    //返回新的截取数组
+    //从指定的位置start到结束位置endend(不包括该元素)的元素
+    //start -1指最后一个元素，-2指倒数第二个元素
+    //arr_1.slice(-2,-1);
+    //alert(arr_1.slice(1,4));//34,45,32
+    //alert(arr_1.slice(-2,-1));//32
+    
+    //三、数组的排序
+    //1 sort()
+    //方法sort()时没有使用参数，将按字母顺序(更为精确地说，是按照字符编码的顺序)对数组中的元素进行排序
+    var arr=[12,342,23,231,32,2,12,45];
+    //alert(arr.sort());//12,12,2,23,231,32,342,45
+    //而实际上我们要按照从小到大的顺序来排序
+    function sortByAsc(a,b){
+        return a-b;//a<=b
+    }
+    //alert(arr.sort(sortByAsc));//2,12,12,23,32,45,231,342
+    
+    //反序 大到小排序
+    function sortByDesc(a,b){
+        return b-a;
+    }
+    //alert(arr.sort(sortByDesc));//342,231,45,32,23,12,12,2
+    
+    //2 跌倒数组元素的顺序array.reverse( )
+    alert(arr.reverse());//45,12,2,32,231,23,342,12
+    
+    
+    //数组的连接
+    //array.concat(value, ...)
+    
+    alert(arr.concat([23,232]));
+    //45,12,2,32,231,23,342,12,23,232
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+        
+    </script>
+</body>
+</html>

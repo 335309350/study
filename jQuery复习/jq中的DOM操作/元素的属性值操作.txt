@@ -1,0 +1,18 @@
+1 获取属性和设置属性
+2 设置属性是attr("title","value");
+attr()
+var $par=$("p");
+var p_title=$par.attr();
+//获取属性和设置属性
+//获取属性值要传递一个参数
+var $par=$("p");
+//var p_title=$par.attr("title");
+//alert(p_title);
+//设置属性
+var p_title=$par.attr("title","你喜欢的水果");
+alert($par.attr("title"));
+
+
+3 删除属性
+removeAttr();
+$("p").removeAttr("title");

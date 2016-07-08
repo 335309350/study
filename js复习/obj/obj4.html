@@ -1,0 +1,174 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title>面向对象基础</title>
+	<script type="text/javascript">
+	//this表示当前的对象
+	/*
+	var arr=[12,32,54];
+	arr.a=12;
+	//alert(arr.a);
+	arr.show=function(){
+		alert(this.a);
+	}
+	arr.show();//12
+	*/
+	//1 new Object();
+	var obj=new Object();
+	obj.name="zhuwei";
+	obj.qq="1234";
+	obj.showName=function(){
+		alert("我的名字是："+this.name);
+	
+	}
+	obj.showQQ=function(){
+		alert("qq是"+this.qq);
+	}
+	//obj.showName();
+	//obj.showQQ();
+	//对于多个对象的话，如何做呢？
+	//1)工厂模式
+	/*
+	function CreatePer(name,qq){
+		var obj=new Object();
+		obj.name=name;
+		obj.qq=qq;
+		obj.showName=function(){
+			alert("我的名字是："+this.name);
+		}
+		obj.showQQ=function(){
+			alert("qq是"+this.qq);
+		}
+		return obj;//返回对象
+	}
+	//这种方式就可以多个调用
+	var per1=CreatePer("zhuwei","1114789");
+	per1.showName();
+	per1.showQQ();
+	
+	var per2=CreatePer("xiaohei","3222");
+	per2.showName();
+	per2.showQQ();
+	*/
+	//2)构造函数模式
+	//对于多个对象的话，如何做呢？
+	/*
+	function CreatePer(name,qq){
+	//this指向当前对象
+		this.name=name;
+		this.qq=qq;
+		this.showName=function(){
+			alert("我的名字是："+this.name);
+		}
+		this.showQQ=function(){
+			alert("qq是"+this.qq);
+		}
+	}
+	//在函数前面加上一个new后，this就指向一个对象
+	var per1=new CreatePer("zhuwei","1114789");
+	per1.showName();
+	per1.showQQ();
+	*/
+	//3)原型模式
+	/*
+		类和对象通俗叫法：
+	类：模子，用来生产产品
+	对象：产品（成品）
+	类的原型上加东西。
+	*/
+	//如何把原型用到面向对象中来？
+	//如何解决函数的重复呢？
+	/*
+	function CreatePer(name,qq){
+	//this指向当前对象
+		this.name=name;
+		this.qq=qq;
+	}
+	CreatePer.prototype.sex=1;//原型的方式定义属性
+	//原型的方式定义方法
+	CreatePer.prototype.showName=function(){
+			alert("我的名字是："+this.name);
+		}
+	CreatePer.prototype.showQQ=function(){
+			alert("qq是"+this.qq);
+		}
+	CreatePer.prototype.showSex=function(){
+		alert("性别是："+this.sex);
+	}
+	//实例化
+	var per1=new CreatePer("zhuwei","1111");
+	per1.showName();
+	per1.showQQ();
+	per1.showSex();
+	
+	var per2=new CreatePer("sss","1234");
+	per2.showName();
+	per2.showQQ();
+	per2.showSex();
+	*/
+	//问题出来了，在原型上定义的成员属性被共享了，不能单独实例存在
+	
+	//4)组合模式：构造函数中定义成员属性，在原型上添加方法
+	/*
+	function CreatePer(name,qq,sex){
+	//this指向当前对象
+		this.name=name;
+		this.qq=qq;
+		this.sex=sex;
+	}
+	//原型的方式定义方法
+	CreatePer.prototype.showName=function(){
+			alert("我的名字是："+this.name);
+		}
+	CreatePer.prototype.showQQ=function(){
+			alert("qq是"+this.qq);
+		}
+	CreatePer.prototype.showSex=function(){
+		alert("性别是："+this.sex);
+	}
+	//实例化
+	var per1=new CreatePer("zhuwei","1111","男");
+	per1.showName();
+	per1.showQQ();
+	per1.showSex();
+	
+	var per2=new CreatePer("sss","1234","女");
+	per2.showName();
+	per2.showQQ();
+	per2.showSex();
+	*/
+	
+	//另一种写法，在原型中定义方法，并指定构造函数初始化函数
+	function CreatePer(name,qq,sex){
+	//this指向当前对象
+		this.name=name;
+		this.qq=qq;
+		this.sex=sex;
+	}
+	CreatePer.prototype={
+		constructor:CreatePer,//指定构造函数，初始化的函数
+		showName:function(){
+			alert(this.name);
+		},
+		showSex:function(){
+			alert(this.sex);
+		}
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

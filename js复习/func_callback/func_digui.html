@@ -1,0 +1,19 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title>递归函数</title>
+</head>
+<body>
+	<script type="text/javascript">
+    //先进后出来11234
+     function s(num){
+        if(num > 1){
+            s(--num);
+        }
+        document.write(num);
+     }
+     s(5);
+    </script>
+</body>
+</html>

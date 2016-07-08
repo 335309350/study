@@ -1,0 +1,89 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title>13--文本框提示功能</title>
+	<style type="text/css">
+		.my_t{
+			border:1px solid red;
+			padding:2px;
+			height:auto;
+			width:245px;
+			overflow:hidden;
+		}
+	</style>
+	<script type="text/javascript">
+		window.onload=function(){
+			var txt1=document.getElementById("txt1");
+			var my_t=document.getElementById("my_t");
+			
+			//要实现的功能：
+			//1 用户输入邮箱时候，下方div自动补全
+			//2 当点击下方div中的一个值就填充文本框中的内容
+			//4 当鼠标离开下方的div时候或者点击邮箱，隐藏div
+			//5 如果用户的邮箱不合法就不显示div
+			txt1.onkeyup=function(){
+				var email_domain=["@qq.com","@163.com","@sina.com"];
+				var e_index=txt1.value.indexOf("@");
+				var tmp=null;
+				if(e_index>0){
+					tmp=txt1.value.slice(0,e_index);
+				}else{
+					tmp=txt1.value;
+				}
+				var str="";
+				//在下方的div中显示相应的域名
+				for(var i=0;i<email_domain.length;i++){
+						str+="<span>"+tmp+email_domain[i]+"</span><br>";
+				}
+				my_t.innerHTML=str;//将信息添加到my_t中
+				//遍历my_t中的span标记
+				var ospan=my_t.getElementsByTagName("span");
+					//alert(ospan.length);
+				//验证合法,//显示my_t盒子
+				//!/\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*/.test(txt1.value)
+				if(txt1.value=="" || !/\S+/.test(txt1.value)){
+					//如果文本框的内容为空就不显示my_t
+					my_t.style.display="none";
+				}else{
+					my_t.style.display="block";
+					my_t.className="my_t";
+				}
+				//my_t中的span点击事件和鼠标划过事件
+				for(var i=0;i<ospan.length;i++){
+					ospan[i].index=i;//设置当前的span的属性index
+					//主要是为了获取它的索引值
+					ospan[i].onclick=function(){
+						//alert(this.index);
+						//改变txt1中的内容
+						txt1.value=ospan[this.index].innerHTML;
+						//my_t.style.display="none";
+						//按照需求来，如果是点击隐藏my_t就隐藏
+					}
+					ospan[i].onmouseover=function(){
+						for(var j=0;j<ospan.length;j++){
+							ospan[j].style.background="";
+							//清空所有的span的背景
+						}
+						//设置当前span的样式
+						ospan[this.index].style.background="green";
+						ospan[this.index].style.cursor="pointer";
+					}
+				}
+				//当鼠标离开my_t后，隐藏my_t
+				//onmouseleave与onmuseout的区别
+				//leave是离开范围，out是离开元素
+				//这里我们用leave表示离开范围
+				my_t.onmouseleave=function(){
+					my_t.style.display="none";
+				}	
+			}
+			
+		}
+	</script>
+</head>
+<body>
+请输入邮箱：<input type="text" id="txt1" />
+<div id="my_t"></div>
+</body>
+</html>

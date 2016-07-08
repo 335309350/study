@@ -1,0 +1,55 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title>内置顶层函数</title>
+</head>
+<body>
+	<script type="text/javascript">
+    /*
+    var st="大黑哥";
+    document.write(escape(st));
+    //解码
+    document.write(unescape(escape(st)));
+    document.write(isFinite(34));//true 有穷的数字
+    eval("alert('1')");//字符串转化为js代码执行
+    //eval对字符串进行处理，必须符合js的语法
+    */
+    
+    //但是eval存在兼容性问题
+    /*
+    function aa(){
+        //执行环境:JS中环境分为：全局环境，函数环境，eval()环境
+        //（作用域，有权访问的变量和函数）
+        window.eval("var a='大黑哥'");//FF
+        //IE下是window.exec()
+        alert(a);
+    }
+    aa();
+    alert(a);//外面的话，没有调用到a
+    */
+    
+    //eval()兼容性处理全局使用，如果在当前的环境下使用就是eval()
+    function evals(str){
+        if(typeof str != "string"){
+            return ;
+        }
+        //作为全局使用
+        if(window.execScript){
+            window.execScript(str);//IE
+        }else{
+            window.eval(str);//FF
+        }
+    }
+    function bb(){
+        evals("var s='zhuwei'");
+        alert(s);
+    }
+    bb();
+    alert(s);
+    
+    
+    
+    </script>
+</body>
+</html>

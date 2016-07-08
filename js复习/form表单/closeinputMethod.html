@@ -1,0 +1,56 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title>关闭输入法</title>
+</head>
+<body>
+	<script type="text/javascript">
+        //关闭中文输入法
+        function closeChinese(_this){
+                        var _v = _this.value;
+                        _this.value=_v.replace(/[\u4e00-\u9fa5]/g,'').replace(/^(\s|\u00A0)+|(\s|\u00A0)+$/g,'');
+                    }
+        window.onload=function(){
+            var _strs=document.getElementById('strs');
+            var _goolestrs=document.getElementById('goolestrs');
+            var _arr=[_strs,_goolestrs];
+            //节点数组
+            var self=this;//外部的this环境
+            _arrLen=_arr.length;
+            for(var i=0;i<_arrLen;i++){
+                var _arr_i=_arr[i];
+                _arr_i.onfocus=function(){
+                    this.style.imeMode='disabled';
+                    //样式方案，只兼容除了谷歌之外的浏览器
+                }
+                //主流的浏览器
+                var closeInput=_arr_i.getAttribute("data-closeInput");
+                if(closeInput){
+                    //清除中文字符
+                    var clearChinese=function(_this){
+                        var _v = _this.value;
+                        _this.value=_v.replace(/[\u4e00-\u9fa5]/g,'').replace(/^(\s|\u00A0)+|(\s|\u00A0)+$/g,'');
+                    }
+                    //键盘弹起
+                    _arr_i.onkeyup=function(){
+                        //clearChinese(this);
+                        closeChinese(this);
+                    }
+                    //失去焦点
+                    _arr_i.onblur=function(){
+                        //clearChinese(this);
+                        closeChinese(this);
+                    }
+                    
+                }
+                
+            }
+           
+        }
+    </script>
+    <input type="text" name="strs" id="strs" data-closeInput="1" value="支持主流的浏览器" />
+    <input type="text" name="goole" id="goolestrs" data-closeInput="1" value="不支持谷歌浏览器" />
+    
+</body>
+</html>

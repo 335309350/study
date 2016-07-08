@@ -1,0 +1,21 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title>自适应文本框行数</title>
+</head>
+<body>
+	<script type="text/javascript">
+    window.onload=function(){
+        var _autoRow=document.getElementById('autoRow');
+        _autoRow.style.overflowY='hidden';//Y轴隐藏
+        _autoRow.onkeyup=function(){
+           
+            this.style.height=this.scrollHeight;//卷轴高度
+            this.style.border='1px solid red';
+        }
+    }
+    </script>
+    <textarea name="s1" id="autoRow" cols="30" rows="1"></textarea>
+    </body>
+</html>

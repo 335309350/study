@@ -1,0 +1,73 @@
+﻿<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title>jq联级菜单显示</title>
+	<script type="text/javascript" src="./js/jquery-1.8.3.min.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			//alert("欢迎你登录"+"\n"+"这里是芒果街！");
+			$(".menu ul").hide();
+			//隐藏各级子菜单
+			$(".menu li").hover(function(){
+				$(this).find('ul:first').css("display","block").show(500);
+			},function(){
+				$(this).find('ul:first').css("display","none").hide(400);
+			});
+		});
+	</script>
+	<style type="text/css">
+* { padding:0; margin:0; }
+body { font-size:12px; background:(./images/bg.gif); font-family:"宋体"; }
+ul { list-style-type:none; }
+a { color:#fff; text-decoration:none; }
+.container { width:1024px; height:1000px; background:#abcdef; margin:0 auto; padding-top:100px; }
+.menu { height:30px; line-height:30px; background:#0163c9 }
+.menu li { float:left; position:relative; }
+.menu li a { display:block; float:left; height:30px; line-height:30px; padding:0 20px; }
+.menu li ul { position:absolute; background:#0162e9; width:150px; border:1px solid #012; }
+.menu li ul a { width:110px; }
+.one { border:1px solid #eee; top:30px; }
+.one li a:hover { background:#abc; }
+.two { left:150px; }
+.one li a.more { background:#0162e9 }
+.one li a.more:hover { background:#0123d9; }
+.hdw { left:150px;}
+</style>
+</head>
+<body>
+<div class="container">
+  <ul class="menu">
+    <li><a href="#">菜单一</a>
+      <ul class="one">
+        <li><a href="#">菜单一</a></li>
+        <li><a href="#">菜单二</a></li>
+        <li><a href="#">菜单三</a></li>
+        <li><a href="#">菜单四</a></li>
+        <li><a href="#" class="more">菜单五</a>
+          <ul class="two">
+            <li><a href="#">菜单一</a></li>
+            <li><a href="#">菜单二</a></li>
+            <li><a href="#">菜单三</a></li>
+            <li><a href="#">菜单四</a></li>
+            <li><a href="#" class="more">菜单五</a>
+              <ul class="hdw">
+                <li><a href="#">菜单一</a></li>
+                <li><a href="#">菜单二</a></li>
+                <li><a href="#">菜单三</a></li>
+                <li><a href="#">菜单四</a></li>
+                <li><a href="#">菜单五</a></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#">菜单二</a></li>
+    <li><a href="#">菜单三</a></li>
+    <li><a href="#">菜单四</a></li>
+    <li><a href="#">菜单五</a></li>
+  </ul>
+</div>
+</body>
+</html>

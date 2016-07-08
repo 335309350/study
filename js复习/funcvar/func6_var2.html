@@ -1,0 +1,28 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title>函数参数和return语句</title>
+</head>
+<body>
+	<script type="text/javascript">
+       //demo:金字塔
+       function getStars(num=5,content="*"){
+            for(var i=1;i<=num;i++){
+            //输出空格
+                for(var j=1;j<=num-i;j++){
+                    document.write("&nbsp;");
+                }
+                //输出*
+                for(var j=1;j<=2*i-1;j++){
+                    document.write(content);
+                }
+                //输出一行就还换行
+                document.write("<br/>");
+            }
+       }
+       getStars(3);
+       getStars(12,"*");
+    </script>
+</body>
+</html>

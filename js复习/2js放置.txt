@@ -1,0 +1,57 @@
+如何放在页面中？
+1 <script type="text/javascript">
+		//标签对的方式放置
+		
+	</script>
+
+2 在body任何位置放置，相互联系和影响的。
+后面的内容会覆盖前面的变量。
+
+3 在超链接调用
+<a href="javascript:alert('iam heige');">连接</a>
+
+只要符合javascript:格式的都可以解析出js
+
+
+4 页面重定向也可以调用
+
+<form action="javascript:alert('iam heige')">
+	name:<input type="text" name="name"/>
+	<input type="submit" value="send" />
+	</form>
+
+
+5 在事件后面调用
+
+<div class="one" onclick="javascript:alert('iam is click');">
+		welcome to heige'js!
+	</div>
+
+
+
+6 调用外部的js文件
+<script type="text/javascript" src="one.js"></script>
+
+
+
+7 对于旧的浏览器
+<script>
+<!--
+	alert(111);	
+
+-->
+</script>
+
+真正的注释符号
+//
+方便维护
+1 行内注释//
+2 多行注释/*     */
+
+
+
+
+
+
+
+

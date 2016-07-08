@@ -1,0 +1,79 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8"/>
+<style>
+	*{padding:0;margin:0;}
+	body{paddding:0;margin:0}
+	ul{
+		list-style:none;
+	}
+	
+	.piclist{float:left;width:620px;display:block;}
+	.piclist li{
+			display:block;
+			float:left;
+			width:102px;
+			margin:3px;
+			text-align:center;
+			border:1px solid red;
+	}
+	.piclist li .picarea{
+		display:block;width:90px;height:60px;
+	}
+</style>
+<script src="./js/jquery-1.8.3.min.js"></script>
+<script>
+	$(function(){
+		$(".piclist").find("img").each(function(){
+			//$(this).css({"height":"120px","width":"120px"});
+			var p_height=120;
+			var p_width=100;
+			var perc=0;
+			var image=new Image();
+			image.src=this.src;
+			if(image.height>0 && image.width>0){
+				//alert(this.src);
+				perc=(p_width/image.width<p_height/image.height)?p_width/image.width:p_height/image.height;
+				if(perc<=1){
+					$(this).css({"height":image.height*perc+"px","width":image.width*perc+"px","margin":"2px"});
+				}else{
+					$(this).css({"height":"100%","width":"100%","margin":"2px"});
+				}
+			}
+		});
+	});
+</script>
+</head>
+<body>
+<ul class="piclist">
+	<li><span class="picarea"><img src="./images/1.png"/></span></li>
+	<li><span class="picarea"><img src="./images/2.png"/></span></li>
+	<li><span class="picarea"><img src="./images/3.png"/></span></li>
+	<li><span class="picarea"><img src="./images/4.png"/></span></li>
+	<li><span class="picarea"><img src="./images/6.png"/></span></li>
+	<li><span class="picarea"><img src="./images/7.png"/></span></li>
+	<li><span class="picarea"><img src="./images/8.png"/></span></li>
+	<li><span class="picarea"><img src="./images/9.png"/></span></li>
+	<li><span class="picarea"><img src="./images/6.png"/></span></li>
+	<li><span class="picarea"><img src="./images/10.png"/></span></li>
+	<li><span class="picarea"><img src="./images/11.png"/></span></li>
+	<li><span class="picarea"><img src="./images/12.png"/></span></li>
+	<li><span class="picarea"><img src="./images/13.png"/></span></li>
+	<li><span class="picarea"><img src="./images/14.png"/></span></li>
+	<li><span class="picarea"><img src="./images/15.png"/></span></li>
+	<li><span class="picarea"><img src="./images/16.png"/></span></li>
+	<li><span class="picarea"><img src="./images/9.png"/></span></li>
+	<li><span class="picarea"><img src="./images/6.png"/></span></li>
+	<li><span class="picarea"><img src="./images/10.png"/></span></li>
+	<li><span class="picarea"><img src="./images/11.png"/></span></li>
+	<li><span class="picarea"><img src="./images/12.png"/></span></li>
+	<li><span class="picarea"><img src="./images/13.png"/></span></li>
+	<li><span class="picarea"><img src="./images/14.png"/></span></li>
+	<li><span class="picarea"><img src="./images/15.png"/></span></li>
+	<li><span class="picarea"><img src="./images/16.png"/></span></li>
+	
+	
+</ul>
+</body>
+</html>

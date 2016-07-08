@@ -1,0 +1,21 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+      var s='   fefee   ';
+      //去掉左右两边的空格
+      if(typeof String.trim == 'undefined'){
+        String.prototype.trim=function(){
+            return this.replace(/(^\s*)|(\s*$)/g,'');
+        }
+      }
+      console.log(s.trim());//fefee
+      
+       
+    </script>
+</body>
+</html>

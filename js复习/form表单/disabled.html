@@ -1,0 +1,27 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title>禁止输入</title>
+</head>
+<body>
+	<script type="text/javascript">
+        //去掉空白字符，或者空格u00A0
+        function trim(str){
+            return str.replace(/^(\s|\u00A0)+|(\s|\u00A0)+$/g,'');
+        }
+        //内容是否为空
+        function isContent(_str){
+            _str=_str.replace(/^(\s|\u00A0)+|(\s|\u00A0)+$/g,'');
+            return (!_str) ? true : false;
+            //return _str.length == 0 ? true : false;
+        }
+        window.onload=function(){
+            
+        }
+    </script>
+    <input type="text" name="strs" id="strs" value="设置disabled禁止输入" disabled />
+    <input type="text" name="strs" id="dis" value="只读模式，禁止输入" readonly />
+    
+</body>
+</html>

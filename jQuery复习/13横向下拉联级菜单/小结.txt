@@ -1,0 +1,79 @@
+通过hover,hide,show,css来实现，在样式中采用相对和绝对定位来实现
+$(function(){
+			//alert("ok");
+			$("#mainmenu ul").hide();
+			//隐藏各级子菜单
+			$("#mainmenu li").hover(function(){
+				$(this).find('ul:first').css("display","block").show(400);
+			},function(){
+				$(this).find('ul:first').css("display","none").hide(400);
+			});
+		});
+		
+		
+		案例代码：
+		<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<script src="./js/jquery-1.8.3.min.js"></script>
+	<script>
+		$(function(){
+			//alert("ok");
+			$("#mainmenu ul").hide();
+			//隐藏各级子菜单
+			$("#mainmenu li").hover(function(){
+				$(this).find('ul:first').css("display","block").show(400);
+			},function(){
+				$(this).find('ul:first').css("display","none").hide(400);
+			});
+		});
+	
+	</script>
+	<style>
+	*{padding:0;margin:0;}
+	body{padding:0;margin:0;font-size:16px;}
+	a{text-decoration:none;}
+	ul{list-style:none;}
+	#mainmenu li{float:left;width:150px;position:relative;}
+	#mainmenu li a{
+		display:block;float:left;height:32px;line-height:32px;width:100%;text-align:center;
+	}
+	#mainmenu li ul{position:absolute;border:1px solid green;}
+	.onemenu{width:150px;top:32px;background:#eee;}
+	.onemenu li a{
+		background:#abc;
+	}
+	.onemenu li a:hover{
+		background:#abcdef;
+	}
+	.twomenu,.threemenu{left:150px;}
+	
+	</style>
+</head>
+<body>
+	<ul id="mainmenu">
+		<li><a href="#">内容1</a>
+			<ul class="onemenu">
+				<li><a href="#">内容1</a></li>
+				<li><a href="#">内容2</a></li>
+				<li><a href="#">内容3</a>
+					<ul class="twomenu">
+						<li><a href="#">内容1</a></li>
+						<li><a href="#">内容2</a></li>
+						<li><a href="#">内容3</a>
+							<ul class="threemenu">
+							<li><a href="#">内容1</a></li>
+							<li><a href="#">内容2</a></li>
+							<li><a href="#">内容3</a></li>
+							</ul>
+						</li>
+					</ul>
+				</li>
+			</ul>
+		</li>
+		<li><a href="#">内容2</a></li>
+		<li><a href="#">内容3</a></li>
+	</ul>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<script type="text/javascript" src="./js/jquery.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			$("#tb tr:odd").css("background","#fffc09");
+		});
+	//隔行变色odd索引从1开始
+	//隔行变色even偶数索引从0开始
+	</script>
+
+或者这么写
+:nth-child(index/even/odd/eq(1))子过滤
+
+
+这是1，3，5奇数行变色
+<script type="text/javascript">
+		$(function(){
+			$("#tb tr:nth-child(2n-1)").css("background","#fffc09");
+		});
+	//隔行变色索引从0开始
+	</script>
+
+这是2，4，6偶数开始的偶数行变色
+<script type="text/javascript">
+		$(function(){
+			$("#tb tr:nth-child(2n)").css("background","#fffc09");
+		});
+	//隔行变色索引从0开始
+	</script>
+
+
+关于隔行变色的小结
+
+<script type="text/javascript" src="./js/jquery.js"></script>
+	<script type="text/javascript">
+		//第一种写法用even,odd
+		/*
+		$(function(){
+			$("#tb tr:odd").css("background","#fffc09");
+		});
+	//隔行变色odd索引从1开始
+	//隔行变色even偶数索引从0开始
+	*/
+	//第二种写法利用子过滤选择器来写
+	//nth-child(2n-1)
+	//nth-child(2n)n是从1开始
+	$(function(){
+			$("#tb tr:nth-child(2n-1)").css("background","#fffc09");
+		});
+	
+	</script>
+
+
+
+
+
+

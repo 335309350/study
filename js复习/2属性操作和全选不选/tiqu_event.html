@@ -1,0 +1,40 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title>8提取行间事件</title>
+	<style type="text/css">
+		#mydiv{
+			width:200px;
+			height:300px;
+			background:red;
+		}
+	</style>
+	<script type="text/javascript">
+		//提取行间事件
+		function switch_background(color){
+			var omydiv=document.getElementById("mydiv");
+			omydiv.style.background=color;
+		}
+		//设置样式
+		function setStyle(name,value){
+			var omydiv=document.getElementById("mydiv");
+			//omydiv.style.name=value;这种方式是错误的
+			//解决方法用[]来解决
+			omydiv.style[name]=value;
+		}
+		window.onload=function(){
+			var s_btn=document.getElementById("switch_btn");
+			s_btn.onclick=function(){
+				switch_background("green");
+				setStyle('width','300px')
+			}
+			//将onclick当作一个属性
+		}
+	</script>
+</head>
+<body>
+	<input type="button" value="green" id="switch_btn"/><br/>
+	<div id="mydiv"></div>
+</body>
+</html>

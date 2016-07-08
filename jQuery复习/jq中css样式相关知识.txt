@@ -1,0 +1,23 @@
+jq中css样式相关知识
+由于jquery支持css3，所有能很好的兼容很多浏览器，所以通过jquery来使用css样式比较好为定义好的css样式可以调用元素的css方法添加样式
+        $("span").css("css属性名","属性值") 
+        如  $("span").css("color","red") 将标签为span的字体都设为红色的
+        $("#id")  $("span")  
+        如果是定义好的css样式，可以通过addClass来添加，比如
+下面列举下对css样式操作的方法：
+ 
+1、.css("样式")：获得样式值，比如$("input").css("color")  获得input中字体的颜色
+ 
+2、.css("样式","value"):为样式赋值，如$("input").css("color","red");
+ 
+3、.addClass("样式类1,样式类2,样式类3"):可以添加多个定义好的样式类
+ 
+4、.hasClass("样式类类")：判断是否存在该样式
+ 
+5、.toggleClass("样式类")：如果存在(不存在)就切换(删除)样式
+ 
+6、.toggleClass("样式类",swith):如果swith为false，则删除样式，如果swith为true，则切换成该类
+ 
+7、removeClass("样式类")：移除样式类
+ 
+8、.css({样式名:"value",样式名:"value",样式名:"value"}):可以多次添加样式

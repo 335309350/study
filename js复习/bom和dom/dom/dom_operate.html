@@ -1,0 +1,58 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title>文档对象的内容，属性，样式操作</title>
+    <style type="text/css">
+        #first{
+            width:200px;
+            height:200px;
+            border:1px solid green;
+            color:#aaa;
+        }
+    </style>
+    <script type="text/javascript">
+        //获取和设置内容（不含HTML标签）
+        function getContent(obj,val){
+            if(document.all){
+                //存在val就是返回内容支持IE
+                if(val){
+                    obj.innerText=val;//IE
+                }else{
+                    return obj.innerText;
+                }
+            }else{
+                if(val){
+                    obj.textContent=val;//IE
+                }else{
+                    return obj.textContent;
+                }
+            }
+        }
+        window.onload=function(){
+            var first=document.getElementById('first');
+            var myone=document.getElementById('myone');
+            var btn=document.getElementById('btn');
+            btn.onclick=function(){
+                //var ftxt=first.innerHTML;
+                //myone.innerHTML=ftxt;
+                
+                //var ftxt=first.innerText;//IE
+                //myone.innerText=ftxt;
+                
+                //FF
+                //var ftxt=first.textContent;//FF
+                //myone.textContent=ftxt;
+                
+                var content=getContent(first);
+                getContent(myone,content);
+            }
+        }
+    </script>
+</head>
+<body>
+    <div id="first"><h3>我是大黑哥</h3></div>
+    <input type="button" value="移动" id='btn' />
+	<div id="myone"></div>
+</body>
+</html>

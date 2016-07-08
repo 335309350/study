@@ -1,0 +1,46 @@
+$("p").css("color","red");为p设置color属性值
+$("p").height("12px");设置页面中的实际高度
+
+
+css-dom中关于元素的定位有以下
+1 offset()方法
+获取元素在视窗中的相对偏移，返回两个属性top,left
+只对于可见的元素有用
+var offset=$("p").offset();
+var left=offset.left;
+var top=offset.right
+//获取上左偏移量
+
+2 position()相对最近的一个position样式属性设置relative,absolute的祖节点
+返回top,left
+var ps=$("p").position();
+var left=ps.left;
+var top=ps.right
+
+3 scrollTop(),scrollLeft()获取元素的滚动条距离顶端和左侧的距离
+var $p=$("p");
+var st=$p.scrollTop();
+var sl=$p.scrollLeft();
+
+如果为这个两个方法指定一个参数，控制元素的滚动条滚动到指定位置
+比如：
+控制元素内的滚动条滚到距离顶端300和距离左侧300的位置
+$(".one").scrollTop(300);
+$(".one").scrollLeft(300);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

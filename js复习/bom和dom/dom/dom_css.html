@@ -1,0 +1,42 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title>文档对象的样式操作</title>
+    <style type="text/css">
+        #first{
+            width:200px;
+            height:200px;
+            border:1px solid green;
+            color:#aaa;
+        }
+    </style>
+    <script type="text/javascript">
+        function cssrule (a,b){
+            var a=a || 0;
+            var b=b || 0;
+            if(document.all){//IE
+                return document.styleSheets[a].rules[b].style;
+            }else{
+                return document.styleSheets[a].cssRules[b].style;//FF
+            }
+        }
+        window.onload=function(){
+            var first=document.getElementById('first');
+            var myone=document.getElementById('myone');
+            var btn=document.getElementById('btn');
+            btn.onclick=function(){
+                //alert(cssrule().width);//第一个style中规则width
+                cssrule().width="400px";//改变高度
+                
+            }
+
+        }
+    </script>
+</head>
+<body>
+    <div id="first"><h3>我是大黑哥</h3></div>
+    <input type="button" value="移动" id='btn' />
+	<div id="myone"></div>
+</body>
+</html>

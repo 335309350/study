@@ -1,0 +1,62 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title>js-cookie操作</title>
+	<script type="text/javascript">
+		/*
+		var odate=new Date();//当前时间
+		odate.setDate(800);//参数是天数，调整过的日期的毫秒表示
+		//算出800天之后
+		var otime=odate.getFullYear()+"-"+(odate.getMonth()+1)+"-"+odate.getDate();
+		alert(otime);//获得年月日
+		//定义cookie函数
+		*/
+		function set_cookie(name,val,days){
+			var odate=new Date();//当前时间
+			//setDate()设置一个月的某一天,返回毫秒
+			odate.setDate(odate.getDate()+days);//当前天数+12
+			document.cookie=name+'='+val+';expires='+odate;
+		}
+		//set_cookie("username","zhuwei",1);
+		//alert(document.cookie);//user=zhuwei; username=zhuwei
+		//取出cookie，cookie通过;空格;空格分割
+		function get_cookie(name){
+			//分割字符串
+			var arr=document.cookie.split("; ");
+			//变成了数组user=xxx,b=sss
+			var len=arr.length;
+			for(var i=0;i<len;i++){
+				var arr2=arr[i].split("=");
+				//再一次分割用"="
+				//arr2[0]//表示键
+				//arr2[1];//表示值
+				//判断name是否等于arr2[0];
+				if(name==arr2[0]){
+					return arr2[1];
+				}
+			}
+			//如果用户第一次访问就没有cookie
+			//return '';
+			return false;
+		}
+		//测试get_cookie();
+		/*
+		var user_1=get_cookie("user");//测试结果zhuwei
+		alert(user_1);
+		alert(get_cookie("jjj"));
+		*/
+		//删除cookie
+		function remove_cookie(name){
+			//设置过期时间为之前的某个时间
+			set_cookie(name,1,-1);
+		}
+		alert(document.cookie);
+		remove_cookie("user");//删除cookie
+		alert(document.cookie);
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

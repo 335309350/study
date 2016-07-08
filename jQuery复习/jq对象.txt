@@ -1,0 +1,104 @@
+jq对象通过jq来包装dom对象产生的对象
+jq对象是jq独有的。
+比如说获取
+html中的代码
+$("#id").html();
+节点元素的属性值
+$("#id").attr("checked");
+
+
+
+jq对象
+var $c=$("#id");
+
+dom对象
+var c=dom对象
+
+
+将jq对象转换为dom对象
+var cr=$cr[0]
+
+
+将dom对象转换为jq对象
+var cr=document.getElementById("#id");
+var $c=$(cr);
+
+实例
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+	<title>第一个jq实例</title>
+</head>
+<script type="text/javascript" src="./js/jquery-2.0.3.min.js"></script>
+<script type="text/javascript">
+$(function(){
+	var $cr=$("#cr");//获取id为cr的jq对象
+	var cr=$cr[0];//dom对象，或者$cr.get(0);
+	$cr.click(function(){
+		//id的选择框点击时候触发事件
+		if(cr.checked){
+			alert("感谢你的支持！");//如果点击了复选框就弹出
+		
+		
+		}
+	
+	
+	});//id和label的for的名字一样
+	
+
+
+});
+</script>
+<body>
+<input type="checkbox" id="cr" name="xieyi" /><label for="cr">我已经同意协议</label>
+</body>
+</html>
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+	<title>第一个jq实例</title>
+</head>
+<script type="text/javascript" src="./js/jquery-2.0.3.min.js"></script>
+<script type="text/javascript">
+$(function(){
+	var $cr=$("#cr");//获取id为cr的jq对象
+	//第一种DOM方式写法
+	/*
+	var cr=$cr[0];//dom对象，或者$cr.get(0);
+	$cr.click(function(){
+		//id的选择框点击时候触发事件
+		if(cr.checked){
+			alert("感谢你的支持！");//如果点击了复选框就弹出
+		
+		
+		}
+	
+	
+	});//id和label的for的名字一样
+	*/
+	//第二种jq对象的写法，简单明了
+	
+	$cr.click(function(){
+		//点击触发事件
+		if($cr.is(":checked")){
+			//判断JQ对象是否被选中
+			alert("感谢你支持第二种写法");
+		}
+	
+	
+	});
+	
+
+
+});
+</script>
+<body>
+<input type="checkbox" id="cr" name="xieyi" /><label for="cr">我已经同意协议</label>
+</body>
+</html>
+
+

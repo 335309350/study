@@ -1,0 +1,49 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title>7函数传递参数</title>
+	<style type="text/css">
+		#mydiv{
+			width:200px;
+			height:300px;
+			background:red;
+		}
+	</style>
+	<script type="text/javascript">
+		/*
+		function toGreen(){
+			var omydiv=document.getElementById("mydiv");
+			omydiv.style.background="green";
+		}
+		function toblue(){
+			var omydiv=document.getElementById("mydiv");
+			omydiv.style.background="blue";
+		}
+		*/
+		//这个时问题就出现了，我们难道要写很多个函数实现吗？
+		//利用函数传递参数可以实现
+		function switch_background(color){
+			var omydiv=document.getElementById("mydiv");
+			omydiv.style.background=color;
+		}
+		//设置样式
+		function setStyle(name,value){
+			var omydiv=document.getElementById("mydiv");
+			//omydiv.style.name=value;这种方式是错误的
+			//解决方法用[]来解决
+			omydiv.style[name]=value;
+		}
+	</script>
+</head>
+<body>
+	<input type="button" value="green" onclick="switch_background(this.value)"/>
+	<input type="button" value="blue" onclick="switch_background(this.value)"/>
+	<input type="button" value="black" onclick="switch_background(this.value)"/>
+	<input type="button" value="变色" onclick="setStyle('background','#0163c9')"/>
+	<input type="button" value="变宽" onclick="setStyle('width','400px')"/>
+	<input type="button" value="变高" onclick="setStyle('height','400px')"/>
+	<br/>
+	<div id="mydiv"></div>
+</body>
+</html>

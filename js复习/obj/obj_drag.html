@@ -1,0 +1,43 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title>继承实现拖拽</title>
+	<style type="text/css">
+		#drag_box{
+			width:200px;
+			height:200px;
+			position:absolute;
+			background:red;
+		}
+	</style>
+	<script type="text/javascript">
+		window.onload=function(){
+			var drag_box=document.getElementById("drag_box");
+			drag_box.onmousedown=function(ev){
+				var oEvent=ev || window.event;
+				//可视区的x减去div的物体的x
+				//alert(oEvent.clientX);
+				var disX=oEvent.clientX-drag_box.offsetLeft;
+				var disY=oEvent.clientY-drag_box.offsetTop;
+				//鼠标移动
+				document.onmousemove=function(ev){
+					var oEvent=ev || window.event;
+					//设置div的left,top
+					//鼠标的x,y减去disx,disy
+					drag_box.style.left=oEvent.clientX-disX+"px";
+					drag_box.style.top=oEvent.clientY-disY+"px";
+				}
+				//鼠标弹起
+				document.onmouseup=function(){
+					document.onmousemove=null;
+					document.onmouseup=null;
+				}
+			}
+		}
+	</script>
+</head>
+<body>
+	<div id="drag_box"></div>
+</body>
+</html>

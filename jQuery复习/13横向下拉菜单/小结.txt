@@ -1,0 +1,121 @@
+利用鼠标移入mouseenter，mouseleave事件和动画slideUp,slideDown来显示
+stop(false,true)第一个参数是否清空未执行完的动画系列，第二参数是否直接将正在执行的动画转入到末状态
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<script src="./js/jquery-1.8.3.min.js"></script>
+	<script>
+		$(function(){
+			//alert("ok");
+			$(".mainMenu").mouseenter(function(){
+					//停止所有特效动画并隐藏下级菜单
+					$(".childMenu").stop(false,true).hide();
+					var childMenu=$(this).parent().next();//父级的li的下一个li
+					childMenu.stop().slideDown(300);
+					/*
+					childMenu.find("a").mouseover(function(){
+						$(this).css("background","#eee");
+					}).mouseout(function(){
+						$(this).css("background","");
+					});
+					*/
+					//离开子菜单时隐藏所有的a
+					childMenu.mouseleave(function(){
+						//子菜单离开就隐藏当前childMenu的菜单
+						$(this).slideUp(200);
+					
+					});
+			
+			});
+		});
+	
+	</script>
+	<style>
+	*{padding:0;margin:0;}
+	body{padding:0;margin:0;font-size:16px;}
+	a{text-decoration:none;}
+	#menudiv{
+		
+	}
+	#menudiv ul{float:left;list-style:none;width:100px;border:1px solid red;display:block;margin:0 2px;}
+	#menudiv ul li{text-align:center;}
+	#menudiv ul li a.mainMenu{display:block;}
+	#menudiv ul li.childMenu{display:none;}
+	#menudiv ul li.childMenu a{
+		display:block;
+		padding:2px;
+		margin:3px 0px;
+	}
+	/*移入子菜单a的样式*/
+	#menudiv ul li.childMenu a:hover{
+		background:#eee;
+	
+	}
+	</style>
+</head>
+<body>
+	<div id="menudiv">
+		<ul>
+			<li>
+				<a href="#" class="mainMenu">内容1</a>
+			</li>
+			<li class="childMenu">
+				<a href="#">菜单1</a>
+				<a href="#">菜单1</a>
+				<a href="#">菜单1</a>
+				<a href="#">菜单1</a>
+				<a href="#">菜单1</a>					
+			</li>
+		</ul>
+		<ul>
+			<li>
+				<a href="#" class="mainMenu">内容2</a>
+			</li>
+			<li class="childMenu">
+				<a href="#">菜单2</a>
+				<a href="#">菜单2</a>
+				<a href="#">菜单2</a>
+				<a href="#">菜单2</a>
+				<a href="#">菜单2</a>					
+			</li>
+		</ul>
+		<ul>
+			<li>
+				<a href="#" class="mainMenu">内容3</a>
+			</li>
+			<li class="childMenu">
+				<a href="#">菜单3</a>
+				<a href="#">菜单3</a>
+				<a href="#">菜单3</a>
+				<a href="#">菜单3</a>
+				<a href="#">菜单3</a>					
+			</li>
+		</ul>
+		<ul>
+			<li>
+				<a href="#" class="mainMenu">内容4</a>
+			</li>
+			<li class="childMenu">
+				<a href="#">菜单4</a>
+				<a href="#">菜单4</a>
+				<a href="#">菜单4</a>
+				<a href="#">菜单4</a>
+				<a href="#">菜单41</a>					
+			</li>
+		</ul>
+		<ul>
+			<li>
+				<a href="#" class="mainMenu">内容5</a>
+			</li>
+			<li class="childMenu">
+				<a href="#">菜单51</a>
+				<a href="#">菜单51</a>
+				<a href="#">菜单51</a>
+				<a href="#">菜单51</a>
+				<a href="#">菜单51</a>					
+			</li>
+		</ul>
+	</div>
+</body>
+</html>

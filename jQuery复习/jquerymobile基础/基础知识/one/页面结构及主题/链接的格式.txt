@@ -1,0 +1,3 @@
+Jquery Mobile支持所有标准的html格式，为了让体验更加流畅,Jquery Mobile会把同一个域下的所有指向页面的链接都会自动转为ajax请求，并且用动画的转场效果实现切换
+指向别的域的链接或者是含有 rel="external", data-ajax="false" 属性的链接以及含有target属性的链接不会通过ajax加载，页面会整体被刷新。如果一个html文档内含有多?pages"容器，可以通过?pages"容器设置id属性，然后将链接指向id.
+所有其他类型的链接别如：mailto:以及tel: 不会被Jquery Mobile影响到。

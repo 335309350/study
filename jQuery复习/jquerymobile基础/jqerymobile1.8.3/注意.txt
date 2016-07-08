@@ -1,0 +1,1 @@
+要讲images和jquery mobile的css和js放在同一级中

@@ -1,0 +1,55 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title>面向对象的选项卡</title>
+	<style type="text/css">
+		#my input{
+			background:#fff;
+			border:none;
+		}
+		#my input.active{
+			background:green;
+		}
+		#my div{
+			width:200px;
+			height:200px;
+			background:#ccc;
+			display:none;
+		}
+	</style>
+	<script type="text/javascript">
+		var oBtn=null;//作为全局变量
+		var oDiv=null;
+		window.onload=function(){
+			var oMy=document.getElementById("my");
+			oBtn=oMy.getElementsByTagName("input");//全局变量
+			oDiv=oMy.getElementsByTagName("div");
+			for(var i=0;i<oBtn.length;i++){
+				//为按钮添加点击事件
+				oBtn[i].index=i;
+				oBtn[i].onclick=fnclick;
+				//这样做程序出错了，因为fnchick中的oBtn没有定义，需要将oBtn作为全局变量 var oBtn=null;
+			}
+		}
+		function fnclick(){
+					for(var k=0;k<oBtn.length;k++){
+						oBtn[k].className="";
+						oDiv[k].style.display="none";
+					}
+					this.className="active";
+					oDiv[this.index].style.display="block";
+				}
+	</script>
+</head>
+<body>
+<div id="my">
+	<input type="button" value="aaa" class="active" />
+	<input type="button" value="bbb" />
+	<input type="button" value="ccc" />
+	<div style="display:block;">aaa</div>
+	<div>bbb</div>
+	<div>ccc</div>
+</div>
+</body>
+</html>

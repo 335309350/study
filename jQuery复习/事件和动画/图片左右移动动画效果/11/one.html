@@ -1,0 +1,80 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"/>
+<script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
+<title>jq控制左右箭头滚动图片列表</title>
+<style type="text/css">
+*{ margin:0; padding:0;font-size: 12px;}
+ul{ list-style:none;}
+.slider{ width:990px;border: 1px #708090 solid; padding:10px 20px;height: 130px;margin: 100px auto;position: relative;cursor: pointer;}
+/*slideer_pic的宽度是li的个数*210*/
+#slider_pic{ width: 630px;margin:0 auto;overflow: hidden;height: 130px;position: relative;}
+.prev,.next{position: absolute;width: 20px;height: 20px;cursor: pointer;top:60px;background-color: #daa520; text-align: center;line-height: 20px;font-weight: bold;color: #fff;}
+.next{right: 20px;}
+.no_click{background-color: #808080;}
+#slider_pic li{float: left;margin-right: 10px;}
+#slider_pic ul{position: absolute;left: 0;}
+</style>
+<script type="text/javascript">
+//使用方法修改i的值，以及slider_pic的css中的宽度210px，对应修改JQ函数中slide_pic_width=210的值
+$(function(){
+			var i=3;//每页显示多少个图片
+			//获取slider_pic的长度
+			var slider_pic_width=210;
+           var oPic=$('#slider_pic').find('ul');
+            var oImg=oPic.find('li');
+            var oLen=oImg.length;
+			//获取图片个数，多少个LI就是多少个
+            var oLi=oImg.width();
+            var prev=$("#prev");//获取上一个按钮
+            var next=$("#next");//获取下一个按钮
+			oPic.width(oLen*slider_pic_width);//计算总长度li
+            var iNow=0;
+            var iTimer=null;
+            prev.click(function(){
+                 if(iNow>0){  
+                  iNow--;//如果大于0就逐渐减少
+                 }
+               ClickScroll();//点击滚动
+           })
+           next.click(function(){
+                 if(iNow<oLen-i){ 
+                    iNow++
+               }
+                 ClickScroll();
+           })
+            function ClickScroll(){
+                iNow==0? prev.addClass('no_click'): prev.removeClass('no_click');
+				//如果inow是0就添加样式
+                iNow==oLen-i?next.addClass("no_click"):next.removeClass("no_click");
+                
+               oPic.animate({left:-iNow*slider_pic_width});
+			   //向左移动
+           }
+
+       })
+
+
+</script>
+</head>
+<body>
+     <div class="slider">
+         <span class="prev no_click" id="prev"><<</span>
+         <span class="next " id="next">>></span>
+       <div id="slider_pic">
+         <ul>
+			<li><img src="./images/meitu_00116.jpg" width="200" height="130" /></li>
+			<li><img src="./images/meitu_00117.jpg" width="200" height="130" /></li>
+			<li><img src="./images/meitu_00118.jpg" width="200" height="130" /></li>
+			<li><img src="./images/meitu_00119.jpg" width="200" height="130" /></li>
+			<li><img src="./images/meitu_00120.jpg" width="200" height="130" /></li>
+			<li><img src="./images/meitu_00121.jpg" width="200" height="130" /></li>
+			<li><img src="./images/meitu_00122.jpg" width="200" height="130" /></li>
+			<li><img src="./images/meitu_00123.jpg" width="200" height="130" /></li>
+			<li><img src="./images/meitu_00124.jpg" width="200" height="130" /></li>
+         </ul>
+      </div>
+   </div>
+</body>
+</html>

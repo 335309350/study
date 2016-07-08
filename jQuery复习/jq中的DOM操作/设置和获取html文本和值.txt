@@ -1,0 +1,130 @@
+//获取html
+var p_t=$(".t").html();
+alert(p_t);
+设置html
+var p_t=$(".t").html("设置html的内容");
+var p_t=$(".t").html("设置html中的内容");
+			alert(p_t.text());
+
+html()方法不能用于xml
+
+2 text()方法，读取和设置某个元素的文本内容
+//读取和设置某个元素的文本内容
+var p_t=$(".t").text();
+alert(p_t);
+
+3 val()设置和获取元素的值
+
+实例：
+用户名和密码框的得到焦点和失去焦点
+
+核心代码
+//对于密码
+		$("#pwd").focus(function(){
+		//通过val()读取元素的值
+			if($(this).val()=="请输入密码"){
+				$(this).val("");//留空就是清空值
+			}
+		
+		
+		}).blur(function(){
+			if($(this).val()==""){
+				$(this).val("请输入密码");
+			}
+		
+		});
+
+完整代码
+
+<script type="text/javascript" src="./js/jquery.js"></script>
+	<script type="text/javascript">
+	$(function(){
+		$("#email").focus(function(){
+			/*
+			var email_value=$(this).val();
+			if(email_value=="请输入邮箱"){
+				$(this).val("");//将值清空
+			}
+			*/
+			//简写模式
+			if($(this).val()=="请输入邮箱"){
+				$(this).val("");//将值清空
+			
+			}
+		
+		});
+		$("#email").blur(function(){
+			if($(this).val()==""){
+				$(this).val("请输入邮箱");//如果为空就设置值
+			}
+		
+		});
+		//对于密码
+		$("#pwd").focus(function(){
+			if($(this).val()=="请输入密码"){
+				$(this).val("");
+			}
+		
+		
+		}).blur(function(){
+			if($(this).val()==""){
+				$(this).val("请输入密码");
+			}
+		
+		});
+			
+			
+	});
+	</script>
+	<style type="text/css">
+	#email,#pwd{color:#ccc;width:100px;margin-top:12px;}
+	</style>
+
+<center>
+	<form action="#" method="post">
+		<input type="text" name="email" id="email" value="请输入邮箱"><br/>
+		<input type="password" name="pwd" id="pwd" value="请输入密码">
+		<br/>
+		<input type="submit" value="登录"/>
+	</form>
+</center>
+
+
+val()用在select下拉列表和checkbox多选框，radio单选选中值
+
+比如:
+<select id="mul">
+<option value="选择1">选择1</option>
+<option value="选择2">选择2</option>
+<option value="选择3">选择3</option>
+<option value="选择4">选择4</option>
+<option value="选择5">选择5</option>
+</select>
+
+//让下拉列表的选择2默认选择
+		$("#mul").val("选择2");
+		//让单选按钮选中男
+		$(":radio").val(["1"]);
+对于多选择val(["check1","check2"])支持数组
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,49 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title>dom操作和应用</title>
+	<style type="text/css">
+		ul,li{
+			list-style:none;
+		}
+	</style>
+	<script type="text/javascript">
+		window.onload=function(){
+			var obtn=document.getElementById("c_btn");
+			var oul=document.getElementById("myul");
+			obtn.onclick=function(){
+				//获取ul中的li
+				var ali=oul.getElementsByTagName("li");
+				//创建一个元素li
+				var oli=document.createElement("li");
+				//给li添加内容
+				oli.innerHTML=document.getElementById("cate").value;
+				//添加到ul中
+				//appendChild();给元素添加子节点，在末尾添加
+				//父节点.appendChild(子节点元素);
+				//oul.appendChild(oli);
+				//在元素之前插入元素：父节点.insertBefore(新子节点，源节点);源节点作为一个参考点
+				//如果ali数组没有元素就会报错
+				//oul.insertBefore(oli,ali[0]);
+				//判断是否是第一个
+				if(ali.length>0){
+					oul.insertBefore(oli,ali[0]);
+				}else{
+					oul.appendChild(oli);
+					//ul中没有元素就追加一个
+				}
+				
+				
+			}
+		}
+		
+	</script>
+</head>
+<body>
+	<input type="text" id="cate"/>
+	<input type="button" value="创建类别" id="c_btn" />
+	<ul id="myul">
+	</ul>
+</body>
+</html>

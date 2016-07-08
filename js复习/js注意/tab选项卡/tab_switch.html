@@ -1,0 +1,66 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title>tab选项卡</title>
+    <style type="text/css">
+        .my_active{
+            background:green;
+            width:70px;
+            height:35px;
+            color:red;
+        }
+        .my_div{
+            display:none;
+            width:350px;
+            height:100px;
+            border:1px solid red;
+        }
+        
+    </style>
+    <script type="text/javascript">
+        window.onload = function(){
+            var doc = document;
+            var my_input_box = doc.getElementById('my_input_box');
+            var tab_inputs=my_input_box.getElementsByTagName('input');
+            var my_tab_box = doc.getElementById('my_tab_box');
+            var my_tab_div = my_tab_box.getElementsByTagName('div');
+            for(var i=0,len=tab_inputs.length;i<len;i++){
+                //记录每个input的index
+                tab_inputs[i].index = i;
+                tab_inputs[i].onclick = function(){
+                    for(var i =0;i<tab_inputs.length;i++){
+                        tab_inputs[i].className = '';
+                        my_tab_div[i].style.display='none';
+                    }
+                    
+                    this.className='my_active';
+                     my_tab_div[this.index].style.display='block';
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+    <div id="my_input_box">
+        <input type="button" value="one" class="my_active"/>
+        <input type="button" value="one" />
+        <input type="button" value="one" />
+        <input type="button" value="one" />
+    </div>
+    <div id="my_tab_box">
+        <div class="my_div" style="display:block;">
+            1113dwdwdwdwdwddwdw
+        </div>
+        <div class="my_div">
+            1112aaaa
+        </div>
+        <div class="my_div">
+            111dwdwdwdw
+        </div>
+        <div class="my_div">
+            ffe
+        </div>
+    </div>
+</body>
+</html>

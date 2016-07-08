@@ -1,0 +1,41 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title>运动基础</title>
+	<style type="text/css">
+		#my_box{
+			width:300px;
+			height:230px;
+			background:red;
+			position:absolute;
+			top:35px;
+			left:0;
+		}
+	</style>
+	<script type="text/javascript">
+		window.onload=function(){
+			var oBtn=document.getElementById("btn");
+			var timer=null;
+			function moveLeft(){
+				var odiv=document.getElementById("my_box");
+				var speed=80;
+				if(odiv.offsetLeft>=300){
+					clearInterval(timer);
+				}
+				//物体的外边距到父元素的左内边框的距离
+					odiv.style.left=odiv.offsetLeft+speed+"px";
+			}
+			
+			oBtn.onclick=function(){
+				//开始运动
+				timer=setInterval(moveLeft,1000);
+			}
+		}
+	</script>
+</head>
+<body>
+	<input type="button" value="开始运动" id="btn" />
+	<div id="my_box"></div>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+    <script type="text/javascript">
+        //异步加载css文件
+        function loadCss(cssfile){
+            var link = document.createElement('link');
+            link.rel="stylesheet";
+            link.href=cssfile;
+            //添加到head
+            var head = document.getElementsByTagName('head')[0];
+            head.appendChild(link);
+        }
+        window.onload=function(){
+            loadCss("my.css");
+            var my = document.getElementById('my');
+            my.onclick = function(){
+                this.className="my_box";
+            }
+        }
+    </script>
+</head>
+<body>
+	<a href="javascript:;" id="my">点击异步js事件</a>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title>变量的作用域</title>
+	<script type="text/javascript">
+	//变量的作用域
+	/*
+	var a;//这是一个全局变量
+	function aa(){
+		//var a=12;//局部变量只能在函数中使用
+		a=12;
+	}
+	function bb(){
+		alert(a);
+	}
+	aa();
+	bb();//行: 12错误: “a”未定义
+	bb();//12不会报错
+	//局部变量，在函数内部定义的在函数内部有用
+	//全局变量在整个过程中用
+	*/
+	//闭包
+	//当函数a的内部函数b被函数a外的一个变量引用的时候，就创建了一个闭包。
+	function a(){
+	//父函数a
+		var a=12;
+		//b函数在a中
+		//子函数b
+		function b(){
+			alert(a);
+		}
+		b();//调用的时候调用了a
+	} 
+	a();//当调用a的时候b被调用了
+	//闭包：子函数可以使用父函数的局部变量
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

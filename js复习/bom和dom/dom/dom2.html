@@ -1,0 +1,52 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title>document方法</title>
+    <script type="text/javascript">
+        function getByClass(className){
+            if(document.getElementsByClassName){
+                return document.getElementsByClassName(className);
+            }else{
+                var tag=document.getElementsByTagName("*");
+                //遍历className
+                var divs=[];
+                for(var i=0;i<tag.length;i++){
+                    if(tag[i].className == className){
+                        divs.push(tag[i]);
+                    }
+                }
+                return divs;
+            }
+        }
+        window.onload=function(){
+           //var one=document.getElementById('one');
+           //alert(one.innerHTML);//前端1，ID是唯一的
+           //通过标签对来访问
+           var Odiv=document.getElementsByTagName('div');
+           //标签对是一个集合
+           //alert(Odiv.length);//2
+           //var Ouser=document.getElementsByName('username');
+           //alert(Ouser.length);//2
+           //var divone=document.getElementsByName("one");
+           //alert(divone.length);
+           
+           //var adiv=document.getElementsByClassName('aa');
+           //alert(adiv.length);
+           alert(getByClass('aa').length);
+           alert(document.all);
+           
+           
+           
+        }
+    </script>
+</head>
+<body>
+	<div id="one" name="one" class="aa">前端1</div>
+	<div id="one" name="one" class="aa">前端2</div>
+    <form action="" name='myform'>
+        <input type="text" name="username" value="fefe" />
+        <input type="text" name="username" value="fefe" />
+    </form>
+</body>
+</html>

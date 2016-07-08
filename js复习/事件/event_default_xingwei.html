@@ -1,0 +1,38 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title>事件基础--默认行为--数字输入框</title>
+	<style type="text/css">
+		*{
+			margin:0;
+			padding:0;
+		}
+		
+	</style>
+	<script type="text/javascript">
+		window.onload=function(){
+			var oNum=document.getElementById("n_txt"); 
+			oNum.onkeydown=function(ev){
+				var oEvent=ev || window.event;
+				var n_t=oEvent.keyCode;
+				//alert(n_t);48-57表示用户输入的是数字
+				//小键盘是96-105
+				//退格是8
+				//如果用户按下的不是数字和退格
+				if((n_t != 8) && (n_t !=37) && (n_t != 39) && (n_t<48 || n_t>57)){
+					return false;
+				}
+				if(isNaN(oNum.value)){
+					return false;
+				}
+				
+			}
+		}
+	</script>
+</head>
+<body>
+	<input type="text" name="num" id="n_txt" />
+	<input type="button" value="验证" id="n_check" />
+</body>
+</html>
